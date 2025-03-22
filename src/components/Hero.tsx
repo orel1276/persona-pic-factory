@@ -16,9 +16,9 @@ const Hero = () => {
     >
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-background/0 mix-blend-multiply z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/60 mix-blend-multiply z-10"></div>
         <div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600096194534-95cf5ece04cf')] bg-cover bg-center mask-image"
+          className="absolute inset-0 bg-cover bg-center mask-image"
           style={{ 
             backgroundImage: `url('https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')` 
           }}
@@ -33,18 +33,20 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">
             המהפכה בעולם תמונות התדמית
           </span>
         </div>
 
         <h1 
           className={cn(
-            "text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform",
+            "text-4xl md:text-5xl lg:text-7xl font-bold mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          תמונות תדמית מקצועיות על ידי בינה מלאכותית
+          <span className="neon-text-blue">תן לעולם </span>
+          <span className="neon-text-pink">לראות אותך </span>
+          <span className="neon-text-blue">בצורה הטובה ביותר</span>
         </h1>
         
         <p 
@@ -64,13 +66,13 @@ const Hero = () => {
         >
           <a 
             href="#contact" 
-            className="bg-white hover:bg-white/90 text-primary font-medium px-8 py-3 rounded-md transition-all duration-300 text-lg"
+            className="neon-button"
           >
             ליצירת תמונות מעולות
           </a>
           <a 
             href="#process" 
-            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-8 py-3 rounded-md transition-all duration-300 text-lg"
+            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-8 py-3 rounded-full transition-all duration-300 text-lg"
           >
             איך זה עובד?
           </a>
