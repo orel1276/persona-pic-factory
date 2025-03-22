@@ -15,6 +15,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const menuItems = [
+    { label: "איך זה עובד", id: "process" },
+    { label: "גלריה", id: "gallery" },
+    { label: "שאלות נפוצות", id: "faq" },
+    { label: "מי אני", id: "about" },
+    { label: "צור קשר", id: "contact" },
+  ];
+
   return (
     <nav 
       className={cn(
@@ -22,7 +38,7 @@ const Navbar = () => {
         scrolled ? "py-3 bg-background/80 shadow-sm backdrop-blur-md" : "py-6"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-5xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <a 
             href="#" 
@@ -35,40 +51,26 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          {["הבית", "איך זה עובד", "גלריה", "מי אני", "שאלות נפוצות", "עדויות", "צור קשר"].map((item) => {
-            let href = "#";
-            switch(item) {
-              case "הבית": href = "#hero"; break;
-              case "איך זה עובד": href = "#process"; break;
-              case "גלריה": href = "#gallery"; break;
-              case "מי אני": href = "#about"; break;
-              case "שאלות נפוצות": href = "#faq"; break;
-              case "עדויות": href = "#testimonials"; break;
-              case "צור קשר": href = "#contact"; break;
-              default: href = "#"; break;
-            }
-            
-            return (
-              <a 
-                key={item} 
-                href={href}
-                className={cn(
-                  "font-medium hover:text-primary transition-colors",
-                  scrolled ? "text-foreground" : "text-white"
-                )}
-              >
-                {item}
-              </a>
-            );
-          })}
-          <a 
-            href="#contact" 
+        {/* Desktop Menu - Centered */}
+        <div className="hidden md:flex items-center space-x-6">
+          {menuItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => scrollToSection(item.id)}
+              className={cn(
+                "font-medium hover:text-primary transition-colors",
+                scrolled ? "text-foreground" : "text-white"
+              )}
+            >
+              {item.label}
+            </button>
+          ))}
+          <button 
+            onClick={() => scrollToSection("contact")}
             className="neon-button text-sm"
           >
             ליצירת קשר
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -97,37 +99,21 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md p-4 shadow-lg animate-fade-in border-t border-white/10">
           <div className="flex flex-col space-y-4">
-            {["הבית", "איך זה עובד", "גלריה", "מי אני", "שאלות נפוצות", "עדויות", "צור קשר"].map((item) => {
-              let href = "#";
-              switch(item) {
-                case "הבית": href = "#hero"; break;
-                case "איך זה עובד": href = "#process"; break;
-                case "גלריה": href = "#gallery"; break;
-                case "מי אני": href = "#about"; break;
-                case "שאלות נפוצות": href = "#faq"; break;
-                case "עדויות": href = "#testimonials"; break;
-                case "צור קשר": href = "#contact"; break;
-                default: href = "#"; break;
-              }
-              
-              return (
-                <a 
-                  key={item} 
-                  href={href}
-                  className="font-medium text-foreground hover:neon-text-pink transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              );
-            })}
-            <a 
-              href="#contact" 
+            {menuItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => scrollToSection(item.id)}
+                className="font-medium text-foreground hover:neon-text-pink transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollToSection("contact")}
               className="neon-button text-center"
-              onClick={() => setMobileMenuOpen(false)}
             >
               ליצירת קשר
-            </a>
+            </button>
           </div>
         </div>
       )}

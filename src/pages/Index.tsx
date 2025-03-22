@@ -10,6 +10,8 @@ import AboutMe from '@/components/AboutMe';
 import Testimonials from '@/components/Testimonials';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import DIYSection from '@/components/DIYSection';
+import BusinessSection from '@/components/BusinessSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +44,8 @@ const Index = () => {
         <Features />
         <Process />
         <Gallery />
+        <DIYSection />
+        <BusinessSection />
         <AboutMe />
         <FAQ />
         <Testimonials />
