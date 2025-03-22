@@ -56,16 +56,16 @@ const Process = () => {
   ];
 
   return (
-    <section id="איך-זה-עובד" className="py-24 bg-secondary">
+    <section id="process" className="py-24 bg-background">
       <div className="container mx-auto px-6" ref={processRef}>
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             התהליך שלנו
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold neon-text-pink mb-6">
             כיצד אנחנו יוצרים תמונות תדמית מושלמות
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             תהליך פשוט, מהיר ואפקטיבי שמבטיח תוצאות מעולות
           </p>
         </div>
@@ -86,7 +86,7 @@ const Process = () => {
               >
                 <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:order-1 md:text-left md:pl-12'}`}>
                   <div 
-                    className="bg-white shadow-lg rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                    className="glass rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
                   >
                     <h3 className="text-xl font-bold mb-3 flex items-center">
                       <span className="bg-primary text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">
@@ -94,7 +94,7 @@ const Process = () => {
                       </span>
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+                    <p className="text-white/80">{step.description}</p>
                   </div>
                 </div>
                 
