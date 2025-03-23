@@ -25,5 +25,10 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
+    build: {
+      assetsDir: "assets",
+      sourcemap: true,
+      outDir: "dist",
+    },
   }
 });
