@@ -9,6 +9,13 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       id="hero" 
@@ -65,14 +72,22 @@ const Hero = () => {
           )}
         >
           <a 
-            href="#contact" 
+            href="#צור-קשר" 
             className="neon-button"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("צור-קשר");
+            }}
           >
-            ליצירת תמונות מעולות
+            תיצור לי אלבום עכשיו
           </a>
           <a 
             href="#process" 
             className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-8 py-3 rounded-full transition-all duration-300 text-lg"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("process");
+            }}
           >
             איך זה עובד?
           </a>
