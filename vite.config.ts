@@ -6,7 +6,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+  // Force isGitHubPages to true for build
+  const isGitHubPages = true; // Always use HashRouter for deployment
   const base = isGitHubPages ? './' : '/';
 
   return {

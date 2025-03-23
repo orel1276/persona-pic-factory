@@ -23,7 +23,9 @@ jobs:
         run: npm ci
         
       - name: Build
-        run: GITHUB_PAGES=true npm run build
+        run: npm run build
+        env:
+          GITHUB_PAGES: 'true'
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
