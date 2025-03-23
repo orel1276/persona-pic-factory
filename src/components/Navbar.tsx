@@ -27,6 +27,7 @@ const Navbar = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 lg:px-10",
         scrolled ? "py-3 bg-background/80 shadow-sm backdrop-blur-md" : "py-6"
       )}
+      dir="rtl"
     >
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
@@ -40,7 +41,7 @@ const Navbar = () => {
 
         {/* Contact Button */}
         <button 
-          onClick={() => scrollToSection("contact")}
+          onClick={() => scrollToSection("צור-קשר")}
           className="neon-button text-sm"
         >
           ליצירת קשר

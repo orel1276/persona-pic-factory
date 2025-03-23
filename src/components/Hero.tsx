@@ -20,6 +20,7 @@ const Hero = () => {
     <section 
       id="hero" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      dir="rtl"
     >
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0 z-0">
