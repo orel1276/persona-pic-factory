@@ -27,24 +27,21 @@ const DIYSection = () => {
   }, []);
 
   return (
-    <section id="diy" className="py-24 px-6 bg-background relative overflow-hidden" ref={sectionRef}>
-      {/* Background glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-96 bg-primary/5 blur-[100px] rounded-full"></div>
-      
+    <section id="diy" className="py-20 px-6 bg-background relative" ref={sectionRef}>
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="glass rounded-2xl p-8 md:p-12 border border-white/10 shadow-xl">
+        <div className="bg-accent/80 rounded-lg p-6 md:p-8 border border-white/10">
           <div 
             className={cn(
-              "transition-all duration-1000 transform",
+              "transition-all duration-700 transform",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              <span className="neon-text-pink">"אבל אוראל, </span>
-              <span className="neon-text-blue">אני יכול לעשות את זה בעצמי?"</span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              <span className="text-primary">"אבל אוראל, </span>
+              <span className="text-secondary">אני יכול לעשות את זה בעצמי?"</span>
             </h2>
             
-            <div className="text-lg text-white/90 leading-relaxed space-y-6">
+            <div className="text-lg text-white/90 leading-relaxed space-y-4">
               <p>
                 <span className="font-bold">נכון לגמרי.</span> בדיוק כמו שאתה יכול ללמוד לצלם בעצמך, לבנות אתר בעצמך או לעצב לוגו בעצמך.
               </p>
@@ -54,13 +51,9 @@ const DIYSection = () => {
                 להתמודד עם שגיאות ותוצאות לא אידאליות, ולבזבז שעות ארוכות על ניסוי וטעייה?
               </p>
               
-              <p>
-                או אולי עדיף לך להשקיע סכום סמלי ולקבל תמונות תדמית ברמה הגבוהה ביותר תוך זמן קצר, מאדם שמתמחה בתחום ומכיר את כל הטריקים?
-              </p>
-              
-              <div className="bg-white/5 p-6 rounded-xl mt-8">
-                <h3 className="text-xl font-semibold mb-4 neon-text-pink">כשאתה עובד איתי, אתה מקבל:</h3>
-                <ul className="space-y-3">
+              <div className="bg-white/5 p-4 rounded-lg mt-6">
+                <h3 className="text-xl font-semibold mb-3 text-primary">כשאתה עובד איתי, אתה מקבל:</h3>
+                <ul className="space-y-2">
                   <li className="flex items-start">
                     <span className="text-secondary flex-shrink-0 me-2">✓</span>
                     <span>מומחיות ייחודית באמצעות מודלים מתקדמים שאני אישית מאמן ומכוון לתוצאה המושלמת</span>
@@ -71,11 +64,7 @@ const DIYSection = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-secondary flex-shrink-0 me-2">✓</span>
-                    <span>תוצאות מקצועיות ועקביות שלוקחות בחשבון טכניקות צילום מתקדמות ומבוססות על שלושים שנות ניסיון בתחום השיווק</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-secondary flex-shrink-0 me-2">✓</span>
-                    <span>מגוון אפשרויות ורקעים שהם תמיד עדכניים ומותאמים לצרכים השיווקיים שלך</span>
+                    <span>תוצאות מקצועיות ועקביות עם מגוון אפשרויות ורקעים מותאמים לצרכים שלך</span>
                   </li>
                 </ul>
               </div>

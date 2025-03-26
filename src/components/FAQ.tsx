@@ -33,19 +33,19 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-20 px-6 bg-background">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl font-bold text-center mb-12 neon-text-pink">שאלות נפוצות</h2>
+        <h2 className="text-3xl font-bold text-center mb-10 text-primary">שאלות נפוצות</h2>
         
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-3">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="bg-white/5 rounded-lg overflow-hidden border border-white/10"
+              className="bg-accent/50 rounded-md border border-white/10"
             >
-              <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/5 transition-colors">
-                <span className="text-lg font-medium neon-text-blue">{faq.question}</span>
+              <AccordionTrigger className="px-5 py-3 hover:no-underline hover:bg-accent/80 transition-colors">
+                <span className="text-lg font-medium text-secondary">{faq.question}</span>
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-4 text-white/80">
+              <AccordionContent className="px-5 py-3 text-white/80">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
