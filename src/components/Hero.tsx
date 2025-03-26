@@ -94,20 +94,7 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Scroll indicator */}
-        <div 
-          className={cn(
-            "absolute bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-500",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}
-        >
-          <div className="flex flex-col items-center">
-            <span className="text-white/80 text-sm mb-2">גלול למטה</span>
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full relative flex justify-center">
-              <span className="w-1 h-2 bg-white absolute top-2 rounded-full animate-bounce"></span>
-            </div>
-          </div>
-        </div>
+        {/* הסרת מחוון הגלילה מכאן */}
       </div>
     </section>
   );

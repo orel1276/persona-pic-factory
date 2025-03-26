@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -161,4 +162,14 @@
 /* Add custom scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* שיפור נראות של טקסט על רקע בהיר */
+.text-on-light {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* שיפור ניגודיות של טקסטים */
+.text-with-contrast {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }

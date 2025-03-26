@@ -107,10 +107,10 @@ const Features = () => {
           <span className="inline-block py-1 px-3 rounded-full bg-secondary text-primary text-sm font-medium mb-4">
             למה לבחור בנו?
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 shadow-sm">
             היתרונות של תמונות תדמית מבוססות בינה מלאכותית
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             אנחנו משלבים טכנולוגיה חדשנית עם הבנה מעמיקה של צילום מקצועי כדי לספק לך את התוצאות הטובות ביותר
           </p>
         </div>
@@ -130,8 +130,8 @@ const Features = () => {
               }}
             >
               <div className="text-primary mb-5">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+              <p className="text-gray-700">{feature.description}</p>
             </div>
           ))}
         </div>
