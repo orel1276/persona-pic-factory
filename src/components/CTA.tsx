@@ -64,6 +64,16 @@ const CTA = () => {
   return (
     <section id="צור-קשר" className="py-24 bg-primary text-white">
       <div className="container mx-auto px-6" ref={ctaRef}>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold relative inline-block neon-text-blue text-with-contrast">
+            תתחיל עוד היום
+            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-white"></span>
+          </h2>
+          <p className="text-xl text-white/90 mt-4 max-w-2xl mx-auto">
+            מלא את הפרטים ואצור איתך קשר בהקדם כדי להתחיל בתהליך יצירת תמונות התדמית שלך
+          </p>
+        </div>
+        
         <div 
           className={cn(
             "max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl transition-all duration-1000 transform",
@@ -137,10 +147,10 @@ const CTA = () => {
                     className={`w-full py-3 mt-2 rounded-md transition-all ${
                       isSubmitting 
                         ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'bg-primary text-white hover:bg-primary/90'
+                        : 'neon-button'
                     }`}
                   >
-                    {isSubmitting ? 'שולח...' : 'שלח פרטים'}
+                    {isSubmitting ? 'שולח...' : 'תיצור לי אלבום עכשיו'}
                   </button>
                 </form>
               ) : (

@@ -28,9 +28,14 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section id="about" className="py-24 px-6 bg-background" ref={aboutRef}>
+    <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-4xl font-bold text-center mb-16 neon-text-blue">מי אני</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold relative inline-block text-primary">
+            נעים להכיר, אוראל עבייד
+            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary"></span>
+          </h2>
+        </div>
         
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
           <div 
@@ -50,14 +55,10 @@ const AboutMe = () => {
           
           <div 
             className={cn(
-              "text-white/90 text-lg max-w-2xl transition-all duration-1000 delay-300 transform",
+              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            <h3 className="text-2xl font-bold mb-6 neon-text-pink">
-              שלום, אני אוראל עבייד
-            </h3>
-            
             <div className="space-y-6">
               <p>
                 בן 33, יוצר דיגיטלי ומומחה לטכנולוגיות בינה מלאכותית. את הקריירה שלי התחלתי כעורך וידאו מקצועי, 

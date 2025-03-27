@@ -12,6 +12,8 @@ import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import DIYSection from '@/components/DIYSection';
 import BusinessSection from '@/components/BusinessSection';
+import PricingSection from '@/components/PricingSection';
+import ClientTestimonials from '@/components/ClientTestimonials';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +50,8 @@ const Index = () => {
         <Gallery />
         <DIYSection />
         <BusinessSection />
+        <ClientTestimonials />
+        <PricingSection />
         <AboutMe />
         <FAQ />
         <Testimonials />
