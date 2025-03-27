@@ -52,9 +52,8 @@ const ClientTestimonials = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            <span className="neon-text-blue">תלמידי </span>
-            <span className="neon-text-pink">ההכשרה </span>
-            <span className="neon-text-blue">משתפים:</span>
+            <span className="neon-text-blue">לקוחות </span>
+            <span className="neon-text-pink">משתפים</span>
           </h2>
         </div>
 

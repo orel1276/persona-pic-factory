@@ -31,9 +31,8 @@ const AboutMe = () => {
     <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold relative inline-block text-primary">
+          <h2 className="text-4xl font-bold text-primary">
             נעים להכיר, אוראל עבייד
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary"></span>
           </h2>
         </div>
         

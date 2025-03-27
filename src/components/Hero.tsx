@@ -54,9 +54,8 @@ const Hero = () => {
         >
           <span className="neon-text-blue">תן </span>
           <span className="neon-text-blue">לעולם </span>
-          <span className="neon-text-pink relative">
+          <span className="neon-text-pink">
             לראות אותך
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary animate-pulse"></span>
           </span>
           <br/>
           <span className="neon-text-blue">בצורה הטובה ביותר</span>

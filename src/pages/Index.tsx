@@ -13,6 +13,7 @@ import DIYSection from '@/components/DIYSection';
 import BusinessSection from '@/components/BusinessSection';
 import PricingSection from '@/components/PricingSection';
 import ClientTestimonials from '@/components/ClientTestimonials';
+import AIMarketingSection from '@/components/AIMarketingSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <AIMarketingSection />
         <Features />
         <Process />
         <Gallery />

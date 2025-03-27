@@ -118,10 +118,10 @@ const BusinessSection = () => {
           )}
         >
           <a 
-            href="#contact" 
+            href="#צור-קשר" 
             className="neon-button inline-block"
           >
-            קבל הצעת מחיר מותאמת לעסק שלך
+            תיצור לי אלבום עכשיו
           </a>
         </div>
       </div>
