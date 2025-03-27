@@ -104,12 +104,13 @@ const Features = () => {
     <section id="יתרונות" className="py-24 bg-white">
       <div className="container mx-auto px-6" ref={featuresRef}>
         <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            למה לבחור בנו?
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 relative inline-block">
+          <div className="flex justify-center items-center gap-3 mb-4">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium">
+              למה לבחור בנו?
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
             היתרונות של תמונות תדמית מבוססות בינה מלאכותית
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary"></span>
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             אנחנו משלבים טכנולוגיה חדשנית עם הבנה מעמיקה של צילום מקצועי כדי לספק לך את התוצאות הטובות ביותר

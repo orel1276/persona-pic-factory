@@ -52,12 +52,14 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="neon-text-blue">תן לעולם </span>
+          <span className="neon-text-blue">תן </span>
+          <span className="neon-text-blue">לעולם </span>
           <span className="neon-text-pink relative">
             לראות אותך
             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary animate-pulse"></span>
           </span>
-          <span className="neon-text-blue"> בצורה הטובה ביותר</span>
+          <br/>
+          <span className="neon-text-blue">בצורה הטובה ביותר</span>
         </h1>
         
         <p 
@@ -66,7 +68,7 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          קבל תמונות תדמית מקצועיות באיכות סטודיו ללא צורך בצלם, בסטודיו או בהוצאות מיותרות. איכות מדהימה במחיר שלא יאומן.
+          קבל תמונות תדמית מקצועיות באיכות סטודיו תוך 24 שעות בלבד! ללא צורך בצלם, בסטודיו או בהוצאות מיותרות.
         </p>
         
         <div 
