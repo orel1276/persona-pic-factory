@@ -82,11 +82,11 @@ const PricingSection = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            מחירים מיוחדים לתקופת ההשקה
+            מחירים מיוחדים לתקופת ההיכרות
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 relative inline-block">
-            מחירון שירותים
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary"></span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span className="neon-text-pink">מחירון </span>
+            <span className="neon-text-blue">שירותים</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             בחר את החבילה המתאימה לך ותתחיל להופיע בצורה המקצועית ביותר
@@ -121,7 +121,7 @@ const PricingSection = () => {
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-primary">₪{plan.discountedPrice}</span>
                   <span className="text-gray-400 line-through mr-2">₪{plan.originalPrice}</span>
-                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מחיר השקה</span>
+                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מחיר היכרות</span>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
