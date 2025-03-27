@@ -1,38 +1,84 @@
 
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 
 const AboutMe = () => {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="about" className="py-20 px-6 bg-background relative">
-      <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <h2 className="text-4xl font-bold mb-8 neon-text-pink">נעים להכיר, אוראל עבייד</h2>
-            <div className="space-y-4 text-white/80">
-              <p>
-                שלום! אני אוראל, מומחה לחדשנות דיגיטלית ויישום בינה מלאכותית בעולם הצילום והתדמית.
-              </p>
-              <p>
-                העולם הדיגיטלי השתנה, ואיתו גם תחום התדמית והמיתוג האישי. אני מאמין שכל אחד צריך 
-                וראוי לתמונות מקצועיות שישקפו את הייחודיות שלו - בלי לשבור את הכיס ובלי לבזבז זמן יקר.
-              </p>
-              <p>
-                בשנתיים האחרונות, התמחיתי בפיתוח שיטות עבודה חדשניות המשלבות בינה מלאכותית בתחום
-                יצירת התוכן הויזואלי, וסייעתי למאות לקוחות לשדרג את התדמית הדיגיטלית שלהם.
-              </p>
-              <p>
-                אני כאן כדי לעזור לך להתבלט במרחב הדיגיטלי בצורה מקצועית, מהירה ונוחה - בדיוק כפי שאתה.
-              </p>
+    <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100" ref={aboutRef}>
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-primary">
+            נעים להכיר, אוראל עבייד
+          </h2>
+        </div>
+        
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
+          <div 
+            className={cn(
+              "flex-shrink-0 mb-8 md:mb-0 transition-all duration-1000 transform",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            )}
+          >
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-md opacity-75 animate-pulse"></div>
+              <Avatar className="w-48 h-48 md:w-64 md:h-64 border-4 border-white/10 relative">
+                <AvatarImage src="/lovable-uploads/771bc8c8-0b86-4f67-b32f-9c3aa6a84932.png" alt="אוראל עבייד" />
+                <AvatarFallback className="text-5xl bg-accent">אע</AvatarFallback>
+              </Avatar>
             </div>
           </div>
           
-          <div className="order-1 md:order-2 flex justify-center">
-            <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/30 shadow-lg shadow-primary/20">
-              <img 
-                src="/placeholder.svg" 
-                alt="אוראל עבייד - מומחה לצילומי תדמית AI" 
-                className="w-full h-full object-cover"
-              />
+          <div 
+            className={cn(
+              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            )}
+          >
+            <div className="space-y-6">
+              <p>
+                בן 33, יוצר דיגיטלי ומומחה לטכנולוגיות בינה מלאכותית. את הקריירה שלי התחלתי כעורך וידאו מקצועי, 
+                אך התשוקה שלי לחדשנות הובילה אותי להתמחות בעולם המרתק של ה-AI.
+              </p>
+              
+              <p>
+                אני מקדיש את ימיי לחקירה, למידה והתנסות מתמדת בטכנולוגיות החדשניות ביותר בתחום. 
+                השילוב הייחודי שלי בין הבנה ויזואלית עמוקה לבין שליטה בכלי AI מתקדמים מאפשר לי ליצור תוכן 
+                שלא רק נראה מדהים, אלא גם משרת מטרות שיווקיות ומקצועיות.
+              </p>
+              
+              <p>
+                החזון שלי פשוט: להנגיש טכנולוגיה מתקדמת ולאפשר לכל אדם ועסק להציג את עצמו בצורה המקצועית 
+                והמרשימה ביותר, ללא הצורך בידע טכני מורכב, השקעת זמן עצומה או הוצאות כספיות גבוהות.
+              </p>
+              
+              <p>
+                אני מאמין שהמפגש בין יצירתיות אנושית לבין עוצמת הבינה המלאכותית פותח אפשרויות בלתי מוגבלות, 
+                ואני נרגש להיות חלק מהמהפכה הזו ולהעניק לך את היתרונות שהיא מציעה.
+              </p>
             </div>
           </div>
         </div>

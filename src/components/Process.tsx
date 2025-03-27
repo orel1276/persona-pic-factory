@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface Step {
   number: number;
@@ -52,43 +51,19 @@ const Process = () => {
     {
       number: 4,
       title: "קבל תמונות מקצועיות באיכות סטודיו",
-      description: "תוך 24 שעות תקבל מגוון תמונות מקצועיות באיכות גבוהה, מוכנות לשימוש. כל התמונות עוברות ביקורת איכות לפני שליחתן אליך."
+      description: "תוך זמן קצר תקבל מגוון תמונות מקצועיות באיכות גבוהה, מוכנות לשימוש. כל התמונות עוברות ביקורת איכות לפני שליחתן אליך."
     }
   ];
 
   return (
     <section id="process" className="py-24 bg-background">
       <div className="container mx-auto px-6" ref={processRef}>
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
-          <div className="md:w-1/2">
-            <div className="relative rounded-xl overflow-hidden shadow-2xl">
-              <AspectRatio ratio={3/4} className="bg-black/20">
-                <img 
-                  src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
-                  alt="איש בחליפה - דוגמא לתמונת תדמית מקצועית"
-                  className="object-cover w-full h-full"
-                />
-              </AspectRatio>
-            </div>
-          </div>
-          <div className="md:w-1/2 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold neon-text-pink">
-              מהפכת הבינה המלאכותית בעולם התדמית
-            </h2>
-            <p className="text-lg text-white/90">
-              העולם השתנה, וכיום אין צורך בציוד יקר, סטודיו מקצועי או צלם יקר כדי ליצור תמונות תדמית מרשימות. 
-              הבינה המלאכותית מאפשרת לך לקבל תמונות באיכות סטודיו מקצועי תוך 24 שעות בלבד וממש בנוחות הבית שלך.
-            </p>
-            <p className="text-lg text-white/90">
-              במקום להשקיע אלפי שקלים בציוד, צלם וסטודיו, תוכל לקבל תוצאות מרשימות בחלק קטן מהמחיר. 
-              אנחנו משתמשים בטכנולוגיה המתקדמת ביותר כדי ליצור תמונות שנראות טבעיות, מקצועיות ומשקפות את הייחודיות שלך.
-            </p>
-          </div>
-        </div>
-
         <div className="text-center mb-16">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            התהליך שלנו
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold neon-text-pink mb-6">
-            התהליך הפשוט שלנו
+            כיצד אנחנו יוצרים תמונות תדמית מושלמות
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
             תהליך פשוט, מהיר ואפקטיבי שמבטיח תוצאות מעולות
@@ -114,21 +89,10 @@ const Process = () => {
                     className="glass rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
                   >
                     <h3 className="text-xl font-bold mb-3 flex items-center">
-                      {index % 2 === 0 ? (
-                        <>
-                          {step.title}
-                          <span className="bg-primary text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">
-                            {step.number}
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          <span className="bg-primary text-white rounded-full w-8 h-8 inline-flex items-center justify-center ml-3">
-                            {step.number}
-                          </span>
-                          {step.title}
-                        </>
-                      )}
+                      <span className="bg-primary text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">
+                        {step.number}
+                      </span>
+                      {step.title}
                     </h3>
                     <p className="text-white/80">{step.description}</p>
                   </div>

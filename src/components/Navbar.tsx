@@ -29,18 +29,18 @@ const Navbar = () => {
       )}
       dir="rtl"
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between">
+      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center">
         <a 
           href="#" 
-          className="text-4xl md:text-5xl font-bold transition-all duration-300"
+          className="text-4xl md:text-5xl font-bold transition-all duration-300 text-center"
         >
           <span className="neon-text-blue">Film</span><span className="neon-text-pink">Kal</span>
         </a>
         
-        {/* Contact Button */}
+        {/* Contact Button - moved to bottom of navigation on mobile */}
         <button 
           onClick={() => scrollToSection("צור-קשר")}
-          className="neon-button text-sm"
+          className="neon-button text-sm mt-3 md:mt-2"
         >
           ליצירת קשר
         </button>
