@@ -47,6 +47,16 @@
 }
 
 @layer utilities {
+  /* Hide scrollbar but allow scrolling */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
   .glass {
     @apply bg-white/10 backdrop-blur-lg border border-white/20;
   }
