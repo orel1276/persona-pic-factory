@@ -36,14 +36,33 @@ const AIMarketingSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
           >
-            <div className="relative">
-              {/* Pink border on the left */}
-              <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="איש עסקים בחליפה" 
-                className="rounded-tr-lg rounded-br-lg shadow-2xl w-full object-cover h-[500px]"
-              />
+            <div className="text-right">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+                קצת על עולם הבינה המלאכותית
+              </h2>
+              
+              <div className="space-y-4 text-gray-700">
+                <p className="font-medium">
+                  אם אתם כאן, כנראה שכבר הבנתם שהעתיד כבר כאן והוא נקרא בינה מלאכותית.
+                </p>
+                
+                <p>
+                  בעולם שבו טכנולוגיה מתקדמת במהירות שיא, כבר אין צורך בציוד יקר, צוותי צילום ענקיים או תקציבי ענק כדי ליצור תוכן מדהים ומקצועי. הבינה המלאכותית מאפשרת לכם לייצר סרטוני פרסומת, תוכן ויזואלי וקמפיינים מרהיבים בקלות ובמהירות שלא דמיינתם.
+                </p>
+                
+                <p className="font-medium">למה זה כל כך משמעותי?</p>
+                <p>כי עסקים היום חייבים להתבלט, לחדש ולהרשים – אבל בלי להיכנס להוצאות ענק.</p>
+                
+                <p className="font-bold">עם הטכנולוגיה הזו, כל אחד יכול לייצר תוכן פרסומי מדהים, גם בלי ניסיון קודם.</p>
+                
+                <p>
+                  בואו לגלות איך לייצר תוכן מרהיב, מדויק ומשכנע – בעזרת AI בלבד, ללא ציוד יקר וללא השקעות כבדות.
+                </p>
+                
+                <p className="font-medium">
+                  זו הדרך החדשה של עולם הפרסום – בואו לקחת חלק במהפכה!
+                </p>
+              </div>
             </div>
           </div>
           
@@ -53,23 +72,14 @@ const AIMarketingSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-              קצת על שיווק דיגיטלי
-            </h2>
-            
-            <div className="space-y-4 text-gray-700">
-              <p>
-                אם אתם כבר נמצאים כאן, כנראה שמעתם את הביקוש המטורף שיש למשווקים דיגיטליים, עסקים חדשים נפתחים כל הזמן והדבר הראשון שהם צריכים זה משווק דיגיטלי שיגרום להם את העסק שלא מדבר על 600 אלף בעלי עסקים קיימים שמחפשים כל יום אנשי שיווק.
-              </p>
-              
-              <p className="font-medium">למה זה קורה?</p>
-              <p>כי יש עסקים שנופלים, ולמה?</p>
-              
-              <p className="font-bold">כי הם לא עשו מספיק שיווק ולכן לא עשו מספיק כסף!</p>
-              
-              <p>
-                כמשווקים שעברו את תוכנית ההכשרה שלי אתם תדעו לתת משפחת מלאה לאותם בעלי עסקים שמחפשים איש שיווק שידע את העבודה ושילווה אותם לטווח הרחוק באמצעות כל הכלים בתוכנית אתם תדעו גם איך להתנהל עסקית ולגרום להם להשאיר אתכם לתקופות ארוכות וככה להנות מהכנסה יציבה ומספקת.
-              </p>
+            <div className="relative">
+              {/* Pink border on the left */}
+              <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
+              <img 
+                src="/lovable-uploads/44777209-852d-4ab9-90df-4757cb57f428.png" 
+                alt="איש עם חליפה - דוגמה לתמונת תדמית מקצועית" 
+                className="rounded-tr-lg rounded-br-lg shadow-2xl w-full object-cover h-[500px]"
+              />
             </div>
           </div>
         </div>
