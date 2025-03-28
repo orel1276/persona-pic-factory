@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,6 +54,11 @@
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
+  }
+  
+  /* Scroll snap utilities */
+  .scroll-snap-align-start {
+    scroll-snap-align: start;
   }
   
   .glass {
@@ -204,5 +208,4 @@ html {
 
 .scroll-item {
   @apply flex-shrink-0 scroll-snap-align-start;
-  scroll-snap-align: start;
 }
