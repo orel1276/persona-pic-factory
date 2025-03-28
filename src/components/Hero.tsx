@@ -1,9 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsVisible(true);
@@ -34,21 +36,21 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-20 flex flex-col items-center text-center mt-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-20 flex flex-col items-center text-center mt-16 md:mt-20">
         <div 
           className={cn(
             "transition-all duration-1000 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-4 md:mb-6">
             המהפכה בעולם תמונות התדמית
           </span>
         </div>
 
         <h1 
           className={cn(
-            "text-4xl md:text-5xl lg:text-7xl font-bold mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform",
+            "text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
@@ -63,7 +65,7 @@ const Hero = () => {
         
         <p 
           className={cn(
-            "text-lg md:text-xl text-white/90 max-w-2xl mb-10 transition-all duration-1000 delay-200 transform",
+            "text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mb-6 md:mb-10 transition-all duration-1000 delay-200 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
@@ -72,13 +74,13 @@ const Hero = () => {
         
         <div 
           className={cn(
-            "flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-300 transform",
+            "flex flex-col sm:flex-row gap-3 md:gap-4 w-full max-w-md mx-auto transition-all duration-1000 delay-300 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
           <a 
             href="#צור-קשר" 
-            className="neon-button"
+            className="neon-button w-full sm:w-auto text-center"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("צור-קשר");
@@ -88,7 +90,7 @@ const Hero = () => {
           </a>
           <a 
             href="#process" 
-            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-8 py-3 rounded-full transition-all duration-300 text-lg"
+            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-6 py-3 rounded-full transition-all duration-300 text-center w-full sm:w-auto"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("process");

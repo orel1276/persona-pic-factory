@@ -113,9 +113,20 @@
   }
 
   .neon-button {
-    @apply bg-gradient-to-r from-primary to-secondary text-black font-bold py-3 px-8 rounded-full 
+    @apply bg-gradient-to-r from-primary to-secondary text-black font-bold py-2 md:py-3 px-6 md:px-8 rounded-full 
            shadow-[0_0_15px_rgba(255,0,150,0.5)] hover:shadow-[0_0_25px_rgba(255,0,150,0.7)] 
            transition-all duration-300;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+    
+    .neon-button {
+      @apply py-2 px-4 text-sm;
+    }
   }
 }
 
@@ -172,4 +183,16 @@ html {
 /* שיפור ניגודיות של טקסטים */
 .text-with-contrast {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile horizontal scroll container */
+.scroll-container {
+  @apply flex overflow-x-auto py-2 hide-scrollbar;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-item {
+  @apply flex-shrink-0 scroll-snap-align-start;
+  scroll-snap-align: start;
 }
