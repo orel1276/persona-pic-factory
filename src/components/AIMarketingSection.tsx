@@ -73,11 +73,13 @@ const AIMarketingSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
           >
-            <img 
-              src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
-              alt="איש בחליפה מחזיק ניירת" 
-              className="w-full object-contain h-[500px]"
-            />
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
+                alt="איש בחליפה מחזיק ניירת" 
+                className="w-full object-contain h-[500px]"
+              />
+            </div>
           </div>
         </div>
       </div>

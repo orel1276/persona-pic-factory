@@ -1,13 +1,20 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
 const ClientTestimonials = () => {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useIsMobile();
 
-  // מעקב אחרי גלילה לסקשן
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -28,46 +35,91 @@ const ClientTestimonials = () => {
     };
   }, []);
 
-  // נתוני העדויות
   const testimonials = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1611432579699-484f7990b127?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "וואו, התמונות מדהימות! סוף סוף יש לי תמונת פרופיל מקצועית שמייצגת אותי נכון. השירות היה מהיר והתוצאות היו הרבה מעבר למה שציפיתי.",
-      author: "רחל, יועצת תדמית"
+      messages: [
+        { text: "היי, איך התמונות החדשות שלך? כבר משתמש בהן?", isUser: false, time: "12:20" },
+        { text: "וואו, התמונות מדהימות! סוף סוף יש לי תמונת פרופיל מקצועית 🔥", isUser: true, time: "12:22" }
+      ],
+      author: "רחל",
+      position: "יועצת תדמית",
+      avatar: "https://i.pravatar.cc/150?img=68"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "אני יכול להגיד בוודאות שהתמונות החדשות שיפרו את הנוכחות העסקית שלי. אנשים מגיבים יותר לפוסטים שלי וקיבלתי המון פניות חדשות.",
-      author: "יוסי, איש עסקים"
+      messages: [
+        { text: "זה המחיר הסופי? כולל הכל?", isUser: false, time: "17:45" },
+        { text: "כן, והתוצאה שווה כל שקל! 👌 ממליץ בחום", isUser: true, time: "17:46" }
+      ],
+      author: "יוסי",
+      position: "איש עסקים",
+      avatar: "https://i.pravatar.cc/150?img=32"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1611162616305-c69587195d3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "לא האמנתי שאפשר להגיע לתוצאות כאלה בלי צלם מקצועי. חסכתי זמן יקר וקיבלתי תמונות שהרימו את הפרופיל המקצועי שלי לגמרי. ממליצה בחום!",
-      author: "מיכל, מאמנת עסקית"
+      messages: [
+        { text: "רציתי להגיד תודה! קיבלתי המון תגובות חיוביות על תמונות הפרופיל החדשות 😊", isUser: true, time: "9:30" },
+        { text: "שמח לשמוע! זו בדיוק המטרה שלנו", isUser: false, time: "9:32" }
+      ],
+      author: "מיכל",
+      position: "מאמנת עסקית",
+      avatar: "https://i.pravatar.cc/150?img=44"
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1611162616475-b1a91bde599a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "אין מילים. האתר שלי נראה אחר לגמרי עם התמונות החדשות של המוצרים. אשתף את זה עם כל מי שאני מכיר.",
-      author: "דני, יזם"
+      messages: [
+        { text: "אין מילים. האתר שלי נראה אחר לגמרי עם התמונות החדשות של המוצרים 🤩", isUser: true, time: "16:15" },
+        { text: "אשתף את זה עם כל מי שאני מכיר 👍", isUser: true, time: "16:16" }
+      ],
+      author: "דני",
+      position: "יזם",
+      avatar: "https://i.pravatar.cc/150?img=13"
+    },
+    {
+      id: 5,
+      messages: [
+        { text: "העלית את התמונות החדשות לאתר?", isUser: false, time: "20:20" },
+        { text: "כן, וכבר קיבלתי 3 לקוחות חדשים תוך יומיים! תודה ענקית 🙏", isUser: true, time: "20:23" }
+      ],
+      author: "נועה",
+      position: "מעצבת גרפית",
+      avatar: "https://i.pravatar.cc/150?img=23"
     }
   ];
 
-  // פונקציות ניווט
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+  const ChatBubble = ({ text, isUser, time }: { text: string, isUser: boolean, time: string }) => (
+    <div className={`${isUser ? 'ml-auto bg-[#DCF8C6]' : 'mr-auto bg-white'} rounded-lg p-3 mb-2 max-w-[80%]`}>
+      <p className="text-sm">{text}</p>
+      <span className="text-xs text-gray-500 block text-right">{time}</span>
+    </div>
+  );
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+  const WhatsAppCard = ({ testimonial, className }: { testimonial: typeof testimonials[0], className?: string }) => (
+    <div className={cn("bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl", className)}>
+      <div className="bg-[#00A884] text-white p-3">
+        <div className="flex items-center">
+          <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
+            <img src={testimonial.avatar} alt={testimonial.author} className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <p className="font-medium">{testimonial.author}</p>
+            <p className="text-xs opacity-90">{testimonial.position}</p>
+          </div>
+        </div>
+      </div>
+      <div className="p-4">
+        {testimonial.messages.map((message, idx) => (
+          <ChatBubble 
+            key={idx} 
+            text={message.text} 
+            isUser={message.isUser} 
+            time={message.time} 
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <section 
@@ -80,82 +132,57 @@ const ClientTestimonials = () => {
       dir="rtl"
     >
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary neon-text-pink">
-            לקוחות משתפים
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-primary neon-text-pink">
+            לקוחות משתפים:
           </h2>
         </div>
 
-        <div 
-          className={cn(
-            "max-w-3xl mx-auto relative rounded-xl overflow-hidden shadow-xl bg-white",
-            isVisible ? "opacity-100" : "opacity-0",
-            "transition-opacity duration-1000"
-          )}
-        >
-          {/* כפתורי ניווט */}
-          <button 
-            onClick={prevSlide}
-            className="absolute top-1/2 right-4 -translate-y-1/2 z-10 bg-primary/80 hover:bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
-            aria-label="הקודם"
-          >
-            &#10094;
-          </button>
-          
-          <button 
-            onClick={nextSlide}
-            className="absolute top-1/2 left-4 -translate-y-1/2 z-10 bg-primary/80 hover:bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
-            aria-label="הבא"
-          >
-            &#10095;
-          </button>
-          
-          {/* מעטפת הסליידר */}
-          <div 
-            className="flex transition-transform duration-500 ease-in-out" 
-            style={{ transform: `translateX(${currentIndex * 100}%)` }}
-          >
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="min-w-full p-6 md:p-8">
-                <div className="flex flex-col items-center">
-                  <img 
-                    src={testimonial.image} 
-                    alt={`עדות מ${testimonial.author}`} 
-                    className="w-full max-w-2xl h-auto rounded-lg shadow-lg mb-6 object-cover"
-                  />
-                  <p className="text-muted-foreground text-base md:text-lg mb-4 text-center max-w-2xl">
-                    "{testimonial.text}"
-                  </p>
-                  <p className="font-bold text-primary">
-                    {testimonial.author}
-                  </p>
+        {isMobile ? (
+          <div className="relative mt-8 overflow-x-auto pb-4 hide-scrollbar">
+            <div className="flex space-x-4 px-4" style={{ direction: 'ltr' }}>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="flex-shrink-0 w-[80vw] max-w-xs">
+                  <WhatsAppCard testimonial={testimonial} />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-4 pointer-events-none bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
-          
-          {/* נקודות ניווט */}
-          <div className="flex justify-center py-4 bg-white">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={cn(
-                  "w-3 h-3 mx-1 rounded-full transition-all duration-300",
-                  index === currentIndex 
-                    ? "bg-primary scale-125" 
-                    : "bg-muted hover:bg-muted-foreground/50"
-                )}
-                aria-label={`עבור לעדות ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        ) : (
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                  <WhatsAppCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <CarouselPrevious className="static transform-none mx-2 bg-primary hover:bg-primary/80 text-white border-none" />
+              <CarouselNext className="static transform-none mx-2 bg-primary hover:bg-primary/80 text-white border-none" />
+            </div>
+          </Carousel>
+        )}
       </div>
       
-      {/* אלמנטים דקורטיביים */}
+      {/* Subtle animation patterns for background effect */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 right-0 w-full h-full bg-repeat opacity-5"
+             style={{
+               backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48cGF0aCBkPSJNMywxN2MzNy41LDAsNTctMTQsOTQtMTR2MTRIMTdWODJjMzcuNSwwLDU3LTE0LDk0LTE0djE0SDE3djY1YzM3LjUsMCw1Ny0xNCw5NC0xNHYxNEgzVjE3eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')"
+             }}></div>
+      </div>
+      
+      {/* Add animated floating elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full animate-float"
