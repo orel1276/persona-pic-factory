@@ -75,7 +75,7 @@ const AIMarketingSection = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/edb3d1b6-078b-49e3-b987-4559a83d83a5.png" 
+                src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
                 alt="איש בחליפה מחזיק ניירת" 
                 className="w-full object-contain h-[500px]"
               />

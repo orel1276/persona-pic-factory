@@ -126,15 +126,14 @@ const ClientTestimonials = () => {
       id="testimonials" 
       className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden"
       style={{ 
-        background: "#0F0F0F",
-        backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMTI1QzY5IDEyNSAxMjUgNjkgMTI1IDBDMTI1IDY5IDE4MSAxMjUgMjUwIDEyNUMxODEgMTI1IDEyNSAxODEgMTI1IDI1MEM2OSAxMjUgMCAxMjUgMCAxMjVaIiBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')",
+        background: "linear-gradient(135deg, hsl(var(--primary)/0.1) 0%, hsl(var(--secondary)/0.1) 100%)"
       }}
       ref={testimonialsRef}
       dir="rtl"
     >
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#F5A623]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-primary neon-text-pink">
             לקוחות משתפים:
           </h2>
         </div>
@@ -166,19 +165,38 @@ const ClientTestimonials = () => {
               ))}
             </CarouselContent>
             <div className="flex items-center justify-center gap-2 mt-8">
-              <CarouselPrevious className="static transform-none mx-2 bg-[#F5A623] hover:bg-[#F5A623]/80 text-black border-none" />
-              <CarouselNext className="static transform-none mx-2 bg-[#F5A623] hover:bg-[#F5A623]/80 text-black border-none" />
+              <CarouselPrevious className="static transform-none mx-2 bg-primary hover:bg-primary/80 text-white border-none" />
+              <CarouselNext className="static transform-none mx-2 bg-primary hover:bg-primary/80 text-white border-none" />
             </div>
           </Carousel>
         )}
       </div>
       
-      {/* Subtle wave patterns for background effect */}
+      {/* Subtle animation patterns for background effect */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 right-0 w-full h-full bg-repeat opacity-5"
              style={{
                backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48cGF0aCBkPSJNMywxN2MzNy41LDAsNTctMTQsOTQtMTR2MTRIMTdWODJjMzcuNSwwLDU3LTE0LDk0LTE0djE0SDE3djY1YzM3LjUsMCw1Ny0xNCw5NC0xNHYxNEgzVjE3eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')"
              }}></div>
+      </div>
+      
+      {/* Add animated floating elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full animate-float"
+            style={{
+              width: `${Math.random() * 30 + 10}px`,
+              height: `${Math.random() * 30 + 10}px`,
+              backgroundColor: `hsl(var(--${Math.random() > 0.5 ? 'primary' : 'secondary'})/${Math.random() * 0.3 + 0.1})`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${Math.random() * 10 + 5}s`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
       </div>
     </section>
   );
