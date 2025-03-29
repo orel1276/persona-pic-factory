@@ -1,11 +1,18 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
 const ClientTestimonials = () => {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -28,336 +35,150 @@ const ClientTestimonials = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isVisible && !isMobile) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % 5);
-      }, 3000);
-      return () => clearInterval(interval);
+  const testimonials = [
+    {
+      id: 1,
+      messages: [
+        { text: "היי, איך התמונות החדשות שלך? כבר משתמש בהן?", isUser: false, time: "12:20" },
+        { text: "וואו, התמונות מדהימות! סוף סוף יש לי תמונת פרופיל מקצועית 🔥", isUser: true, time: "12:22" }
+      ],
+      author: "רחל",
+      position: "יועצת תדמית",
+      avatar: "https://i.pravatar.cc/150?img=68"
+    },
+    {
+      id: 2,
+      messages: [
+        { text: "זה המחיר הסופי? כולל הכל?", isUser: false, time: "17:45" },
+        { text: "כן, והתוצאה שווה כל שקל! 👌 ממליץ בחום", isUser: true, time: "17:46" }
+      ],
+      author: "יוסי",
+      position: "איש עסקים",
+      avatar: "https://i.pravatar.cc/150?img=32"
+    },
+    {
+      id: 3,
+      messages: [
+        { text: "רציתי להגיד תודה! קיבלתי המון תגובות חיוביות על תמונות הפרופיל החדשות 😊", isUser: true, time: "9:30" },
+        { text: "שמח לשמוע! זו בדיוק המטרה שלנו", isUser: false, time: "9:32" }
+      ],
+      author: "מיכל",
+      position: "מאמנת עסקית",
+      avatar: "https://i.pravatar.cc/150?img=44"
+    },
+    {
+      id: 4,
+      messages: [
+        { text: "אין מילים. האתר שלי נראה אחר לגמרי עם התמונות החדשות של המוצרים 🤩", isUser: true, time: "16:15" },
+        { text: "אשתף את זה עם כל מי שאני מכיר 👍", isUser: true, time: "16:16" }
+      ],
+      author: "דני",
+      position: "יזם",
+      avatar: "https://i.pravatar.cc/150?img=13"
+    },
+    {
+      id: 5,
+      messages: [
+        { text: "העלית את התמונות החדשות לאתר?", isUser: false, time: "20:20" },
+        { text: "כן, וכבר קיבלתי 3 לקוחות חדשים תוך יומיים! תודה ענקית 🙏", isUser: true, time: "20:23" }
+      ],
+      author: "נועה",
+      position: "מעצבת גרפית",
+      avatar: "https://i.pravatar.cc/150?img=23"
     }
-  }, [isVisible, isMobile]);
+  ];
+
+  const ChatBubble = ({ text, isUser, time }: { text: string, isUser: boolean, time: string }) => (
+    <div className={`${isUser ? 'ml-auto bg-[#DCF8C6]' : 'mr-auto bg-white'} rounded-lg p-3 mb-2 max-w-[80%]`}>
+      <p className="text-sm">{text}</p>
+      <span className="text-xs text-gray-500 block text-right">{time}</span>
+    </div>
+  );
+
+  const WhatsAppCard = ({ testimonial, className }: { testimonial: typeof testimonials[0], className?: string }) => (
+    <div className={cn("bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl", className)}>
+      <div className="bg-[#00A884] text-white p-3">
+        <div className="flex items-center">
+          <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
+            <img src={testimonial.avatar} alt={testimonial.author} className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <p className="font-medium">{testimonial.author}</p>
+            <p className="text-xs opacity-90">{testimonial.position}</p>
+          </div>
+        </div>
+      </div>
+      <div className="p-4">
+        {testimonial.messages.map((message, idx) => (
+          <ChatBubble 
+            key={idx} 
+            text={message.text} 
+            isUser={message.isUser} 
+            time={message.time} 
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <section 
       id="testimonials" 
-      className="py-16 md:py-24 px-4 md:px-6 bg-black" 
+      className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden"
       style={{ 
-        backgroundImage: "url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'overlay',
-        backgroundColor: 'rgba(0,0,0,0.8)'
+        background: "#0F0F0F",
+        backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMTI1QzY5IDEyNSAxMjUgNjkgMTI1IDBDMTI1IDY5IDE4MSAxMjUgMjUwIDEyNUMxODEgMTI1IDEyNSAxODEgMTI1IDI1MEM2OSAxMjUgMCAxMjUgMCAxMjVaIiBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')",
       }}
       ref={testimonialsRef}
       dir="rtl"
     >
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            <span className="neon-text-pink">תלמידי ההכשרה </span>
-            <span className="neon-text-blue">משתפים:</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#F5A623]">
+            לקוחות משתפים:
           </h2>
         </div>
 
         {isMobile ? (
           <div className="relative mt-8 overflow-x-auto pb-4 hide-scrollbar">
             <div className="flex space-x-4 px-4" style={{ direction: 'ltr' }}>
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl flex-shrink-0 w-[80vw] max-w-xs">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=68" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">רחל</p>
-                      <p className="text-xs opacity-90">יועצת תדמית</p>
-                    </div>
-                  </div>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="flex-shrink-0 w-[80vw] max-w-xs">
+                  <WhatsAppCard testimonial={testimonial} />
                 </div>
-                <div className="p-4">
-                  <div className="bg-white rounded-lg p-3 mb-2 mr-auto max-w-[80%]">
-                    <p className="text-sm">היי, איך התמונות החדשות שלך? כבר משתמש בהן?</p>
-                    <span className="text-xs text-gray-500 block text-right">12:20</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">וואו, התמונות מדהימות! סוף סוף יש לי תמונת פרופיל מקצועית 🔥</p>
-                    <span className="text-xs text-gray-500 block text-right">12:22</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl flex-shrink-0 w-[80vw] max-w-xs">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">יוסי</p>
-                      <p className="text-xs opacity-90">איש עסקים</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-white rounded-lg p-3 mb-2 mr-auto max-w-[80%]">
-                    <p className="text-sm">זה המחיר הסופי? כולל הכל?</p>
-                    <span className="text-xs text-gray-500 block text-right">17:45</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">כן, והתוצאה שווה כל שקל! 👌 ממליץ בחום</p>
-                    <span className="text-xs text-gray-500 block text-right">17:46</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl flex-shrink-0 w-[80vw] max-w-xs">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=44" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">מיכל</p>
-                      <p className="text-xs opacity-90">מאמנת עסקית</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 mb-2 ml-auto max-w-[80%]">
-                    <p className="text-sm">רציתי להגיד תודה! קיבלתי המון תגובות חיוביות על תמונות הפרופיל החדשות 😊</p>
-                    <span className="text-xs text-gray-500 block text-right">9:30</span>
-                  </div>
-                  <div className="bg-white rounded-lg p-3 mb-2 mr-auto max-w-[80%]">
-                    <p className="text-sm">שמח לשמוע! זו בדיוק המטרה שלנו</p>
-                    <span className="text-xs text-gray-500 block text-right">9:32</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl flex-shrink-0 w-[80vw] max-w-xs">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=13" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">דני</p>
-                      <p className="text-xs opacity-90">יזם</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 mb-2 ml-auto max-w-[80%]">
-                    <p className="text-sm">אין מילים. האתר שלי נראה אחר לגמרי עם התמונות החדשות של המוצרים 🤩</p>
-                    <span className="text-xs text-gray-500 block text-right">16:15</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">אשתף את זה עם כל מי שאני מכיר 👍</p>
-                    <span className="text-xs text-gray-500 block text-right">16:16</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl flex-shrink-0 w-[80vw] max-w-xs">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=23" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">נועה</p>
-                      <p className="text-xs opacity-90">מעצבת גרפית</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-white rounded-lg p-3 mb-2 mr-auto max-w-[80%]">
-                    <p className="text-sm">העלית את התמונות החדשות לאתר?</p>
-                    <span className="text-xs text-gray-500 block text-right">20:20</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">כן, וכבר קיבלתי 3 לקוחות חדשים תוך יומיים! תודה ענקית 🙏</p>
-                    <span className="text-xs text-gray-500 block text-right">20:23</span>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="absolute bottom-0 left-0 right-0 h-4 pointer-events-none bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
         ) : (
-          <div className="relative mt-12 overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 duration-300 relative">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=68" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">רחל</p>
-                      <p className="text-xs opacity-90">יועצת תדמית</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-white rounded-lg p-3 mb-2 ml-auto max-w-[80%]">
-                    <p className="text-sm">היי, איך התמונות החדשות שלך? כבר משתמש בהן?</p>
-                    <span className="text-xs text-gray-500 block text-right">12:20</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">וואו, התמונות מדהימות! סוף סוף יש לי תמונת פרופיל מקצועית 🔥</p>
-                    <span className="text-xs text-gray-500 block text-right">12:22</span>
-                  </div>
-                  <div className="flex justify-center mt-3">
-                    <div className="flex items-center text-[#00A884]">
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                      <span className="mx-2 text-xs">ממש מרוצה מהתוצאות</span>
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 duration-300 relative">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">יוסי</p>
-                      <p className="text-xs opacity-90">איש עסקים</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-white rounded-lg p-3 mb-2 ml-auto max-w-[80%]">
-                    <p className="text-sm">זה המחיר הסופי? כולל הכל?</p>
-                    <span className="text-xs text-gray-500 block text-right">17:45</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">כן, והתוצאה שווה כל שקל! 👌 ממליץ בחום</p>
-                    <span className="text-xs text-gray-500 block text-right">17:46</span>
-                  </div>
-                  <div className="flex justify-center mt-3">
-                    <div className="flex items-center text-[#00A884]">
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                      <span className="mx-2 text-xs">שמח שבחרתי בשירות שלך</span>
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 duration-300 relative">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=44" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">מיכל</p>
-                      <p className="text-xs opacity-90">מאמנת עסקית</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 mb-2 ml-auto max-w-[80%]">
-                    <p className="text-sm">רציתי להגיד תודה! קיבלתי המון תגובות חיוביות על תמונות הפרופיל החדשות 😊</p>
-                    <span className="text-xs text-gray-500 block text-right">9:30</span>
-                  </div>
-                  <div className="bg-white rounded-lg p-3 mb-2 mr-auto max-w-[80%]">
-                    <p className="text-sm">שמח לשמוע! זו בדיוק המטרה שלנו</p>
-                    <span className="text-xs text-gray-500 block text-right">9:32</span>
-                  </div>
-                  <div className="flex justify-center mt-3">
-                    <div className="flex items-center text-[#00A884]">
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                      <span className="mx-2 text-xs">תוצאות מרשימות</span>
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 duration-300 relative">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=13" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">דני</p>
-                      <p className="text-xs opacity-90">יזם</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 mb-2 ml-auto max-w-[80%]">
-                    <p className="text-sm">אין מילים. האתר שלי נראה אחר לגמרי עם התמונות החדשות של המוצרים 🤩</p>
-                    <span className="text-xs text-gray-500 block text-right">16:15</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">אשתף את זה עם כל מי שאני מכיר 👍</p>
-                    <span className="text-xs text-gray-500 block text-right">16:16</span>
-                  </div>
-                  <div className="flex justify-center mt-3">
-                    <div className="flex items-center text-[#00A884]">
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                      <span className="mx-2 text-xs">לקוח לכל החיים</span>
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#E5DDD5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 duration-300 relative">
-                <div className="bg-[#00A884] text-white p-3">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-white rounded-full mr-2 overflow-hidden">
-                      <img src="https://i.pravatar.cc/150?img=23" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="font-medium">נועה</p>
-                      <p className="text-xs opacity-90">מעצבת גרפית</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-white rounded-lg p-3 mb-2 mr-auto max-w-[80%]">
-                    <p className="text-sm">העלית את התמונות החדשות לאתר?</p>
-                    <span className="text-xs text-gray-500 block text-right">20:20</span>
-                  </div>
-                  <div className="bg-[#DCF8C6] rounded-lg p-3 ml-auto max-w-[80%]">
-                    <p className="text-sm">כן, וכבר קיבלתי 3 לקוחות חדשים תוך יומיים! תודה ענקית 🙏</p>
-                    <span className="text-xs text-gray-500 block text-right">20:23</span>
-                  </div>
-                  <div className="flex justify-center mt-3">
-                    <div className="flex items-center text-[#00A884]">
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                      <span className="mx-2 text-xs">השקעה שמשתלמת</span>
-                      <div className="h-px bg-[#00A884] w-24"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                  <WhatsAppCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <CarouselPrevious className="static transform-none mx-2 bg-[#F5A623] hover:bg-[#F5A623]/80 text-black border-none" />
+              <CarouselNext className="static transform-none mx-2 bg-[#F5A623] hover:bg-[#F5A623]/80 text-black border-none" />
             </div>
-          </div>
+          </Carousel>
         )}
-
-        {!isMobile && (
-          <div className="flex justify-center mt-8 space-x-2">
-            {[0, 1, 2, 3, 4].map((idx) => (
-              <button
-                key={idx}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  currentIndex === idx ? 'bg-primary' : 'bg-white/30'
-                }`}
-                onClick={() => setCurrentIndex(idx)}
-              />
-            ))}
-          </div>
-        )}
+      </div>
+      
+      {/* Subtle wave patterns for background effect */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 right-0 w-full h-full bg-repeat opacity-5"
+             style={{
+               backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48cGF0aCBkPSJNMywxN2MzNy41LDAsNTctMTQsOTQtMTR2MTRIMTdWODJjMzcuNSwwLDU3LTE0LDk0LTE0djE0SDE3djY1YzM3LjUsMCw1Ny0xNCw5NC0xNHYxNEgzVjE3eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')"
+             }}></div>
       </div>
     </section>
   );

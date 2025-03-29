@@ -74,12 +74,10 @@ const AIMarketingSection = () => {
             )}
           >
             <div className="relative">
-              {/* Pink border on the left */}
-              <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
               <img 
-                src="/lovable-uploads/be0497d4-c0af-40ca-a705-0db1d3b0ef85.png" 
-                alt="איש עם חליפה - דוגמה לתמונת תדמית מקצועית" 
-                className="rounded-tr-lg rounded-br-lg shadow-2xl w-full object-cover h-[500px]"
+                src="/lovable-uploads/edb3d1b6-078b-49e3-b987-4559a83d83a5.png" 
+                alt="איש בחליפה מחזיק ניירת" 
+                className="w-full object-contain h-[500px]"
               />
             </div>
           </div>
