@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 
 const AboutMe = () => {
@@ -43,12 +42,18 @@ const AboutMe = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-md opacity-75 animate-pulse"></div>
-              <Avatar className="w-48 h-48 md:w-64 md:h-64 border-4 border-white/10 relative">
-                <AvatarImage src="/lovable-uploads/771bc8c8-0b86-4f67-b32f-9c3aa6a84932.png" alt="אוראל עבייד" />
-                <AvatarFallback className="text-5xl bg-accent">אע</AvatarFallback>
-              </Avatar>
+            <div className="relative w-64 h-64">
+              {/* עיגול גרדיאנט בצבעי האתר */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
+              
+              {/* התמונה החדשה */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/e0a2a9ec-bcea-4100-ad78-832c0f7f8538.png" 
+                  alt="אוראל עבייד" 
+                  className="h-[95%] w-[95%] object-cover object-center"
+                />
+              </div>
             </div>
           </div>
           

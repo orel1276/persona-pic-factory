@@ -74,12 +74,15 @@ const AIMarketingSection = () => {
             )}
           >
             <div className="relative">
-              <div className="bg-primary/5 rounded-xl shadow-xl p-6 pb-0 relative h-[520px]">
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-xl"></div>
+              <div className="bg-white rounded-xl shadow-xl p-6 pb-0 relative h-[530px] border border-primary overflow-hidden">
+                {/* נוסיף מסגרת ניאון בצד ימין */}
+                <div className="absolute top-0 right-0 bottom-0 w-3 bg-primary shadow-[0_0_15px_rgba(255,0,150,0.7)]"></div>
+                
                 <img 
                   src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
                   alt="איש בחליפה" 
-                  className="w-full object-contain h-[500px] absolute bottom-0 left-0 right-0 mx-auto"
+                  className="w-full object-contain h-[520px] absolute bottom-0 left-0 right-0 mx-auto"
+                  style={{ objectPosition: 'center bottom' }}
                 />
               </div>
             </div>
