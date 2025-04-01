@@ -12,7 +12,6 @@ import Footer from '@/components/Footer';
 import DIYSection from '@/components/DIYSection';
 import BusinessSection from '@/components/BusinessSection';
 import PricingSection from '@/components/PricingSection';
-import ClientTestimonials from '@/components/ClientTestimonials';
 import AIMarketingSection from '@/components/AIMarketingSection';
 
 const Index = () => {
@@ -52,7 +51,6 @@ const Index = () => {
         <Process />
         <DIYSection />
         <BusinessSection />
-        <ClientTestimonials />
         <PricingSection />
         <FAQ />
         <CTA />

@@ -42,16 +42,17 @@ const AboutMe = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
+            {/* Circle with person image - similar to the reference image */}
             <div className="relative w-64 h-64">
-              {/* עיגול גרדיאנט בצבעי האתר */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
+              {/* Neon gradient circle background */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_20px_rgba(255,0,150,0.6)]"></div>
               
-              {/* התמונה החדשה - עם מסכה עגולה */}
-              <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-full">
+              {/* Person image */}
+              <div className="absolute inset-0">
                 <img 
-                  src="/lovable-uploads/582e792e-7734-4566-a4b6-d22bdccd47a7.png" 
+                  src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
                   alt="אוראל עבייד" 
-                  className="h-[95%] w-[95%] object-cover"
+                  className="h-full w-full object-contain object-bottom"
                 />
               </div>
             </div>

@@ -32,7 +32,7 @@ const AIMarketingSection = () => {
         <div className="flex flex-col md:flex-row gap-10 items-center">
           <div 
             className={cn(
-              "md:w-1/2 relative transition-all duration-1000 transform",
+              "w-full transition-all duration-1000 transform",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
           >
@@ -63,27 +63,6 @@ const AIMarketingSection = () => {
                 <p>
                   .זו הדרך החדשה של עולם הפרסום – בואו לקחת חלק במהפכה
                 </p>
-              </div>
-            </div>
-          </div>
-          
-          <div 
-            className={cn(
-              "md:w-1/2 transition-all duration-1000 delay-300 transform",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
-            )}
-          >
-            <div className="relative">
-              <div className="bg-white rounded-xl shadow-xl p-6 pb-0 relative h-[450px] border border-primary overflow-hidden mx-auto max-w-[400px]">
-                {/* נוסיף מסגרת ניאון בצד שמאל */}
-                <div className="absolute top-0 left-0 bottom-0 w-3 bg-primary shadow-[0_0_15px_rgba(255,0,150,0.7)]"></div>
-                
-                <img 
-                  src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
-                  alt="איש בחליפה" 
-                  className="w-full h-[430px] object-contain absolute bottom-0 left-0 right-0 mx-auto"
-                  style={{ objectPosition: 'center center' }}
-                />
               </div>
             </div>
           </div>
