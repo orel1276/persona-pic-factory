@@ -42,17 +42,21 @@ const AboutMe = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            {/* Circle with person image - similar to the reference image */}
+            {/* Improved circle with person image - following reference design */}
             <div className="relative w-64 h-64">
               {/* Neon gradient circle background */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_20px_rgba(255,0,150,0.6)]"></div>
               
-              {/* Person image */}
-              <div className="absolute inset-0">
+              {/* Person image - positioned to match reference */}
+              <div className="absolute inset-0 flex items-center justify-center">
                 <img 
                   src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
                   alt="אוראל עבייד" 
-                  className="h-full w-full object-contain object-bottom"
+                  className="h-[120%] w-auto object-cover object-center"
+                  style={{ 
+                    transform: 'translateY(10%)',
+                    maxWidth: 'none'
+                  }}
                 />
               </div>
             </div>
