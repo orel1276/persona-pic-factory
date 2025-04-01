@@ -46,12 +46,12 @@ const AboutMe = () => {
               {/* עיגול גרדיאנט בצבעי האתר */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary"></div>
               
-              {/* התמונה החדשה */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* התמונה החדשה - עם מסכה עגולה */}
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-full">
                 <img 
-                  src="/lovable-uploads/e0a2a9ec-bcea-4100-ad78-832c0f7f8538.png" 
+                  src="/lovable-uploads/582e792e-7734-4566-a4b6-d22bdccd47a7.png" 
                   alt="אוראל עבייד" 
-                  className="h-[95%] w-[95%] object-cover object-center"
+                  className="h-[95%] w-[95%] object-cover"
                 />
               </div>
             </div>

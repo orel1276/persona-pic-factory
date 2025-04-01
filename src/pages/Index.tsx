@@ -48,12 +48,12 @@ const Index = () => {
         <AIMarketingSection />
         <Features />
         <Gallery />
+        <AboutMe />
         <Process />
         <DIYSection />
         <BusinessSection />
         <ClientTestimonials />
         <PricingSection />
-        <AboutMe />
         <FAQ />
         <CTA />
       </main>
