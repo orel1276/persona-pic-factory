@@ -42,20 +42,20 @@ const AboutMe = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            {/* Adjusted circle and image for better centering */}
+            {/* Improved image positioning within circle */}
             <div className="relative w-72 h-72">
               {/* Neon gradient circle background with enhanced glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_30px_rgba(255,0,150,0.7)]"></div>
               
-              {/* Person image - centered within the circle */}
+              {/* Person image - properly centered with all features visible */}
               <div className="absolute inset-0 overflow-hidden rounded-full">
                 <img 
                   src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
                   alt="אוראל עבייד" 
                   className="object-cover w-full h-full"
                   style={{ 
-                    objectPosition: "center center",
-                    transform: "scale(1.15)"
+                    objectPosition: "center 40%",
+                    transform: "scale(1.05)"
                   }}
                 />
               </div>
