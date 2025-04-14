@@ -251,8 +251,10 @@ html {
     @apply my-10;
   }
   
+  /* Fix for circular dependency */
   .content-spacing {
-    @apply space-y-4;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   
   /* Better button sizing on mobile */
@@ -260,10 +262,8 @@ html {
     @apply py-2 px-4 text-sm;
   }
   
-  /* More spacing between mobile elements */
-  .space-y-4 {
-    @apply space-y-4;
-  }
+  /* Fix for circular dependency */
+  /* Removing the .space-y-4 application */
   
   /* Make form elements larger for touch */
   input, select, textarea {
@@ -299,7 +299,8 @@ html {
 /* Mobile form improvements */
 @media (max-width: 768px) {
   form {
-    @apply space-y-3;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
   }
   
   label {
