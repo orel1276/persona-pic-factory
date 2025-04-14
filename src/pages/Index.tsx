@@ -46,11 +46,11 @@ const Index = () => {
         <Hero />
         <AIMarketingSection />
         <Features />
+        <BusinessSection />
         <Gallery />
         <AboutMe />
         <Process />
         <DIYSection />
-        <BusinessSection />
         <PricingSection />
         <FAQ />
         <CTA />

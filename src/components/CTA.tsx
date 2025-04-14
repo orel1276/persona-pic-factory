@@ -62,7 +62,7 @@ const CTA = () => {
   };
 
   return (
-    <section id="צור-קשר" className="py-24 bg-primary text-white">
+    <section id="צור-קשר" className="py-24 bg-background">
       <div className="container mx-auto px-6" ref={ctaRef}>
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold relative inline-block text-sky-400">
@@ -173,14 +173,14 @@ const CTA = () => {
             </div>
             
             <div 
-              className="lg:w-1/2 bg-primary hidden lg:block"
+              className="lg:w-1/2 bg-background hidden lg:block"
               style={{ 
                 backgroundImage: `url('https://images.unsplash.com/photo-1629397266492-dcc68dbdbef7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
             >
-              <div className="h-full w-full bg-gradient-to-r from-primary/60 to-primary/20 p-16 flex flex-col justify-center">
+              <div className="h-full w-full bg-gradient-to-r from-gray-900/80 to-gray-800/50 p-16 flex flex-col justify-center">
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <svg className="w-6 h-6 mr-3 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
