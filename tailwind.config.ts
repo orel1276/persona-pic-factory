@@ -117,8 +117,9 @@ export default {
 				'breathe': 'breathe 8s ease-in-out infinite'
 			},
 			fontFamily: {
-				'sans': ['SF Pro Display', 'system-ui', 'sans-serif'],
-				'display': ['SF Pro Display', 'system-ui', 'sans-serif'],
+				'sans': ['Rubik', 'system-ui', 'sans-serif'],
+				'display': ['Rubik', 'system-ui', 'sans-serif'],
+				'rubik': ['Rubik', 'system-ui', 'sans-serif'],
 			},
 			backdropBlur: {
 				'xs': '2px',

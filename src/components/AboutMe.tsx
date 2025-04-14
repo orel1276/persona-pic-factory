@@ -30,12 +30,12 @@ const AboutMe = () => {
     <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary">
+          <h2 className="text-4xl font-bold text-primary font-rubik">
             נעים להכיר, אוראל עבייד
           </h2>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
           <div 
             className={cn(
               "flex-shrink-0 mb-8 md:mb-0 transition-all duration-1000 transform",
@@ -43,9 +43,9 @@ const AboutMe = () => {
             )}
           >
             {/* Improved image positioning within circle */}
-            <div className="relative w-72 h-72">
-              {/* Neon gradient circle background with enhanced glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_30px_rgba(255,0,150,0.7)]"></div>
+            <div className="relative w-64 h-64 md:w-72 md:h-72">
+              {/* Circle background with subtle glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_15px_rgba(255,0,150,0.4)]"></div>
               
               {/* Person image - better centered with all features visible */}
               <div className="absolute inset-0 overflow-hidden rounded-full">
@@ -64,7 +64,7 @@ const AboutMe = () => {
           
           <div 
             className={cn(
-              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform",
+              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform content-spacing",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >

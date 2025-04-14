@@ -50,7 +50,7 @@ const Hero = () => {
 
         <h1 
           className={cn(
-            "text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform",
+            "text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform font-rubik",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >

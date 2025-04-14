@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <a 
           href="#" 
-          className="text-3xl md:text-4xl lg:text-5xl font-bold transition-all duration-300"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold transition-all duration-300 font-rubik"
         >
           <span className="neon-text-blue">Film</span><span className="neon-text-pink">Kal</span>
         </a>
