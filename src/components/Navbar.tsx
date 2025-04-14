@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { WhatsApp } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,11 +15,8 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openWhatsApp = () => {
+    window.open('https://wa.me/972528028988', '_blank');
   };
 
   return (
@@ -37,12 +35,13 @@ const Navbar = () => {
           <span className="text-sky-400">Film</span><span className="text-primary">Kal</span>
         </a>
         
-        {/* Contact Button - positioned to the right on mobile */}
+        {/* WhatsApp Button */}
         <button 
-          onClick={() => scrollToSection("צור-קשר")}
-          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-2 px-4 md:px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm"
+          onClick={openWhatsApp}
+          className="bg-[#25D366] text-white font-bold py-2 px-4 md:px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm flex items-center gap-2"
         >
-          ליצירת קשר
+          <WhatsApp size={18} />
+          צור איתי קשר
         </button>
       </div>
     </nav>

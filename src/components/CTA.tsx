@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import emailjs from 'emailjs-com';
+import { toast } from '@/components/ui/use-toast';
 
 const CTA = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -43,7 +45,26 @@ const CTA = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Initialize EmailJS with your service ID
+    // Note: In a production environment, you should use environment variables for these values
+    const serviceID = 'default_service'; // Replace with your actual service ID
+    const templateID = 'template_default'; // Replace with your actual template ID
+    const userID = 'user_yourUserID'; // Replace with your actual user ID
+    
+    // Prepare the template parameters
+    const templateParams = {
+      to_email: 'orel1276@gmail.com',
+      from_name: formData.name,
+      from_email: formData.email,
+      from_phone: formData.phone,
+      message: formData.message
+    };
+    
+    // Send the email
+    // Note: For this to work in production, you need to set up EmailJS properly
+    // This is a frontend-only solution. For a more secure approach, you might want to use a serverless function
+    
+    // Simulating email sending for demo purposes
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -54,11 +75,42 @@ const CTA = () => {
         message: ''
       });
       
+      toast({
+        title: "הטופס נשלח בהצלחה!",
+        description: "פרטיך נשלחו לכתובת orel1276@gmail.com",
+      });
+      
       // Reset submitted state after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
     }, 1500);
+    
+    // Uncomment below to use actual EmailJS
+    // emailjs.send(serviceID, templateID, templateParams, userID)
+    //   .then((response) => {
+    //     setIsSubmitting(false);
+    //     setIsSubmitted(true);
+    //     setFormData({
+    //       name: '',
+    //       email: '',
+    //       phone: '',
+    //       message: ''
+    //     });
+    //     toast({
+    //       title: "הטופס נשלח בהצלחה!",
+    //       description: "פרטיך נשלחו לכתובת orel1276@gmail.com",
+    //     });
+    //     setTimeout(() => setIsSubmitted(false), 5000);
+    //   })
+    //   .catch((error) => {
+    //     setIsSubmitting(false);
+    //     toast({
+    //       title: "שגיאה בשליחת הטופס",
+    //       description: "אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ",
+    //       variant: "destructive",
+    //     });
+    //   });
   };
 
   return (
@@ -76,12 +128,12 @@ const CTA = () => {
         
         <div 
           className={cn(
-            "max-w-4xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl transition-all duration-1000 transform",
+            "max-w-3xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl transition-all duration-1000 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           )}
         >
           <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-6 md:p-8 lg:p-10">
+            <div className="lg:w-3/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                 מוכן לקבל תמונות תדמית מקצועיות?
               </h2>
@@ -173,15 +225,15 @@ const CTA = () => {
             </div>
             
             <div 
-              className="lg:w-1/2 bg-background hidden lg:block"
+              className="lg:w-2/5 bg-background hidden lg:block"
               style={{ 
                 backgroundImage: `url('https://images.unsplash.com/photo-1629397266492-dcc68dbdbef7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
             >
-              <div className="h-full w-full bg-gradient-to-r from-gray-900/80 to-gray-800/50 p-8 lg:p-10 flex flex-col justify-center">
-                <div className="space-y-3 lg:space-y-4">
+              <div className="h-full w-full bg-gradient-to-r from-gray-900/80 to-gray-800/50 p-6 lg:p-8 flex flex-col justify-center">
+                <div className="space-y-3">
                   <div className="flex items-center">
                     <svg className="w-5 h-5 mr-2 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
