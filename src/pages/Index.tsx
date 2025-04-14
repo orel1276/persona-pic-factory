@@ -30,7 +30,7 @@ const Index = () => {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-background z-50">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-xl">
             <span className="neon-text-blue">Film</span><span className="neon-text-pink">Kal</span>
           </p>

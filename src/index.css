@@ -48,6 +48,30 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: 'Rubik', 'Assistant', sans-serif;
   }
+  
+  /* Improve text legibility on all devices */
+  p {
+    @apply leading-relaxed;
+  }
+  
+  /* Mobile heading sizes */
+  @media (max-width: 768px) {
+    h1 {
+      @apply text-3xl leading-tight;
+    }
+    
+    h2 {
+      @apply text-2xl leading-tight;
+    }
+    
+    h3 {
+      @apply text-xl leading-tight;
+    }
+    
+    p {
+      @apply text-base;
+    }
+  }
 }
 
 @layer utilities {
@@ -138,6 +162,16 @@
     .text-sm {
       font-size: 0.8125rem;
     }
+    
+    /* Improve touch targets on mobile */
+    button, .button, a.button, input[type="submit"] {
+      @apply min-h-[44px] min-w-[44px];
+    }
+    
+    /* Better form readability */
+    input, textarea, select {
+      @apply text-base;
+    }
   }
 }
 
@@ -210,23 +244,15 @@ html {
 /* Mobile section spacing improvements */
 @media (max-width: 768px) {
   section {
-    @apply py-16;
-  }
-  
-  h1 {
-    @apply text-2xl leading-normal;
-  }
-  
-  h2 {
-    @apply text-xl leading-normal;
+    @apply py-12;
   }
   
   .section-spacing {
-    @apply my-14;
+    @apply my-10;
   }
   
   .content-spacing {
-    @apply space-y-5;
+    @apply space-y-4;
   }
   
   /* Better button sizing on mobile */
@@ -236,22 +262,23 @@ html {
   
   /* More spacing between mobile elements */
   .space-y-4 {
-    @apply space-y-5;
+    @apply space-y-4;
   }
   
   /* Make form elements larger for touch */
   input, select, textarea {
     @apply p-3;
   }
-}
-
-/* Improve text legibility */
-p {
-  @apply leading-relaxed;
-}
-
-strong {
-  @apply font-semibold;
+  
+  /* Fix overflow issues on mobile */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Improve tap targets */
+  a, button {
+    @apply py-2;
+  }
 }
 
 /* Responsive line clamp utilities */
@@ -267,4 +294,29 @@ strong {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+}
+
+/* Mobile form improvements */
+@media (max-width: 768px) {
+  form {
+    @apply space-y-3;
+  }
+  
+  label {
+    @apply text-sm mb-1;
+  }
+  
+  input, textarea, select {
+    @apply text-base py-2.5 px-3;
+  }
+  
+  /* Improved readability for form labels and hints */
+  .form-hint {
+    @apply text-xs mt-1;
+  }
+  
+  /* Better feedback for form interactions */
+  input:focus, textarea:focus, select:focus {
+    @apply ring-2;
+  }
 }
