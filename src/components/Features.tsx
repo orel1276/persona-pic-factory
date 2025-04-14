@@ -56,7 +56,17 @@ const Features = () => {
       )
     },
     {
-      title: "תוצאות מקצועיות",
+      title: "מותאם למי שאתה – לא רק איך שאתה נראה",
+      description: "המודל מאומן על התמונות האישיות שלך, מה שמבטיח תוצאה אותנטית שמשקפת את המראה האמיתי שלך בגרסה המיטבית.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      )
+    },
+    {
+      title: "תוצאה שתרגיש הכי אתה – ברמה של צלם אמיתי",
       description: "בזכות הטכנולוגיה המתקדמת של הבינה המלאכותית, התוצאות שלנו עומדות בסטנדרטים הגבוהים ביותר ולא נופלות מצילום מקצועי.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -87,16 +97,6 @@ const Features = () => {
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
       )
-    },
-    {
-      title: "התאמה אישית",
-      description: "המודל מאומן על התמונות האישיות שלך, מה שמבטיח תוצאה אותנטית שמשקפת את המראה האמיתי שלך בגרסה המיטבית.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-      )
     }
   ];
 
@@ -117,21 +117,20 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {features.map((feature, index) => (
             <div 
               key={index}
               className={cn(
                 "bg-white rounded-xl p-8 transition-all duration-700 transform shadow-lg border border-gray-100",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
-                isVisible && `transition-delay-${index * 100}`
               )}
               style={{ 
                 transitionDelay: isVisible ? `${index * 100}ms` : '0ms',
                 animationDelay: `${index * 100}ms` 
               }}
             >
-              <div className="text-primary mb-5">{feature.icon}</div>
+              <div className="text-sky-500 mb-5">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
               <p className="text-gray-700">{feature.description}</p>
             </div>
@@ -142,7 +141,7 @@ const Features = () => {
       <div className="text-center mt-12">
         <a 
           href="#צור-קשר" 
-          className="neon-button inline-block"
+          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block"
           onClick={(e) => {
             e.preventDefault();
             const element = document.getElementById("צור-קשר");

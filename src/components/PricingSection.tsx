@@ -10,6 +10,7 @@ interface PricingPlan {
   features: string[];
   buttonText: string;
   recommended?: boolean;
+  bestValue?: boolean;
 }
 
 const PricingSection = () => {
@@ -55,7 +56,8 @@ const PricingSection = () => {
         "אימון מודל AI על התמונות שלך",
         "קבלת התמונות תוך 24 שעות",
         "שימוש אישי ומקצועי",
-        "פורמט באיכות הכי גבוהה"
+        "פורמט באיכות הכי גבוהה",
+        "כולל תיקון ראשון חינם במידה ולא התחברת לתוצאה"
       ],
       buttonText: "תיצור לי אלבום עכשיו"
     },
@@ -69,10 +71,12 @@ const PricingSection = () => {
         "התאמה לזהות המותג שלך",
         "אימון מודל ייעודי למוצר שלך",
         "רישיון שימוש מסחרי מלא",
-        "קבלת התמונות תוך 24 שעות"
+        "קבלת התמונות תוך 24 שעות",
+        "כולל תיקון ראשון חינם במידה ולא התחברת לתוצאה"
       ],
       buttonText: "בואו נתחיל",
-      recommended: true
+      recommended: true,
+      bestValue: true
     }
   ];
 
@@ -84,8 +88,8 @@ const PricingSection = () => {
             מחירים מיוחדים לתקופת ההיכרות
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="neon-text-pink">מחירון </span>
-            <span className="neon-text-blue">שירותים</span>
+            <span className="text-sky-500">מחירון </span>
+            <span className="text-primary">שירותים</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             בחר את החבילה המתאימה לך ותתחיל להופיע בצורה המקצועית ביותר
@@ -97,7 +101,7 @@ const PricingSection = () => {
             <div 
               key={index}
               className={cn(
-                "rounded-2xl overflow-hidden transition-all duration-700 transform shadow-lg border",
+                "rounded-2xl overflow-hidden transition-all duration-700 transform shadow-lg border relative",
                 plan.recommended 
                   ? "border-primary/30 shadow-primary/10" 
                   : "border-gray-200",
@@ -110,6 +114,12 @@ const PricingSection = () => {
               {plan.recommended && (
                 <div className="bg-gradient-to-r from-primary to-secondary text-white text-center py-2">
                   <p className="text-sm font-medium">החבילה הפופולרית ביותר</p>
+                </div>
+              )}
+              
+              {plan.bestValue && (
+                <div className="absolute top-4 right-4 bg-yellow-500 text-black py-1 px-3 rounded-full text-sm font-bold z-10 transform rotate-12">
+                  הכי משתלם
                 </div>
               )}
               
@@ -139,7 +149,7 @@ const PricingSection = () => {
                   className={cn(
                     "w-full py-3 rounded-lg font-medium transition-all",
                     plan.recommended 
-                      ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl" 
+                      ? "bg-gradient-to-r from-sky-500 to-cyan-400 text-black shadow-lg hover:shadow-xl" 
                       : "bg-white border-2 border-primary text-primary hover:bg-primary/5"
                   )}
                 >

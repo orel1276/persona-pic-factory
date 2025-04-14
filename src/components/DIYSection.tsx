@@ -40,8 +40,8 @@ const DIYSection = () => {
             )}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              <span className="neon-text-pink">"אבל אוראל, </span>
-              <span className="neon-text-blue">אני יכול לעשות את זה בעצמי?"</span>
+              <span className="text-sky-400">"אבל אוראל, </span>
+              <span className="text-white">אני יכול לעשות את זה בעצמי?"</span>
             </h2>
             
             <div className="text-lg text-white/90 leading-relaxed space-y-6">
@@ -59,22 +59,22 @@ const DIYSection = () => {
               </p>
               
               <div className="bg-white/5 p-6 rounded-xl mt-8">
-                <h3 className="text-xl font-semibold mb-4 neon-text-pink">כשאתה עובד איתי, אתה מקבל:</h3>
+                <h3 className="text-xl font-semibold mb-4 text-sky-400">כשאתה עובד איתי, אתה מקבל:</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <span className="text-secondary flex-shrink-0 me-2">✓</span>
-                    <span>מומחיות ייחודית באמצעות מודלים מתקדמים שאני אישית מאמן ומכוון לתוצאה המושלמת</span>
+                    <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
+                    <span>תוצאה שתגרום לך להגיד "זה באמת אני?"</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-secondary flex-shrink-0 me-2">✓</span>
-                    <span>חיסכון בעשרות שעות של ניסוי וטעייה והתמודדות עם עקומת למידה תלולה</span>
+                    <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
+                    <span>חיסכון בזמן, בלבול ובניסויים מיותרים</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-secondary flex-shrink-0 me-2">✓</span>
-                    <span>תוצאות מקצועיות ועקביות שלוקחות בחשבון טכניקות צילום מתקדמות ומבוססות על שלושים שנות ניסיון בתחום השיווק</span>
+                    <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
+                    <span>תהליך פשוט עם ליווי אישי ומדויק</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-secondary flex-shrink-0 me-2">✓</span>
+                    <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
                     <span>מגוון אפשרויות ורקעים שהם תמיד עדכניים ומותאמים לצרכים השיווקיים שלך</span>
                   </li>
                 </ul>

@@ -85,10 +85,23 @@ const AboutMe = () => {
                 והמרשימה ביותר, ללא הצורך בידע טכני מורכב, השקעת זמן עצומה או הוצאות כספיות גבוהות.
               </p>
               
-              <p>
-                אני מאמין שהמפגש בין יצירתיות אנושית לבין עוצמת הבינה המלאכותית פותח אפשרויות בלתי מוגבלות, 
-                ואני נרגש להיות חלק מהמהפכה הזו ולהעניק לך את היתרונות שהיא מציעה.
-              </p>
+              <div className="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200">
+                <h3 className="text-xl font-bold text-primary mb-4">למה לעבוד דווקא איתי?</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="text-green-500 flex-shrink-0 me-2">✓</span>
+                    <span>ניסיון מעשי עם עשרות לקוחות</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 flex-shrink-0 me-2">✓</span>
+                    <span>מלווה אישי בתהליך ולא רק טכנולוגיה</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 flex-shrink-0 me-2">✓</span>
+                    <span>הקשבה והבנה של השפה השיווקית שלך</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

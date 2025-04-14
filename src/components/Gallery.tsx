@@ -6,6 +6,7 @@ interface BeforeAfterImage {
   before: string;
   after: string;
   description: string;
+  style?: string;
 }
 
 const Gallery = () => {
@@ -38,17 +39,20 @@ const Gallery = () => {
     {
       before: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
       after: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
-      description: "מנהל בכיר בחברת הייטק"
+      description: "מנהל בכיר בחברת הייטק",
+      style: "סגנון עסקי"
     },
     {
       before: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
       after: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
-      description: "מנהלת שיווק ותקשורת"
+      description: "מנהלת שיווק ותקשורת",
+      style: "Look מקצועי"
     },
     {
       before: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       after: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
-      description: "יזם וסטארטאפיסט מוביל"
+      description: "יזם וסטארטאפיסט מוביל",
+      style: "Look אישי"
     },
   ];
 
@@ -93,6 +97,9 @@ const Gallery = () => {
                   alt="Before" 
                   className="w-full h-80 md:h-[500px] object-cover"
                 />
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
+                  תמונה מקורית ששלח הלקוח
+                </div>
               </div>
               
               {/* After image */}
@@ -100,11 +107,19 @@ const Gallery = () => {
                 <div className="absolute top-4 right-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium z-10">
                   אחרי
                 </div>
+                {images[activeIndex].style && (
+                  <div className="absolute top-4 left-4 bg-sky-500 text-white py-1 px-3 rounded-full text-sm font-medium z-10">
+                    {images[activeIndex].style}
+                  </div>
+                )}
                 <img 
                   src={images[activeIndex].after} 
                   alt="After" 
                   className="w-full h-80 md:h-[500px] object-cover"
                 />
+                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
+                  תוצאה שהופקה על בסיס התאמה אישית
+                </div>
               </div>
             </div>
             

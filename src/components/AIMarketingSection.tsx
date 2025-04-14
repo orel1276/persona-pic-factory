@@ -27,45 +27,27 @@ const AIMarketingSection = () => {
   }, []);
 
   return (
-    <section id="ai-marketing" className="py-24 px-6 bg-white" ref={sectionRef}>
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row gap-10 items-center">
-          <div 
-            className={cn(
-              "w-full transition-all duration-1000 transform",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
-            )}
-          >
-            <div className="text-right">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-                קצת על עולם הבינה המלאכותית
-              </h2>
-              
-              <div className="space-y-4 text-gray-700">
-                <p className="font-medium">
-                  אם אתם כאן, כנראה שכבר הבנתם שהעתיד כבר כאן והוא נקרא בינה מלאכותית.
-                </p>
-                
-                <p>
-                  בעולם שבו טכנולוגיה מתקדמת במהירות שיא, כבר אין צורך בציוד יקר, צוותי צילום ענקיים או תקציבי ענק כדי ליצור תוכן מדהים ומקצועי. הבינה המלאכותית מאפשרת לכם לייצר סרטוני פרסומת, תוכן ויזואלי וקמפיינים מרהיבים בקלות ובמהירות שלא דמיינתם.
-                </p>
-                
-                <p className="font-medium">למה זה כל כך משמעותי?</p>
-                
-                <p>כי עסקים היום חייבים להתבלט, לחדש ולהרשים – אבל בלי להיכנס להוצאות ענק.</p>
-                
-                <p>עם הטכנולוגיה הזו, כל אחד יכול לייצר תוכן פרסומי מדהים, גם בלי ניסיון קודם.</p>
-                
-                <p className="font-medium">
-                  בואו לגלות איך לייצר תוכן מרהיב, מדויק ומשכנע – בעזרת AI בלבד, ללא ציוד יקר וללא השקעות כבדות.
-                </p>
-                
-                <p>
-                  .זו הדרך החדשה של עולם הפרסום – בואו לקחת חלק במהפכה
-                </p>
-              </div>
-            </div>
-          </div>
+    <section className="py-24 px-6 bg-gradient-to-br from-gray-900 to-gray-800">
+      <div className="container mx-auto max-w-4xl" ref={sectionRef}>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-sky-400">
+          העולם השתנה – זה הזמן לנצל את זה
+        </h2>
+
+        <div className={cn(
+          "space-y-6 text-lg text-white/90 transition-all duration-1000 transform",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        )}>
+          <p>
+            בעידן הדיגיטלי של היום, התדמית החזותית שלך היא הרושם הראשוני שאתה יוצר. אבל לא כולנו צלמים מקצועיים ולא לכולנו יש את הזמן או התקציב להשקיע בצילומי סטודיו יקרים. כאן הטכנולוגיה של <mark className="bg-sky-400/20 text-sky-300 px-1 rounded">AI</mark> נכנסת לתמונה.
+          </p>
+
+          <p>
+            בעזרת השירות שלנו, אתה יכול לקבל תמונות תדמית באיכות מקצועית <mark className="bg-sky-400/20 text-sky-300 px-1 rounded">בלי ציוד</mark> יקר, <mark className="bg-sky-400/20 text-sky-300 px-1 rounded">ללא ניסיון קודם</mark> בצילום, ומבלי לצאת מהבית. פשוט שלח לנו מספר תמונות רגילות שלך, ואנחנו נדאג לשאר.
+          </p>
+
+          <p>
+            אנחנו משתמשים בטכנולוגיה המתקדמת ביותר כדי ליצור מודל מותאם אישית שלומד את המאפיינים הייחודיים שלך, ואז מייצר תמונות חדשות שנראות טבעיות ומקצועיות. התוצאה היא תמונות תדמית שמשדרות את המקצועיות שלך בדיוק כפי שהיית רוצה להיראות.
+          </p>
         </div>
       </div>
     </section>

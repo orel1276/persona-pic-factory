@@ -50,17 +50,14 @@ const Hero = () => {
 
         <h1 
           className={cn(
-            "text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform font-rubik",
+            "text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform font-rubik",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="neon-text-blue">תן </span>
-          <span className="neon-text-blue">לעולם </span>
-          <span className="neon-text-pink">
-            לראות אותך
+          <span className="text-sky-400">תמונות תדמית באיכות סטודיו</span> – 
+          <span className="text-white">
+            בלי לצאת מהבית, בלי פוזות מבוימות. תוצאה שנראית אמיתית, מותאמת אישית ובאפס מאמץ
           </span>
-          <br/>
-          <span className="neon-text-blue">בצורה הטובה ביותר</span>
         </h1>
         
         <p 
@@ -69,7 +66,7 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          קבל תמונות תדמית מקצועיות באיכות סטודיו תוך 24 שעות בלבד! ללא צורך בצלם, בסטודיו או בהוצאות מיותרות.
+          קבל תמונות תדמית מותאמות אישית תוך 24 שעות – בלי צלם, בלי סטודיו ובלי לשבור קופת חיסכון
         </p>
         
         <div 
@@ -80,7 +77,7 @@ const Hero = () => {
         >
           <a 
             href="#צור-קשר" 
-            className="neon-button w-full sm:w-auto text-center"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-2 md:py-3 px-6 md:px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("צור-קשר");

@@ -41,7 +41,7 @@ const Process = () => {
     {
       number: 2,
       title: "אנחנו מאמנים מודל ייחודי עבורך",
-      description: "באמצעות אלגוריתמים מתקדמים של בינה מלאכותית, אנחנו מאמנים מודל שלומד את המאפיינים הייחודיים שלך ויודע לשחזר אותם בדיוק רב בסביבות ובמצבים חדשים."
+      description: "באמצעות שאלון מותאם אישית – נבנה יחד מודל שמתאים לך בול. האלגוריתמים שלנו לומדים את המאפיינים הייחודיים שלך ויודעים לשחזר אותם בדיוק רב בסביבות ובמצבים חדשים."
     },
     {
       number: 3,
@@ -62,7 +62,7 @@ const Process = () => {
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             התהליך שלנו
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold neon-text-pink mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-sky-400 mb-6">
             כיצד אנחנו יוצרים תמונות תדמית מושלמות
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
@@ -89,7 +89,7 @@ const Process = () => {
                     className="glass rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
                   >
                     <h3 className="text-xl font-bold mb-3 flex items-center">
-                      <span className="bg-primary text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3">
+                      <span className="bg-sky-500 text-white rounded-full w-10 h-10 inline-flex items-center justify-center mr-3 font-bold">
                         {step.number}
                       </span>
                       {step.title}
@@ -99,7 +99,7 @@ const Process = () => {
                 </div>
                 
                 {/* Circle in the middle */}
-                <div className="hidden md:flex w-10 h-10 absolute left-1/2 transform -translate-x-1/2 rounded-full bg-primary text-white items-center justify-center text-xl font-bold">
+                <div className="hidden md:flex w-12 h-12 absolute left-1/2 transform -translate-x-1/2 rounded-full bg-sky-500 text-white items-center justify-center text-xl font-bold">
                   {step.number}
                 </div>
               </div>

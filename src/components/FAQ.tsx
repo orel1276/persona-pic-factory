@@ -14,7 +14,7 @@ const FAQ = () => {
     },
     {
       question: "כמה זמן לוקח לקבל את התמונות?",
-      answer: "אנו מספקים את התמונות תוך 24 שעות, ובכך חוסכים לך זמן יקר בהשוואה לתהליך צילום מסורתי."
+      answer: "אנו מספקים את התמונות תוך 24 שעות, ובכך חוסכים לך זמן יקר בהשוואה לתהליך צילום מסורתי. תקבל עדכון ממני אישית על זמן ההפקה המשוער."
     },
     {
       question: "האם אני יכול לבקש סגנונות ספציפיים?",
@@ -29,7 +29,8 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-20 px-6 bg-background">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl font-bold text-center mb-12 neon-text-pink text-with-contrast">שאלות נפוצות</h2>
+        <h2 className="text-4xl font-bold text-center mb-2 text-sky-400">שאלות נפוצות</h2>
+        <p className="text-center text-white/80 mb-10 text-lg">שאלות ששואלים אותי מלא 📩</p>
         
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
@@ -39,7 +40,7 @@ const FAQ = () => {
               className="bg-white/5 rounded-lg overflow-hidden border border-white/10"
             >
               <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/5 transition-colors">
-                <span className="text-lg font-medium neon-text-blue">{faq.question}</span>
+                <span className="text-lg font-medium text-sky-400">{faq.question}</span>
               </AccordionTrigger>
               <AccordionContent className="px-6 py-4 text-white/80">
                 {faq.answer}

@@ -117,9 +117,10 @@ export default {
 				'breathe': 'breathe 8s ease-in-out infinite'
 			},
 			fontFamily: {
-				'sans': ['Rubik', 'system-ui', 'sans-serif'],
-				'display': ['Rubik', 'system-ui', 'sans-serif'],
+				'sans': ['Rubik', 'Assistant', 'system-ui', 'sans-serif'],
+				'display': ['Rubik', 'Assistant', 'system-ui', 'sans-serif'],
 				'rubik': ['Rubik', 'system-ui', 'sans-serif'],
+				'assistant': ['Assistant', 'system-ui', 'sans-serif'],
 			},
 			backdropBlur: {
 				'xs': '2px',

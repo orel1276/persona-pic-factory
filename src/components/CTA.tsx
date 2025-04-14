@@ -65,8 +65,8 @@ const CTA = () => {
     <section id="צור-קשר" className="py-24 bg-primary text-white">
       <div className="container mx-auto px-6" ref={ctaRef}>
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold relative inline-block neon-text-blue text-with-contrast">
-            תתחיל עוד היום
+          <h2 className="text-4xl font-bold relative inline-block text-sky-400">
+            רוצה שתהיה לך תמונת פרופיל שאומרת 'אני מקצוען'?
             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-white"></span>
           </h2>
           <p className="text-xl text-white/90 mt-4 max-w-2xl mx-auto">
@@ -141,13 +141,19 @@ const CTA = () => {
                     />
                   </div>
                   
+                  <div className="flex items-center justify-center space-x-2 mt-4 text-gray-700 text-sm">
+                    <span>✅ תוצאה תוך 24 שעות</span>
+                    <span>✅ ליווי אישי</span>
+                    <span>✅ דיסקרטיות מלאה</span>
+                  </div>
+                  
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full py-3 mt-2 rounded-md transition-all ${
                       isSubmitting 
                         ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'neon-button'
+                        : 'bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold shadow-md hover:shadow-lg'
                     }`}
                   >
                     {isSubmitting ? 'שולח...' : 'תיצור לי אלבום עכשיו'}

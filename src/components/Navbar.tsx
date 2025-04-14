@@ -34,13 +34,13 @@ const Navbar = () => {
           href="#" 
           className="text-3xl md:text-4xl lg:text-5xl font-bold transition-all duration-300 font-rubik"
         >
-          <span className="neon-text-blue">Film</span><span className="neon-text-pink">Kal</span>
+          <span className="text-sky-400">Film</span><span className="text-primary">Kal</span>
         </a>
         
         {/* Contact Button - positioned to the right on mobile */}
         <button 
           onClick={() => scrollToSection("צור-קשר")}
-          className="neon-button text-sm py-2 px-4 md:px-6"
+          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-2 px-4 md:px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm"
         >
           ליצירת קשר
         </button>
