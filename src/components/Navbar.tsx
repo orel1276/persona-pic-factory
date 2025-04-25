@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { WhatsApp } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +40,7 @@ const Navbar = () => {
           onClick={openWhatsApp}
           className="bg-[#25D366] text-white font-bold py-2 px-4 md:px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-sm flex items-center gap-2"
         >
-          <WhatsApp size={18} />
+          <MessageCircle size={18} />
           צור איתי קשר
         </button>
       </div>
@@ -49,3 +49,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
