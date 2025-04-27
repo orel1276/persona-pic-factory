@@ -29,33 +29,57 @@ const AIMarketingSection = () => {
   return (
     <section className="py-24 px-6 bg-gradient-to-br from-gray-900 to-gray-800">
       <div className="container mx-auto max-w-4xl" ref={sectionRef}>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-sky-400">
-          העולם השתנה – אני עוזר לך לנצל את זה
-        </h2>
+        <div className="flex flex-col items-center text-center space-y-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
+            <span className="block text-sky-400 mb-2 drop-shadow-lg">
+              העולם השתנה
+            </span>
+            <span className="block text-white/90">
+              אני עוזר לך לנצל את זה
+            </span>
+          </h2>
         
-        <p className="text-center text-white/80 mb-10 text-lg">
-          תמונה אחת טובה שווה אלף מילים. תמונה מושלמת? היא שווה הרבה יותר.
-        </p>
-
-        <div className={cn(
-          "space-y-6 text-lg text-white/90 transition-all duration-1000 transform",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        )}>
-          <p>
-            בעולם של היום, <strong>התדמית שלך</strong> היא הרושם הראשוני שאתה יוצר. אבל לא כולנו צלמים מקצועיים.
+          <p className="text-center text-white/80 mb-12 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed">
+            תמונה אחת טובה שווה אלף מילים.{" "}
+            <span className="text-sky-300">תמונה מושלמת? היא שווה הרבה יותר.</span>
           </p>
 
-          <p className="text-center text-xl py-4">
-            <mark className="bg-sky-400/20 text-sky-300 px-2 py-1 rounded">לא צריך ציוד יקר. לא צריך לדעת לפוזז.</mark>
-          </p>
+          <div className={cn(
+            "space-y-8 text-lg md:text-xl text-white/90 transition-all duration-1000 transform max-w-3xl",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          )}>
+            <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
+              <p>
+                בעולם של היום,{" "}
+                <span className="text-sky-400 font-semibold">התדמית שלך</span>
+                {" "}היא הרושם הראשוני שאתה יוצר. אבל לא כולנו צלמים מקצועיים.
+              </p>
+            </div>
 
-          <p>
-            אתה פשוט שולח לי כמה תמונות רגילות שלך, ואני דואג לכל השאר. <strong>בתוך 24 שעות</strong> אתה מקבל אלבום תדמית מקצועי.
-          </p>
+            <div className="text-center py-6">
+              <p className="inline-block bg-sky-400/20 text-sky-300 px-6 py-3 rounded-full text-xl md:text-2xl font-medium animate-float">
+                לא צריך ציוד יקר. לא צריך לדעת לפוזז.
+              </p>
+            </div>
 
-          <p>
-            אני משתמש בטכנולוגיה המתקדמת ביותר כדי ליצור <strong>מודל מותאם אישית רק בשבילך</strong>. התוצאה היא תמונות שמשדרות את המקצועיות שלך בדיוק כפי שהיית רוצה להיראות.
-          </p>
+            <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
+              <p>
+                אתה פשוט שולח לי כמה תמונות רגילות שלך, ואני דואג לכל השאר.{" "}
+                <span className="text-primary font-semibold">בתוך 24 שעות</span>
+                {" "}אתה מקבל אלבום תדמית מקצועי.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-sky-500/10 to-primary/10 p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
+              <p>
+                אני משתמש בטכנולוגיה המתקדמת ביותר כדי ליצור{" "}
+                <span className="text-sky-400 font-semibold">
+                  מודל מותאם אישית רק בשבילך
+                </span>
+                . התוצאה היא תמונות שמשדרות את המקצועיות שלך בדיוק כפי שהיית רוצה להיראות.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

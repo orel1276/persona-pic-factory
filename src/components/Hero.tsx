@@ -43,41 +43,53 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-4 md:mb-6">
+          <span className="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm text-white text-base font-medium mb-6 md:mb-8 animate-float">
             יוצר תדמית שמנצחת
           </span>
         </div>
 
         <h1 
           className={cn(
-            "text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform font-rubik",
+            "text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform font-rubik",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="text-sky-400">תמונות תדמית מקצועיות </span>
-          <span className="text-white">
-            בלי לצאת מהבית, בלי פוזות מבוימות
+          <span className="text-sky-400 block mb-2 drop-shadow-lg">
+            תמונות תדמית מקצועיות
+          </span>
+          <span className="text-white block drop-shadow-md">
+            בלי לצאת מהבית
+          </span>
+          <span className="text-white/90 block text-2xl md:text-3xl mt-4 font-normal">
+            בלי פוזות מבוימות
           </span>
         </h1>
         
         <p 
           className={cn(
-            "text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mb-6 md:mb-10 transition-all duration-1000 delay-200 transform",
+            "text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl mb-8 md:mb-12 transition-all duration-1000 delay-200 transform leading-relaxed",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          שלח לי <strong>כמה תמונות פשוטות</strong> – ואני אראה לך איך הן הופכות <strong>לתדמית מנצחת</strong>
+          שלח לי{" "}
+          <span className="bg-sky-500/20 px-2 py-1 rounded text-sky-300 font-medium">
+            כמה תמונות פשוטות
+          </span>
+          {" "}– ואני אראה לך איך הן הופכות{" "}
+          <span className="bg-primary/20 px-2 py-1 rounded text-primary font-medium">
+            לתדמית מנצחת
+          </span>
         </p>
         
         <div 
           className={cn(
-            "flex flex-col sm:flex-row gap-3 md:gap-4 w-full max-w-md mx-auto transition-all duration-1000 delay-300 transform",
+            "flex flex-col sm:flex-row gap-4 md:gap-6 w-full max-w-md mx-auto transition-all duration-1000 delay-300 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
           <a 
             href="#צור-קשר" 
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-2 md:py-3 px-6 md:px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center text-lg"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 md:py-4 px-8 md:px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center text-lg hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("צור-קשר");
@@ -87,7 +99,7 @@ const Hero = () => {
           </a>
           <a 
             href="#process" 
-            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-6 py-3 rounded-full transition-all duration-300 text-center w-full sm:w-auto text-lg"
+            className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-medium py-3 md:py-4 px-8 rounded-full transition-all duration-300 text-center w-full sm:w-auto text-lg hover:scale-105"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("process");
