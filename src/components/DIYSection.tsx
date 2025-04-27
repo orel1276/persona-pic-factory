@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Check, Clock, ArrowRight, LightBulb } from 'lucide-react';
+import { Check, Clock, ArrowRight, Lightbulb } from 'lucide-react';
 
 const DIYSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -53,7 +52,7 @@ const DIYSection = () => {
                 </h2>
                 
                 <p className="text-white/90 text-xl md:text-2xl mt-6 border-r-4 border-sky-400 pr-4 py-2">
-                  <LightBulb className="inline-block ml-2 text-sky-400" size={24} />
+                  <Lightbulb className="inline-block ml-2 text-sky-400" size={24} />
                   <span className="font-bold">בוא נהיה כנים</span> - הזמן שלך שווה הרבה יותר מזה.
                 </p>
               </div>
