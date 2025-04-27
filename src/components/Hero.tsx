@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -20,18 +21,12 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
       dir="rtl"
     >
-      {/* Background image with gradient overlay */}
+      {/* Updated gradient overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/60 mix-blend-multiply z-10"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center mask-image hover:scale-105 transition-transform duration-500"
-          style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')` 
-          }}
-        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/60 z-10"></div>
       </div>
 
       {/* Content */}
@@ -43,21 +38,21 @@ const Hero = () => {
           )}
         >
           <span className="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm text-white text-base font-medium mb-6 md:mb-8 animate-float">
-            התמונות שלך יכולות להגיד יותר
+            תמונות שמשנות דרך
           </span>
         </div>
 
         <h1 
           className={cn(
-            "text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform font-rubik",
+            "text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 max-w-4xl leading-tight transition-all duration-1000 delay-100 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
           <span className="text-sky-400 block mb-2 drop-shadow-lg">
-            תסתכל לכל אותם אנשים בלבן של העיניים,
+            תמונה אחת יכולה לשנות
           </span>
           <span className="text-white block drop-shadow-md">
-            ותראה שהם מדברים מכאב.
+            איך שהעולם רואה אותך.
           </span>
         </h1>
         
@@ -67,10 +62,16 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          מי שלא חי את החיים שהוא רוצה לחיות,{" "}
-          <span className="bg-primary/20 px-2 py-1 rounded text-primary font-medium">
-            ההצעות שלו לא רלוונטיות בשבילך.
-          </span>
+          שלח לי כמה תמונות פשוטות מהטלפון – ואני אחזיר לך תדמית מקצועית שנראית כאילו צולמה בסטודיו יוקרתי.
+        </p>
+
+        <p 
+          className={cn(
+            "text-lg md:text-xl text-white/80 max-w-2xl mb-8 md:mb-12 transition-all duration-1000 delay-300 transform",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          )}
+        >
+          בלי סטודיו, בלי עמידה מול מצלמה מביכה. רק אתה, הטלפון שלך, וקצת קסם.
         </p>
         
         <div 
@@ -98,6 +99,31 @@ const Hero = () => {
             }}
           >
             איך זה עובד?
+          </a>
+        </div>
+
+        {/* New section */}
+        <div 
+          className={cn(
+            "mt-32 max-w-3xl transition-all duration-1000 delay-400 transform",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          )}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            גם אתה יכול להיראות כמו מיליון דולר – בלי להוציא אלפים.
+          </h2>
+          <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
+            בעזרת כמה תמונות פשוטות מהטלפון – אני בונה עבורך תדמית שמדברת בעד עצמה. תדמית שתשדר הצלחה, מקצועיות ואותנטיות – בדיוק כמו שאתה באמת.
+          </p>
+          <a 
+            href="#צור-קשר"
+            className="inline-block bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 border border-white/20 backdrop-blur-sm"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("צור-קשר");
+            }}
+          >
+            שלח לי עכשיו את התמונות שלך – ותוך זמן קצר תגלה בעצמך את התוצאה
           </a>
         </div>
       </div>
