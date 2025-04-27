@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -44,7 +43,7 @@ const Hero = () => {
           )}
         >
           <span className="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm text-white text-base font-medium mb-6 md:mb-8 animate-float">
-            יוצר תדמית שמנצחת
+            התמונות שלך יכולות להגיד יותר
           </span>
         </div>
 
@@ -55,13 +54,10 @@ const Hero = () => {
           )}
         >
           <span className="text-sky-400 block mb-2 drop-shadow-lg">
-            תמונות תדמית מקצועיות
+            תסתכל לכל אותם אנשים בלבן של העיניים,
           </span>
           <span className="text-white block drop-shadow-md">
-            בלי לצאת מהבית
-          </span>
-          <span className="text-white/90 block text-2xl md:text-3xl mt-4 font-normal">
-            בלי פוזות מבוימות
+            ותראה שהם מדברים מכאב.
           </span>
         </h1>
         
@@ -71,13 +67,9 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          שלח לי{" "}
-          <span className="bg-sky-500/20 px-2 py-1 rounded text-sky-300 font-medium">
-            כמה תמונות פשוטות
-          </span>
-          {" "}– ואני אראה לך איך הן הופכות{" "}
+          מי שלא חי את החיים שהוא רוצה לחיות,{" "}
           <span className="bg-primary/20 px-2 py-1 rounded text-primary font-medium">
-            לתדמית מנצחת
+            ההצעות שלו לא רלוונטיות בשבילך.
           </span>
         </p>
         
@@ -95,7 +87,7 @@ const Hero = () => {
               scrollToSection("צור-קשר");
             }}
           >
-            בוא ניצור את התמונה שתספר את הסיפור שלך
+            בוא נדבר על התמונה שלך
           </a>
           <a 
             href="#process" 

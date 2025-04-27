@@ -32,16 +32,16 @@ const AIMarketingSection = () => {
         <div className="flex flex-col items-center text-center space-y-6">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
             <span className="block text-sky-400 mb-2 drop-shadow-lg">
-              העולם השתנה
+              כן, גם אם אלו האנשים הכי קרובים אליך
             </span>
             <span className="block text-white/90">
-              אני עוזר לך לנצל את זה
+              אתה רואה צעירים שהתעשרו תוך לילה
             </span>
           </h2>
         
           <p className="text-center text-white/80 mb-12 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed">
-            תמונה אחת טובה שווה אלף מילים.{" "}
-            <span className="text-sky-300">תמונה מושלמת? היא שווה הרבה יותר.</span>
+            נוסעים על רכבי יוקרה וחיים את החלום.{" "}
+            <span className="text-sky-300">ואני יודע כמה זה רק מוסיף לבלבול ולתסכול שלך מכנפיים.</span>
           </p>
 
           <div className={cn(
@@ -50,33 +50,33 @@ const AIMarketingSection = () => {
           )}>
             <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
               <p>
-                בעולם של היום,{" "}
-                <span className="text-sky-400 font-semibold">התדמית שלך</span>
-                {" "}היא הרושם הראשוני שאתה יוצר. אבל לא כולנו צלמים מקצועיים.
+                אבל בוא נדבר על{" "}
+                <span className="text-sky-400 font-semibold">מה שבאמת חשוב</span>.
+                {" "}איך אתה נראה בעיני הלקוחות שלך, ואיך זה משפיע על ההצלחה שלך.
               </p>
             </div>
 
             <div className="text-center py-6">
-              <p className="inline-block bg-sky-400/20 text-sky-300 px-6 py-3 rounded-full text-xl md:text-2xl font-medium animate-float">
-                לא צריך ציוד יקר. לא צריך לדעת לפוזז.
+              <p className="inline-block bg-primary/20 text-primary px-6 py-3 rounded-full text-xl md:text-2xl font-medium animate-float">
+                התדמית שלך היא המפתח להצלחה שלך
               </p>
             </div>
 
             <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
               <p>
-                אתה פשוט שולח לי כמה תמונות רגילות שלך, ואני דואג לכל השאר.{" "}
-                <span className="text-primary font-semibold">בתוך 24 שעות</span>
-                {" "}אתה מקבל אלבום תדמית מקצועי.
+                אני יכול לקחת את התמונות הרגילות שלך ולהפוך אותן{" "}
+                <span className="text-primary font-semibold">לתדמית שמשדרת הצלחה</span>.
+                {" "}בלי פוזות מאולצות, בלי צילומי סטודיו יקרים.
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-sky-500/10 to-primary/10 p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
               <p>
-                אני משתמש בטכנולוגיה המתקדמת ביותר כדי ליצור{" "}
+                תן לי{" "}
                 <span className="text-sky-400 font-semibold">
-                  מודל מותאם אישית רק בשבילך
+                  24 שעות להפוך את התמונה שלך
                 </span>
-                . התוצאה היא תמונות שמשדרות את המקצועיות שלך בדיוק כפי שהיית רוצה להיראות.
+                {" "}לכזו שתגרום ללקוחות שלך להרגיש שהם חייבים לעבוד איתך.
               </p>
             </div>
           </div>
