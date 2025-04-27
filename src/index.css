@@ -1,323 +1,35 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap');
+@import './styles/base.css';
+@import './styles/animations.css';
+@import './styles/mobile.css';
+@import './styles/utilities.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --background: 220 70% 13%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 70% 13%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 70% 13%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 335 100% 65%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 180 100% 60%;
-    --secondary-foreground: 220 70% 13%;
-
-    --muted: 220 70% 20%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 220 70% 20%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 70% 20%;
-    --input: 220 70% 20%;
-    --ring: 210 40% 98%;
-  }
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Rubik', 'Assistant', sans-serif;
-  }
-  
-  /* Improve text legibility on all devices */
-  p {
-    @apply leading-relaxed;
-  }
-  
-  /* Mobile heading sizes */
-  @media (max-width: 768px) {
-    h1 {
-      @apply text-3xl leading-tight;
-    }
-    
-    h2 {
-      @apply text-2xl leading-tight;
-    }
-    
-    h3 {
-      @apply text-xl leading-tight;
-    }
-    
-    p {
-      @apply text-base;
-    }
-  }
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
-@layer utilities {
-  /* Hide scrollbar but allow scrolling */
-  .hide-scrollbar {
-    -ms-overflow-style: none;  /* Internet Explorer and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-  
-  /* Scroll snap utilities */
-  .scroll-snap-align-start {
-    scroll-snap-align: start;
-  }
-  
-  .glass {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
-  }
-  
-  .glass-card {
-    @apply bg-white/20 backdrop-blur-md border border-white/20 shadow-xl;
-  }
-  
-  .mask-image {
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  }
-  
-  .text-stroke {
-    -webkit-text-stroke: 1px theme('colors.primary.DEFAULT');
-    text-stroke: 1px theme('colors.primary.DEFAULT');
-  }
-  
-  .transition-all-cubic {
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-  
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
-  
-  .animate-delay-600 {
-    animation-delay: 600ms;
-  }
-  
-  .animate-delay-800 {
-    animation-delay: 800ms;
-  }
-
-  .neon-text-pink {
-    color: hsl(var(--primary));
-    text-shadow: 0 0 2px hsl(var(--primary)/0.3);
-  }
-
-  .neon-text-blue {
-    color: rgb(56, 189, 248);
-    text-shadow: 0 0 2px rgb(56, 189, 248, 0.2);
-  }
-
-  .neon-gradient {
-    background: linear-gradient(90deg, rgb(56, 189, 248) 0%, rgb(34, 211, 238) 100%);
-  }
-
-  /* Mobile optimizations */
-  @media (max-width: 640px) {
-    .container {
-      @apply px-4;
-    }
-    
-    h1 {
-      @apply text-2xl mb-4;
-    }
-    
-    h2 {
-      @apply text-xl mb-3;
-    }
-    
-    h3 {
-      @apply text-lg mb-2;
-    }
-    
-    .text-sm {
-      font-size: 0.8125rem;
-    }
-    
-    /* Improve touch targets on mobile */
-    button, .button, a.button, input[type="submit"] {
-      @apply min-h-[44px] min-w-[44px];
-    }
-    
-    /* Better form readability */
-    input, textarea, select {
-      @apply text-base;
-    }
-  }
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-  width: 8px;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.card {
+  padding: 2em;
 }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.4);
-}
-
-/* Page transition animations */
-.page-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 500ms, transform 500ms;
-}
-
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 500ms, transform 500ms;
-}
-
-/* Add custom scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* שיפור נראות של טקסט על רקע בהיר */
-.text-on-light {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* שיפור ניגודיות של טקסטים */
-.text-with-contrast {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* Mobile horizontal scroll container */
-.scroll-container {
-  @apply flex overflow-x-auto py-2 hide-scrollbar;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.scroll-item {
-  @apply flex-shrink-0 scroll-snap-align-start;
-}
-
-/* Mobile section spacing improvements */
-@media (max-width: 768px) {
-  section {
-    @apply py-12;
-  }
-  
-  .section-spacing {
-    @apply my-10;
-  }
-  
-  /* Fix for circular dependency */
-  .content-spacing {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Better button sizing on mobile */
-  button, .button, a.button {
-    @apply py-2 px-4 text-sm;
-  }
-  
-  /* Fix for circular dependency */
-  /* Removing the .space-y-4 application */
-  
-  /* Make form elements larger for touch */
-  input, select, textarea {
-    @apply p-3;
-  }
-  
-  /* Fix overflow issues on mobile */
-  .overflow-x-auto {
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* Improve tap targets */
-  a, button {
-    @apply py-2;
-  }
-}
-
-/* Responsive line clamp utilities */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
-}
-
-/* Mobile form improvements */
-@media (max-width: 768px) {
-  form {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  label {
-    @apply text-sm mb-1;
-  }
-  
-  input, textarea, select {
-    @apply text-base py-2.5 px-3;
-  }
-  
-  /* Improved readability for form labels and hints */
-  .form-hint {
-    @apply text-xs mt-1;
-  }
-  
-  /* Better feedback for form interactions */
-  input:focus, textarea:focus, select:focus {
-    @apply ring-2;
-  }
+.read-the-docs {
+  color: #888;
 }

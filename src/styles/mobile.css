@@ -1,0 +1,47 @@
+
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+  
+  h1 {
+    @apply text-3xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-2xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-xl leading-tight;
+  }
+  
+  p {
+    @apply text-base;
+  }
+  
+  section {
+    @apply py-12;
+  }
+  
+  .section-spacing {
+    @apply my-10;
+  }
+  
+  button, .button, a.button {
+    @apply py-2 px-4 text-sm;
+  }
+  
+  input, select, textarea {
+    @apply p-3;
+  }
+  
+  form {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  label {
+    @apply text-sm mb-1;
+  }
+}
