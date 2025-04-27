@@ -36,14 +36,14 @@ const BusinessSection = () => {
           )}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">
-            למוצרים ולעסקים
+            תפסיק להיות נעלם
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-sky-400">הנראות שלך </span>
-            <span className="text-white">היא העסק שלך</span>
+            <span className="text-sky-400">כשהנראות שלך משדרת עוצמה, </span>
+            <span className="text-white">הלקוחות מרגישים את זה</span>
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            אני יוצר תמונות שלא רק נראות טוב – אלא גם מוכרות
+            מה ההבדל בין עסק שמצליח לעסק שנאבק? האופן שבו הוא נראה בעיני הלקוחות
           </p>
         </div>
 
@@ -56,23 +56,23 @@ const BusinessSection = () => {
           >
             <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-1 rounded-xl hover:from-primary/20 hover:to-secondary/20 transition-all duration-300">
               <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6 text-sky-400">למוצרים שלך</h3>
+                <h3 className="text-2xl font-bold mb-6 text-sky-400">למוצרים שמשנים את המשחק</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">יצירת <strong>תמונות מוצר מושלמות</strong> בלי להוציא אלפי שקלים על צילומי סטודיו</p>
+                    <p className="text-white/80"><strong>תמונות שמוכרות</strong> במקום תמונות שרק "נראות טוב"</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80"><strong>רקעים מגוונים</strong> והתאמה מושלמת לכל פלטפורמה שיווקית</p>
+                    <p className="text-white/80"><strong>חיסכון של אלפי שקלים</strong> בצילומי סטודיו שלא באמת נותנים לך ROI</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">תמונות <strong>עקביות באיכותן</strong> עם אינסוף אפשרויות לשינויים</p>
+                    <p className="text-white/80"><strong>גמישות אינסופית</strong> לשנות רקעים וסגנונות מתי שרק תרצה</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">הצגת מוצרים <strong>בסיטואציות אמיתיות</strong> שמחברות ללקוח שלך</p>
+                    <p className="text-white/80"><strong>הצגת מוצרים שגורמת ללקוחות לחשוב</strong> "אני חייב את זה עכשיו"</p>
                   </li>
                 </ul>
               </div>
@@ -87,23 +87,23 @@ const BusinessSection = () => {
           >
             <div className="bg-gradient-to-r from-secondary/10 to-primary/10 p-1 rounded-xl hover:from-secondary/20 hover:to-primary/20 transition-all duration-300">
               <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6 text-sky-400">לעסק שלך</h3>
+                <h3 className="text-2xl font-bold mb-6 text-sky-400">לעסק שרוצה להוביל</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🧑‍💼</span>
-                    <p className="text-white/80">תמונות תדמית <strong>מקצועיות ואחידות</strong> לכל הצוות והמנהלים</p>
+                    <p className="text-white/80"><strong>תדמית אחידה שמשדרת מקצועיות</strong> לכל הצוות שלך ללא יוצא מן הכלל</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🧑‍💼</span>
-                    <p className="text-white/80"><strong>חומרים שיווקיים מקוריים</strong> לכל צורך, לכל פלטפורמה</p>
+                    <p className="text-white/80"><strong>תוכן שיווקי שמכה בבטן</strong> וגורם ללקוחות להרגיש שהם חייבים אותך</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">📢</span>
-                    <p className="text-white/80"><strong>שדרוג מהיר</strong> של כל הנוכחות הוויזואלית שלך ברשת</p>
+                    <p className="text-white/80"><strong>מראה אחיד בכל הפלטפורמות</strong> שגורם למותג שלך להיראות גדול פי 10</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">📢</span>
-                    <p className="text-white/80"><strong>חיסכון של עשרות אלפי שקלים</strong> בעלויות צילום מקצועי</p>
+                    <p className="text-white/80"><strong>יתרון תחרותי מוחץ</strong> מול מתחרים שנראים חובבנים לעומתך</p>
                   </li>
                 </ul>
               </div>
@@ -121,7 +121,7 @@ const BusinessSection = () => {
             href="#צור-קשר" 
             className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block text-lg"
           >
-            מוכן לראות את עצמך בגרסה הכי טובה שלך?
+            בוא נהפוך אותך למותג שאי אפשר להתעלם ממנו
           </a>
         </div>
       </div>

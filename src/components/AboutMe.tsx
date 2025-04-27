@@ -31,10 +31,10 @@ const AboutMe = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary font-rubik">
-            היי, אני אוראל עבייד
+            אני אוראל, ואני הופך אנשים רגילים לפצצות תדמית
           </h2>
           <p className="text-lg text-gray-600 mt-4">
-            אני יוצר תמונות תדמית שמספרות את הסיפור שלך
+            אני לא סתם "עורך תמונות" – אני יוצר נראות שמושכת לקוחות
           </p>
         </div>
         
@@ -73,35 +73,35 @@ const AboutMe = () => {
           >
             <div className="space-y-6">
               <p>
-                אני בן 33, יוצר תוכן ומומחה ל<strong>בינה מלאכותית שיוצרת תמונות</strong>. 
+                אני בן 33, מומחה לבינה מלאכותית ו<strong>מהפכן בעולם התדמית הדיגיטלית</strong>.
               </p>
               
               <p className="text-center text-xl py-2">
-                התשוקה שלי? להפוך אנשים רגילים למותג חזותי מנצח.
+                המשימה שלי? להפוך אותך <strong>למגנט של לקוחות חדשים</strong> בלי שתצטרך אפילו לצאת מהבית.
               </p>
               
               <p>
-                אני לא סתם עוד מומחה טכנולוגי – אני האדם שלוקח את התמונות הפשוטות שלך והופך אותן ל<strong>תדמית שמשאירה רושם</strong> ומושכת לקוחות.
+                בשנה האחרונה הפכתי עשרות אנשים רגילים <strong>למותגים אישיים שמושכים לקוחות</strong> רק מהאופן שבו הם נראים במרחב הדיגיטלי.
               </p>
               
               <p>
-                החזון שלי פשוט: לאפשר לך להציג את עצמך בצורה מקצועית ומרשימה, <strong>בלי לבזבז זמן, מאמץ או כסף</strong> על צילומי סטודיו יקרים.
+                העיקרון שלי פשוט: לעזור לך להראות כמו <strong>המומחה שאתה באמת</strong>, בלי שתצטרך להוציא אלפי שקלים על צילומי סטודיו יקרים.
               </p>
               
               <div className="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300">
-                <h3 className="text-xl font-bold text-primary mb-4">למה לעבוד איתי?</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">למה כדאי לך לעבוד איתי?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-green-500 flex-shrink-0 me-2">✓</span>
-                    <span>התנסיתי עם <strong>עשרות לקוחות מרוצים</strong></span>
+                    <span>אני לא עורך תמונות, אני <strong>מעצב תדמית מנצחת</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 flex-shrink-0 me-2">✓</span>
-                    <span>אני <strong>מלווה אותך אישית</strong> לאורך כל התהליך</span>
+                    <span>אני מבין בדיוק <strong>איך לגרום ללקוחות לראות אותך כמומחה מוביל</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 flex-shrink-0 me-2">✓</span>
-                    <span>מבין בדיוק איך להתאים את <strong>התדמית לצרכים שלך</strong></span>
+                    <span>אני נותן לך <strong>יתרון מוחץ על המתחרים</strong> שלך עם תדמית חזקה</span>
                   </li>
                 </ul>
               </div>

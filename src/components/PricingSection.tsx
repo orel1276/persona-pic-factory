@@ -47,34 +47,34 @@ const PricingSection = () => {
   const pricingPlans: PricingPlan[] = [
     {
       title: "אלבום תדמית אישי",
-      subtitle: "לאנשים פרטיים",
+      subtitle: "להפוך אותך למגנט של לקוחות",
       originalPrice: 349,
       discountedPrice: 249,
       features: [
-        "10 תמונות תדמית באיכות סטודיו",
-        "מגוון רקעים וסגנונות",
-        "אימון מודל AI על התמונות שלך",
-        "קבלת התמונות תוך 24 שעות",
-        "שימוש אישי ומקצועי",
-        "פורמט באיכות הכי גבוהה",
-        "כולל תיקון ראשון חינם במידה ולא התחברת לתוצאה"
+        "10 תמונות תדמית שמושכות לקוחות",
+        "מגוון רקעים שמשדרים מקצועיות",
+        "מודל AI בהתאמה אישית רק לך",
+        "קבלת תוצאות תוך 24 שעות בדיוק",
+        "רישיון לשימוש אישי ומקצועי",
+        "איכות גבוהה לכל פלטפורמה",
+        "תיקון ראשון חינם - אם לא תהיה מרוצה ב-100%"
       ],
-      buttonText: "תיצור לי אלבום עכשיו"
+      buttonText: "אני רוצה להפוך למגנט של לקוחות"
     },
     {
       title: "אלבום למוצר ומותג",
-      subtitle: "לבעלי עסקים",
+      subtitle: "לשדרג את העסק שלך למובילות",
       originalPrice: 449,
       discountedPrice: 349,
       features: [
-        "10 תמונות למוצר או מותג",
-        "התאמה לזהות המותג שלך",
-        "אימון מודל ייעודי למוצר שלך",
-        "רישיון שימוש מסחרי מלא",
-        "קבלת התמונות תוך 24 שעות",
-        "כולל תיקון ראשון חינם במידה ולא התחברת לתוצאה"
+        "10 תמונות מותג שמוכרות בלי מילים",
+        "התאמה לזהות המותג שיוצרת עקביות",
+        "מודל ייעודי שמבין את המוצר שלך",
+        "רישיון מסחרי מלא - בלי הגבלות",
+        "תוצאות תוך 24 שעות שמשנות את המשחק",
+        "ליווי אישי לאורך כל התהליך"
       ],
-      buttonText: "בואו נתחיל",
+      buttonText: "קח את העסק שלי לשלב הבא",
       recommended: true,
       bestValue: true
     }
@@ -85,14 +85,14 @@ const PricingSection = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            מחירים מיוחדים לתקופת ההיכרות
+            מחירים מיוחדים לזמן מוגבל
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-sky-500">מחירון </span>
-            <span className="text-primary">שירותים</span>
+            <span className="text-sky-500">תהיה כנה עם עצמך - </span>
+            <span className="text-primary">כמה לקוחות אחד שווה לך?</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            בחר את החבילה המתאימה לך ותתחיל להופיע בצורה המקצועית ביותר
+            אם תדמית טובה יותר תביא לך אפילו לקוח אחד נוסף, ההשקעה הזו כבר החזירה את עצמה פי 10
           </p>
         </div>
 
@@ -113,13 +113,13 @@ const PricingSection = () => {
             >
               {plan.recommended && (
                 <div className="bg-gradient-to-r from-primary to-secondary text-white text-center py-2">
-                  <p className="text-sm font-medium">החבילה הפופולרית ביותר</p>
+                  <p className="text-sm font-medium">הבחירה של רוב הלקוחות שלנו</p>
                 </div>
               )}
               
               {plan.bestValue && (
                 <div className="absolute top-4 right-4 bg-yellow-500 text-black py-1 px-3 rounded-full text-sm font-bold z-10 transform rotate-12">
-                  הכי משתלם
+                  ROI מטורף
                 </div>
               )}
               
@@ -130,7 +130,7 @@ const PricingSection = () => {
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-primary">₪{plan.discountedPrice}</span>
                   <span className="text-gray-400 line-through mr-2">₪{plan.originalPrice}</span>
-                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מחיר היכרות</span>
+                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מבצע בלעדי</span>
                 </div>
                 
                 <ul className="space-y-3 mb-8">

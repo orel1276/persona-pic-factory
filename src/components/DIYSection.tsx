@@ -40,21 +40,21 @@ const DIYSection = () => {
             )}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-sky-400">"אבל אוראל, </span>
-              <span className="text-white">אני יכול לעשות את זה בעצמי?"</span>
+              <span className="text-sky-400">"בוא נדבר ישירות, </span>
+              <span className="text-white">אתה באמת חושב שיש לך זמן לזה?"</span>
             </h2>
             
             <p className="text-white/90 mb-6">
-              <span className="font-bold">בוודאי שאתה יכול.</span> בדיוק כמו שאתה יכול להיות הצלם של עצמך.
+              <span className="font-bold">אל תשלה את עצמך.</span> אתה ממילא טובע בעבודה ואתה יודע את זה.
             </p>
             
             <div className="text-lg text-white/90 leading-relaxed space-y-6">
               <p>
-                אבל האם זה באמת שווה את <strong>הזמן היקר שלך?</strong> להתפתל עם טכנולוגיות מורכבות, ולבזבז שעות ארוכות על ניסוי וטעייה?
+                אין לך באמת <strong>זמן פנוי</strong> להתחיל לשחק עם טכנולוגיות AI מורכבות, לראות מדריכים ביוטיוב ולבזבז שעות על ניסוי וטעייה.
               </p>
               
               <p className="text-center text-xl py-2">
-                או אולי עדיף לך להשקיע סכום סמלי ולקבל תוצאות מושלמות <strong>תוך 24 שעות?</strong>
+                מה שבאמת חשוב לך זה <strong>תוצאות מהירות</strong> שיקדמו אותך קדימה, לא עוד פרויקט לבזבז עליו זמן.
               </p>
               
               <div className="bg-white/5 p-6 rounded-xl mt-8 hover:bg-white/10 transition-colors duration-300">
@@ -62,19 +62,19 @@ const DIYSection = () => {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>תוצאה שתגרום לך לומר <strong>"וואו, זה באמת אני?"</strong></span>
+                    <span>תוצאה שתגרום ללקוחות שלך לחשוב <strong>"וואו, הבן אדם הזה באמת יודע מה הוא עושה"</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>חיסכון בזמן – במקום ללמוד טכנולוגיות חדשות</span>
+                    <span>חיסכון של שעות אינסופיות – כי הזמן שלך <strong>שווה הרבה יותר</strong> מזה</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>תהליך פשוט – שלח תמונות, קבל תוצאות</span>
+                    <span>תהליך פשוט וברור – <strong>בלי כאב ראש, בלי עקומת למידה</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>מגוון אפשרויות ורקעים <strong>מותאמים בדיוק לצרכים שלך</strong></span>
+                    <span>תדמית שתהפוך אותך <strong>למגנט של לקוחות חדשים</strong> מהרגע הראשון</span>
                   </li>
                 </ul>
               </div>

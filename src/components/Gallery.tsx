@@ -39,20 +39,20 @@ const Gallery = () => {
     {
       before: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
       after: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
-      description: "מנהל בכיר בחברת הייטק",
-      style: "סגנון עסקי"
+      description: "ממנהל שנראה סתמי למנכ\"ל שכולם רוצים לעבוד איתו",
+      style: "מראה של מנהיג"
     },
     {
       before: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
       after: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
-      description: "מנהלת שיווק ותקשורת",
-      style: "Look מקצועי"
+      description: "מבלתי נראית למומחית שאי אפשר להתעלם ממנה",
+      style: "סמכותיות ומקצועיות"
     },
     {
       before: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       after: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
-      description: "יזם וסטארטאפיסט מוביל",
-      style: "Look אישי"
+      description: "מיזם רגיל למותג שמושך השקעות",
+      style: "מראה של מוביל שוק"
     },
   ];
 
@@ -69,13 +69,13 @@ const Gallery = () => {
       <div className="container mx-auto px-6" ref={galleryRef}>
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-secondary text-primary text-sm font-medium mb-4">
-            התוצאות מדברות
+            התוצאות מדברות בעצמן
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            לפני ואחרי - השינוי שאני יוצר
+            ההבדל בין להיות נעלם לבין להיות בלתי נשכח
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            זה ההבדל בין תמונה רגילה לתמונת תדמית שמוכרת
+            זה לא עוד עריכת תמונות, זה שינוי תפיסה של הלקוחות לגביך
           </p>
         </div>
 
@@ -90,7 +90,7 @@ const Gallery = () => {
               {/* Before image */}
               <div className="w-full md:w-1/2 relative">
                 <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-primary py-1 px-3 rounded-full text-sm font-medium z-10">
-                  לפני
+                  איך אתה נראה עכשיו
                 </div>
                 <img 
                   src={images[activeIndex].before} 
@@ -98,14 +98,14 @@ const Gallery = () => {
                   className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  תמונה פשוטה מהטלפון
+                  נבלע בים של מתחרים
                 </div>
               </div>
               
               {/* After image */}
               <div className="w-full md:w-1/2 relative">
                 <div className="absolute top-4 right-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium z-10">
-                  אחרי
+                  איך אתה יכול להראות
                 </div>
                 {images[activeIndex].style && (
                   <div className="absolute top-4 left-4 bg-sky-500 text-white py-1 px-3 rounded-full text-sm font-medium z-10">
@@ -118,7 +118,7 @@ const Gallery = () => {
                   className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  תדמית שמוכרת אותך
+                  בולט מעל כולם
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const Gallery = () => {
                 {images[activeIndex].description}
               </h3>
               <p className="text-muted-foreground">
-                תמונה אחרי <strong>הקסם האישי</strong> שאני יוצר עבורך
+                <strong>זה לא רק איך שאתה נראה</strong>, זה איך שהלקוחות תופסים אותך
               </p>
             </div>
             
