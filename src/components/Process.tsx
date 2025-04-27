@@ -35,38 +35,38 @@ const Process = () => {
   const steps: Step[] = [
     {
       number: 1,
-      title: "שלח לנו מספר תמונות שלך",
-      description: "שלח לנו 10-20 תמונות שונות שלך מזוויות שונות, בתאורות שונות ועם הבעות פנים מגוונות. ככל שהתמונות יהיו מגוונות יותר, כך המודל ילמד טוב יותר את מאפייני הפנים שלך."
+      title: "שלח לי כמה תמונות שלך",
+      description: "פשוט שלח 10-20 תמונות רגילות שלך. אין צורך בציוד מיוחד או בפוזות מבוימות – התמונות שכבר יש לך בטלפון לגמרי מספיקות."
     },
     {
       number: 2,
-      title: "אנחנו מאמנים מודל ייחודי עבורך",
-      description: "באמצעות שאלון מותאם אישית – נבנה יחד מודל שמתאים לך בול. האלגוריתמים שלנו לומדים את המאפיינים הייחודיים שלך ויודעים לשחזר אותם בדיוק רב בסביבות ובמצבים חדשים."
+      title: "אני בונה מודל אישי רק בשבילך",
+      description: "אחרי שיחה קצרה על הצרכים שלך, אני יוצר מודל ייחודי שמבין בדיוק איך אתה נראה ומה מתאים לך. זה כמו צלם פרטי שמכיר אותך לעומק."
     },
     {
       number: 3,
-      title: "בחר את הסגנון והרקע הרצויים",
-      description: "בחר מתוך מגוון רחב של סגנונות צילום, רקעים, תאורות ומצבים שיתאימו למטרת התמונה - בין אם זה לפרופיל LinkedIn מקצועי, לאתר אישי או לכל מטרה אחרת."
+      title: "בחר את הסגנון שאתה רוצה",
+      description: "רוצה להיראות כמו מנכ\"ל? יועץ מקצועי? מרצה מוביל? תבחר את הסגנון והרקע שמתאימים למטרה שלך – אני אעשה את כל השאר."
     },
     {
       number: 4,
-      title: "קבל תמונות מקצועיות באיכות סטודיו",
-      description: "תוך זמן קצר תקבל מגוון תמונות מקצועיות באיכות גבוהה, מוכנות לשימוש. כל התמונות עוברות ביקורת איכות לפני שליחתן אליך."
+      title: "קבל תוצאות שיגרמו לך לחייך",
+      description: "תוך 24 שעות, אתה מקבל קובץ עם עשרות תמונות מקצועיות באיכות גבוהה, מוכנות לשימוש בכל מקום – מהלינקדאין ועד לאתר שלך."
     }
   ];
 
   return (
-    <section id="process" className="py-24 bg-background">
+    <section id="process" className="py-24 bg-background mt-16">
       <div className="container mx-auto px-6" ref={processRef}>
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            התהליך שלנו
+            איך זה עובד
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-sky-400 mb-6">
-            כיצד אנחנו יוצרים תמונות תדמית מושלמות
+          <h2 className="text-3xl md:text-4xl font-bold text-sky-400 mb-4">
+            ארבעה צעדים פשוטים לתדמית מנצחת
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            תהליך פשוט, מהיר ואפקטיבי שמבטיח תוצאות מעולות
+            בלי מאמץ, בלי סיבוכים – רק תוצאות מדהימות
           </p>
         </div>
 
@@ -74,7 +74,7 @@ const Process = () => {
           {/* Vertical line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
           
-          <div className="space-y-12 relative">
+          <div className="space-y-20 relative">
             {steps.map((step, index) => (
               <div 
                 key={index}
@@ -86,7 +86,7 @@ const Process = () => {
               >
                 <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:order-1 md:text-left md:pl-12'}`}>
                   <div 
-                    className="glass rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                    className="glass rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/5"
                   >
                     <h3 className="text-xl font-bold mb-3 flex items-center">
                       <span className="bg-sky-500 text-white rounded-full w-10 h-10 inline-flex items-center justify-center mr-3 font-bold">

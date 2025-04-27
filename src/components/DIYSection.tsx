@@ -27,7 +27,7 @@ const DIYSection = () => {
   }, []);
 
   return (
-    <section id="diy" className="py-24 px-6 bg-background relative overflow-hidden" ref={sectionRef}>
+    <section id="diy" className="py-24 px-6 bg-background relative overflow-hidden mt-16" ref={sectionRef}>
       {/* Background glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-96 bg-primary/5 blur-[100px] rounded-full"></div>
       
@@ -39,43 +39,42 @@ const DIYSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-sky-400">"אבל אוראל, </span>
               <span className="text-white">אני יכול לעשות את זה בעצמי?"</span>
             </h2>
             
+            <p className="text-white/90 mb-6">
+              <span className="font-bold">בוודאי שאתה יכול.</span> בדיוק כמו שאתה יכול להיות הצלם של עצמך.
+            </p>
+            
             <div className="text-lg text-white/90 leading-relaxed space-y-6">
               <p>
-                <span className="font-bold">נכון לגמרי.</span> בדיוק כמו שאתה יכול ללמוד לצלם בעצמך, לבנות אתר בעצמך או לעצב לוגו בעצמך.
+                אבל האם זה באמת שווה את <strong>הזמן היקר שלך?</strong> להתפתל עם טכנולוגיות מורכבות, ולבזבז שעות ארוכות על ניסוי וטעייה?
               </p>
               
-              <p>
-                אבל האם זה באמת שווה את הזמן היקר שלך? להתפתל עם AI prompt engineering, ללמוד טכניקות אימון מודלים מתקדמות, 
-                להתמודד עם שגיאות ותוצאות לא אידאליות, ולבזבז שעות ארוכות על ניסוי וטעייה?
+              <p className="text-center text-xl py-2">
+                או אולי עדיף לך להשקיע סכום סמלי ולקבל תוצאות מושלמות <strong>תוך 24 שעות?</strong>
               </p>
               
-              <p>
-                או אולי עדיף לך להשקיע סכום סמלי ולקבל תמונות תדמית ברמה הגבוהה ביותר תוך זמן קצר, מאדם שמתמחה בתחום ומכיר את כל הטריקים?
-              </p>
-              
-              <div className="bg-white/5 p-6 rounded-xl mt-8">
+              <div className="bg-white/5 p-6 rounded-xl mt-8 hover:bg-white/10 transition-colors duration-300">
                 <h3 className="text-xl font-semibold mb-4 text-sky-400">כשאתה עובד איתי, אתה מקבל:</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>תוצאה שתגרום לך להגיד "זה באמת אני?"</span>
+                    <span>תוצאה שתגרום לך לומר <strong>"וואו, זה באמת אני?"</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>חיסכון בזמן, בלבול ובניסויים מיותרים</span>
+                    <span>חיסכון בזמן – במקום ללמוד טכנולוגיות חדשות</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>תהליך פשוט עם ליווי אישי ומדויק</span>
+                    <span>תהליך פשוט – שלח תמונות, קבל תוצאות</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 me-2">✓</span>
-                    <span>מגוון אפשרויות ורקעים שהם תמיד עדכניים ומותאמים לצרכים השיווקיים שלך</span>
+                    <span>מגוון אפשרויות ורקעים <strong>מותאמים בדיוק לצרכים שלך</strong></span>
                   </li>
                 </ul>
               </div>

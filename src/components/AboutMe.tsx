@@ -27,12 +27,15 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100" ref={aboutRef}>
+    <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100 mt-16" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary font-rubik">
-            נעים להכיר, אוראל עבייד
+            היי, אני אוראל עבייד
           </h2>
+          <p className="text-lg text-gray-600 mt-4">
+            אני יוצר תמונות תדמית שמספרות את הסיפור שלך
+          </p>
         </div>
         
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
@@ -43,7 +46,7 @@ const AboutMe = () => {
             )}
           >
             {/* Improved image positioning within circle */}
-            <div className="relative w-64 h-64 md:w-72 md:h-72">
+            <div className="relative w-64 h-64 md:w-72 md:h-72 hover:scale-105 transition-all duration-500">
               {/* Circle background with subtle glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_15px_rgba(255,0,150,0.4)]"></div>
               
@@ -70,35 +73,35 @@ const AboutMe = () => {
           >
             <div className="space-y-6">
               <p>
-                בן 33, יוצר דיגיטלי ומומחה לטכנולוגיות בינה מלאכותית. את הקריירה שלי התחלתי כעורך וידאו מקצועי, 
-                אך התשוקה שלי לחדשנות הובילה אותי להתמחות בעולם המרתק של ה-AI.
+                אני בן 33, יוצר תוכן ומומחה ל<strong>בינה מלאכותית שיוצרת תמונות</strong>. 
+              </p>
+              
+              <p className="text-center text-xl py-2">
+                התשוקה שלי? להפוך אנשים רגילים למותג חזותי מנצח.
               </p>
               
               <p>
-                אני מקדיש את ימיי לחקירה, למידה והתנסות מתמדת בטכנולוגיות החדשניות ביותר בתחום. 
-                השילוב הייחודי שלי בין הבנה ויזואלית עמוקה לבין שליטה בכלי AI מתקדמים מאפשר לי ליצור תוכן 
-                שלא רק נראה מדהים, אלא גם משרת מטרות שיווקיות ומקצועיות.
+                אני לא סתם עוד מומחה טכנולוגי – אני האדם שלוקח את התמונות הפשוטות שלך והופך אותן ל<strong>תדמית שמשאירה רושם</strong> ומושכת לקוחות.
               </p>
               
               <p>
-                החזון שלי פשוט: להנגיש טכנולוגיה מתקדמת ולאפשר לכל אדם ועסק להציג את עצמו בצורה המקצועית 
-                והמרשימה ביותר, ללא הצורך בידע טכני מורכב, השקעת זמן עצומה או הוצאות כספיות גבוהות.
+                החזון שלי פשוט: לאפשר לך להציג את עצמך בצורה מקצועית ומרשימה, <strong>בלי לבזבז זמן, מאמץ או כסף</strong> על צילומי סטודיו יקרים.
               </p>
               
-              <div className="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200">
-                <h3 className="text-xl font-bold text-primary mb-4">למה לעבוד דווקא איתי?</h3>
+              <div className="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300">
+                <h3 className="text-xl font-bold text-primary mb-4">למה לעבוד איתי?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-green-500 flex-shrink-0 me-2">✓</span>
-                    <span>ניסיון מעשי עם עשרות לקוחות</span>
+                    <span>התנסיתי עם <strong>עשרות לקוחות מרוצים</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 flex-shrink-0 me-2">✓</span>
-                    <span>מלווה אישי בתהליך ולא רק טכנולוגיה</span>
+                    <span>אני <strong>מלווה אותך אישית</strong> לאורך כל התהליך</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 flex-shrink-0 me-2">✓</span>
-                    <span>הקשבה והבנה של השפה השיווקית שלך</span>
+                    <span>מבין בדיוק איך להתאים את <strong>התדמית לצרכים שלך</strong></span>
                   </li>
                 </ul>
               </div>

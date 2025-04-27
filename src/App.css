@@ -76,6 +76,42 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+/* Animation for floating elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Content spacing for better readability */
+.content-spacing p {
+  margin-bottom: 1rem;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .container {
@@ -90,4 +126,30 @@
   h2 {
     font-size: 2rem;
   }
+
+  .mt-16 {
+    margin-top: 3rem;
+  }
+  
+  .py-24 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Enhanced glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Increase spacing between sections */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+section + section {
+  margin-top: 60px;
 }

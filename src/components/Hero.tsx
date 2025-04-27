@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/60 mix-blend-multiply z-10"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center mask-image"
+          className="absolute inset-0 bg-cover bg-center mask-image hover:scale-105 transition-transform duration-500"
           style={{ 
             backgroundImage: `url('https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')` 
           }}
@@ -44,7 +44,7 @@ const Hero = () => {
           )}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-4 md:mb-6">
-            המהפכה בעולם תמונות התדמית
+            יוצר תדמית שמנצחת
           </span>
         </div>
 
@@ -54,9 +54,9 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="text-sky-400">תמונות תדמית באיכות סטודיו</span> – 
+          <span className="text-sky-400">תמונות תדמית מקצועיות </span>
           <span className="text-white">
-            בלי לצאת מהבית, בלי פוזות מבוימות. תוצאה שנראית אמיתית, מותאמת אישית ובאפס מאמץ
+            בלי לצאת מהבית, בלי פוזות מבוימות
           </span>
         </h1>
         
@@ -66,7 +66,7 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          קבל תמונות תדמית מותאמות אישית תוך 24 שעות – בלי צלם, בלי סטודיו ובלי לשבור קופת חיסכון
+          שלח לי <strong>כמה תמונות פשוטות</strong> – ואני אראה לך איך הן הופכות <strong>לתדמית מנצחת</strong>
         </p>
         
         <div 
@@ -77,17 +77,17 @@ const Hero = () => {
         >
           <a 
             href="#צור-קשר" 
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-2 md:py-3 px-6 md:px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-2 md:py-3 px-6 md:px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center text-lg"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("צור-קשר");
             }}
           >
-            תיצור לי אלבום עכשיו
+            בוא ניצור את התמונה שתספר את הסיפור שלך
           </a>
           <a 
             href="#process" 
-            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-6 py-3 rounded-full transition-all duration-300 text-center w-full sm:w-auto"
+            className="bg-transparent hover:bg-white/10 border border-white text-white font-medium px-6 py-3 rounded-full transition-all duration-300 text-center w-full sm:w-auto text-lg"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("process");

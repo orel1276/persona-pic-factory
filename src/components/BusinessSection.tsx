@@ -27,7 +27,7 @@ const BusinessSection = () => {
   }, []);
 
   return (
-    <section id="business" className="py-24 px-6 bg-background/90" ref={sectionRef}>
+    <section id="business" className="py-24 px-6 bg-background/90 mt-16" ref={sectionRef}>
       <div className="container mx-auto max-w-5xl">
         <div 
           className={cn(
@@ -36,14 +36,14 @@ const BusinessSection = () => {
           )}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">
-            פתרונות למותגים ועסקים
+            למוצרים ולעסקים
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-sky-400">הפוך את הנראות שלך </span>
-            <span className="text-white">לעסק שמוכר יותר</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="text-sky-400">הנראות שלך </span>
+            <span className="text-white">היא העסק שלך</span>
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            לא רק אנשים פרטיים נהנים מהשירות שלנו - גם עסקים ומותגים יכולים להפיק תועלת עצומה מטכנולוגיה מתקדמת זו
+            אני יוצר תמונות שלא רק נראות טוב – אלא גם מוכרות
           </p>
         </div>
 
@@ -54,25 +54,25 @@ const BusinessSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
           >
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-1 rounded-xl">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-1 rounded-xl hover:from-primary/20 hover:to-secondary/20 transition-all duration-300">
               <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6 text-sky-400">למותגים ומוצרים</h3>
+                <h3 className="text-2xl font-bold mb-6 text-sky-400">למוצרים שלך</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">יצירת סטים שלמים של תמונות מוצר באיכות מקצועית ללא צורך בצילומי סטודיו יקרים</p>
+                    <p className="text-white/80">יצירת <strong>תמונות מוצר מושלמות</strong> בלי להוציא אלפי שקלים על צילומי סטודיו</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">התאמת מוצרים לסגנונות שונים, רקעים מגוונים וסביבות שונות בקלות ובמהירות</p>
+                    <p className="text-white/80"><strong>רקעים מגוונים</strong> והתאמה מושלמת לכל פלטפורמה שיווקית</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">יצירת תמונות מוצר עקביות באיכותן עם אפשרויות אינסופיות לשינויים לקמפיינים ועונות שונות</p>
+                    <p className="text-white/80">תמונות <strong>עקביות באיכותן</strong> עם אינסוף אפשרויות לשינויים</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🏷️</span>
-                    <p className="text-white/80">הצגת מוצרים בתרחישי שימוש ריאליסטיים ומותאמים לקהל היעד שלך</p>
+                    <p className="text-white/80">הצגת מוצרים <strong>בסיטואציות אמיתיות</strong> שמחברות ללקוח שלך</p>
                   </li>
                 </ul>
               </div>
@@ -85,25 +85,25 @@ const BusinessSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
           >
-            <div className="bg-gradient-to-r from-secondary/10 to-primary/10 p-1 rounded-xl">
+            <div className="bg-gradient-to-r from-secondary/10 to-primary/10 p-1 rounded-xl hover:from-secondary/20 hover:to-primary/20 transition-all duration-300">
               <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6 text-sky-400">לעסקים וחברות</h3>
+                <h3 className="text-2xl font-bold mb-6 text-sky-400">לעסק שלך</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🧑‍💼</span>
-                    <p className="text-white/80">תמונות תדמית מקצועיות ואחידות לכל הצוות והמנהלים ללא צורך לתאם ולבזבז ימי עבודה יקרים</p>
+                    <p className="text-white/80">תמונות תדמית <strong>מקצועיות ואחידות</strong> לכל הצוות והמנהלים</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">🧑‍💼</span>
-                    <p className="text-white/80">יצירת חומרים שיווקיים עם עובדים ומוצרים בסביבות שונות לצרכי פרסום ומדיה חברתית</p>
+                    <p className="text-white/80"><strong>חומרים שיווקיים מקוריים</strong> לכל צורך, לכל פלטפורמה</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">📢</span>
-                    <p className="text-white/80">שדרוג מהיר ועקבי של כל התמונות באתר החברה, ברשתות החברתיות ובפרופילים המקצועיים</p>
+                    <p className="text-white/80"><strong>שדרוג מהיר</strong> של כל הנוכחות הוויזואלית שלך ברשת</p>
                   </li>
                   <li className="flex items-start">
                     <span className="text-sky-400 flex-shrink-0 mr-3">📢</span>
-                    <p className="text-white/80">חיסכון משמעותי בעלויות צילום, תיאום לוחות זמנים, ושכירת שירותים מקצועיים</p>
+                    <p className="text-white/80"><strong>חיסכון של עשרות אלפי שקלים</strong> בעלויות צילום מקצועי</p>
                   </li>
                 </ul>
               </div>
@@ -119,9 +119,9 @@ const BusinessSection = () => {
         >
           <a 
             href="#צור-קשר" 
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block text-lg"
           >
-            תיצור לי אלבום עכשיו
+            מוכן לראות את עצמך בגרסה הכי טובה שלך?
           </a>
         </div>
       </div>

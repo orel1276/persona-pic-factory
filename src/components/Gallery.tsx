@@ -65,17 +65,17 @@ const Gallery = () => {
   };
 
   return (
-    <section id="גלריה" className="py-24 bg-white">
+    <section id="גלריה" className="py-24 bg-white mt-16">
       <div className="container mx-auto px-6" ref={galleryRef}>
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-secondary text-primary text-sm font-medium mb-4">
-            הגלריה שלנו
+            התוצאות מדברות
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            לפני ואחרי - דוגמאות מהעבודות שלנו
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            לפני ואחרי - השינוי שאני יוצר
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            ראה איך הבינה המלאכותית יכולה להפוך תמונות רגילות לתמונות תדמית מקצועיות באיכות סטודיו
+            זה ההבדל בין תמונה רגילה לתמונת תדמית שמוכרת
           </p>
         </div>
 
@@ -85,7 +85,7 @@ const Gallery = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           )}
         >
-          <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden">
+          <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
             <div className="flex flex-col md:flex-row">
               {/* Before image */}
               <div className="w-full md:w-1/2 relative">
@@ -95,10 +95,10 @@ const Gallery = () => {
                 <img 
                   src={images[activeIndex].before} 
                   alt="Before" 
-                  className="w-full h-80 md:h-[500px] object-cover"
+                  className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  תמונה מקורית ששלח הלקוח
+                  תמונה פשוטה מהטלפון
                 </div>
               </div>
               
@@ -115,10 +115,10 @@ const Gallery = () => {
                 <img 
                   src={images[activeIndex].after} 
                   alt="After" 
-                  className="w-full h-80 md:h-[500px] object-cover"
+                  className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  תוצאה שהופקה על בסיס התאמה אישית
+                  תדמית שמוכרת אותך
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const Gallery = () => {
                 {images[activeIndex].description}
               </h3>
               <p className="text-muted-foreground">
-                התמונה נוצרה באמצעות מודל AI מותאם אישית על בסיס מספר תמונות של הלקוח
+                תמונה אחרי <strong>הקסם האישי</strong> שאני יוצר עבורך
               </p>
             </div>
             

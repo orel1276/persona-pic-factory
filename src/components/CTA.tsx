@@ -114,15 +114,15 @@ const CTA = () => {
   };
 
   return (
-    <section id="צור-קשר" className="py-16 md:py-24 bg-background">
+    <section id="צור-קשר" className="py-16 md:py-24 bg-background mt-16">
       <div className="container mx-auto px-4 md:px-6" ref={ctaRef}>
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold relative inline-block text-sky-400">
-            רוצה שתהיה לך תמונת פרופיל שאומרת 'אני מקצוען'?
+            מוכן לראות את עצמך בגרסה הכי טובה שלך?
             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-white"></span>
           </h2>
           <p className="text-lg md:text-xl text-white/90 mt-4 max-w-2xl mx-auto">
-            מלא את הפרטים ואצור איתך קשר בהקדם כדי להתחיל בתהליך יצירת תמונות התדמית שלך
+            שלח לי פרטים ואיצור איתך קשר <strong>תוך שעות</strong> כדי להתחיל
           </p>
         </div>
         
@@ -135,10 +135,10 @@ const CTA = () => {
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-3/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-                מוכן לקבל תמונות תדמית מקצועיות?
+                בוא נהפוך אותך למקצוען שנראה כמו מקצוען
               </h2>
               <p className="text-muted-foreground mb-5 text-sm md:text-base">
-                השאר פרטים ואחזור אליך בהקדם עם מידע נוסף על השירות ואיך נוכל ליצור את תמונות התדמית המושלמות עבורך.
+                איך אתה רוצה להיראות בעיני הלקוחות שלך? מלא פרטים ונתחיל לעבוד על זה.
               </p>
               
               {!isSubmitted ? (
@@ -152,7 +152,7 @@ const CTA = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                      placeholder="הכנס את שמך המלא"
+                      placeholder="השם שלך"
                     />
                   </div>
                   
@@ -182,14 +182,14 @@ const CTA = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">הודעה (אופציונלי)</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">כמה מילים על מה שאתה צריך</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={3}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                      placeholder="ספר לנו קצת על הצרכים שלך..."
+                      placeholder="ספר לי קצת על הצרכים שלך..."
                     />
                   </div>
                   
@@ -202,13 +202,13 @@ const CTA = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full py-2.5 mt-2 rounded-md transition-all ${
+                    className={`w-full py-2.5 mt-2 rounded-md transition-all text-lg ${
                       isSubmitting 
                         ? 'bg-gray-400 cursor-not-allowed' 
                         : 'bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold shadow-md hover:shadow-lg'
                     }`}
                   >
-                    {isSubmitting ? 'שולח...' : 'תיצור לי אלבום עכשיו'}
+                    {isSubmitting ? 'שולח...' : 'בוא ניצור את התמונה שתספר את הסיפור שלך'}
                   </button>
                 </form>
               ) : (
@@ -216,9 +216,9 @@ const CTA = () => {
                   <svg className="w-10 h-10 text-green-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <h3 className="text-lg md:text-xl font-bold text-green-800 mb-2">תודה שפנית אלינו!</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-green-800 mb-2">יצרת איתי קשר בהצלחה!</h3>
                   <p className="text-green-700 text-sm md:text-base">
-                    ההודעה שלך התקבלה בהצלחה. אצור איתך קשר בהקדם האפשרי.
+                    אני אחזור אליך ממש בקרוב. בינתיים, כבר אפשר להתחיל לחשוב איזה תדמית תרצה ליצור.
                   </p>
                 </div>
               )}
@@ -238,31 +238,31 @@ const CTA = () => {
                     <svg className="w-5 h-5 mr-2 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <p className="text-white/90 text-sm">תמונות תדמית באיכות סטודיו</p>
+                    <p className="text-white/90 text-sm">תמונות שנראות <strong>מקצועיות</strong></p>
                   </div>
                   <div className="flex items-center">
                     <svg className="w-5 h-5 mr-2 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <p className="text-white/90 text-sm">חיסכון של אלפי שקלים</p>
+                    <p className="text-white/90 text-sm">חיסכון של <strong>אלפי שקלים</strong></p>
                   </div>
                   <div className="flex items-center">
                     <svg className="w-5 h-5 mr-2 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <p className="text-white/90 text-sm">קבלת התמונות תוך ימים ספורים</p>
+                    <p className="text-white/90 text-sm"><strong>במקום לחכות שבועות</strong> – קבל את התמונות תוך ימים</p>
                   </div>
                   <div className="flex items-center">
                     <svg className="w-5 h-5 mr-2 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <p className="text-white/90 text-sm">מודל AI מותאם אישית עבורך</p>
+                    <p className="text-white/90 text-sm">מודל AI <strong>שנוצר רק בשבילך</strong></p>
                   </div>
                   <div className="flex items-center">
                     <svg className="w-5 h-5 mr-2 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <p className="text-white/90 text-sm">דיסקרטיות מלאה מובטחת</p>
+                    <p className="text-white/90 text-sm"><strong>דיסקרטיות מלאה</strong> מובטחת</p>
                   </div>
                 </div>
               </div>
