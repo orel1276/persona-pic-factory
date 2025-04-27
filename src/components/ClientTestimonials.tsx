@@ -35,6 +35,13 @@ const ClientTestimonials = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const testimonials = [
     {
       id: 1,
@@ -124,7 +131,7 @@ const ClientTestimonials = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden"
+      className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden mt-16"
       style={{ 
         background: "linear-gradient(135deg, hsl(var(--primary)/0.1) 0%, hsl(var(--secondary)/0.1) 100%)"
       }}
@@ -133,9 +140,15 @@ const ClientTestimonials = () => {
     >
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8 md:mb-12">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/30 backdrop-blur-sm text-primary text-sm font-medium mb-4">
+            הלקוחות שלנו משתפים
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-primary neon-text-pink">
-            לקוחות משתפים:
+            מה לקוחות אמרו אחרי שקיבלו את התמונות החדשות שלהם
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <strong>תמונות ששינו חיים</strong> ועזרו להם למשוך לקוחות חדשים
+          </p>
         </div>
 
         {isMobile ? (
@@ -170,6 +183,20 @@ const ClientTestimonials = () => {
             </div>
           </Carousel>
         )}
+
+        {/* Add standardized CTA */}
+        <div className="text-center mt-16">
+          <a 
+            href="#צור-קשר" 
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("צור-קשר");
+            }}
+          >
+            בוא נדבר על התמונה שלך
+          </a>
+        </div>
       </div>
       
       {/* Subtle animation patterns for background effect */}

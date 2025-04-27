@@ -59,7 +59,7 @@ const PricingSection = () => {
         "איכות גבוהה לכל פלטפורמה",
         "תיקון ראשון חינם - אם לא תהיה מרוצה ב-100%"
       ],
-      buttonText: "אני רוצה להפוך למגנט של לקוחות"
+      buttonText: "בוא נדבר על התמונה שלך"
     },
     {
       title: "אלבום למוצר ומותג",
@@ -74,7 +74,7 @@ const PricingSection = () => {
         "תוצאות תוך 24 שעות שמשנות את המשחק",
         "ליווי אישי לאורך כל התהליך"
       ],
-      buttonText: "קח את העסק שלי לשלב הבא",
+      buttonText: "התחל לשנות את התדמית שלך",
       recommended: true,
       bestValue: true
     }
@@ -92,7 +92,7 @@ const PricingSection = () => {
             <span className="text-primary">כמה לקוחות אחד שווה לך?</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            אם תדמית טובה יותר תביא לך אפילו לקוח אחד נוסף, ההשקעה הזו כבר החזירה את עצמה פי 10
+            <strong>אם תדמית טובה יותר תביא לך אפילו לקוח אחד נוסף</strong>, ההשקעה הזו כבר החזירה את עצמה פי 10
           </p>
         </div>
 
@@ -101,7 +101,7 @@ const PricingSection = () => {
             <div 
               key={index}
               className={cn(
-                "rounded-2xl overflow-hidden transition-all duration-700 transform shadow-lg border relative",
+                "rounded-2xl overflow-hidden transition-all duration-700 transform shadow-lg border relative hover:-translate-y-2",
                 plan.recommended 
                   ? "border-primary/30 shadow-primary/10" 
                   : "border-gray-200",
@@ -147,7 +147,7 @@ const PricingSection = () => {
                 <button
                   onClick={() => scrollToSection("צור-קשר")}
                   className={cn(
-                    "w-full py-3 rounded-lg font-medium transition-all",
+                    "w-full py-3 rounded-lg font-medium transition-all hover:scale-105",
                     plan.recommended 
                       ? "bg-gradient-to-r from-sky-500 to-cyan-400 text-black shadow-lg hover:shadow-xl" 
                       : "bg-white border-2 border-primary text-primary hover:bg-primary/5"

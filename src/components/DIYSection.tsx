@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Check, Clock, ArrowRight, Lightbulb } from 'lucide-react';
@@ -25,6 +26,13 @@ const DIYSection = () => {
       observer.disconnect();
     };
   }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section 
@@ -59,7 +67,7 @@ const DIYSection = () => {
               
               <div className="text-lg text-white/90 leading-relaxed space-y-8">
                 {/* שיפור הצגת הנקודות החשובות */}
-                <div className="flex items-start space-x-4 space-x-reverse bg-white/5 p-6 rounded-xl hover:bg-white/10 transition-all duration-300">
+                <div className="flex items-start space-x-4 space-x-reverse bg-white/5 p-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
                   <span className="text-sky-400 flex-shrink-0 mt-1">
                     <Clock size={24} className="animate-pulse" />
                   </span>
@@ -108,9 +116,13 @@ const DIYSection = () => {
                   <div className="mt-10 text-center">
                     <a 
                       href="#צור-קשר" 
-                      className="inline-flex items-center bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full hover:shadow-lg hover:shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-1 text-lg group"
+                      className="inline-flex items-center bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full hover:shadow-lg hover:shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 text-lg group"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection("צור-קשר");
+                      }}
                     >
-                      <span>בוא ניצור את התמונה שתספר את הסיפור שלך</span>
+                      <span>התחל לשנות את התדמית שלך</span>
                       <ArrowRight className="mr-2 rtl:rotate-180 rtl:ml-2 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform duration-300" size={20} />
                     </a>
                   </div>

@@ -26,6 +26,13 @@ const BusinessSection = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="business" className="py-24 px-6 bg-background/90 mt-16" ref={sectionRef}>
       <div className="container mx-auto max-w-5xl">
@@ -43,7 +50,7 @@ const BusinessSection = () => {
             <span className="text-white">הלקוחות מרגישים את זה</span>
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            מה ההבדל בין עסק שמצליח לעסק שנאבק? האופן שבו הוא נראה בעיני הלקוחות
+            <strong>מה ההבדל בין עסק שמצליח לעסק שנאבק?</strong> האופן שבו הוא נראה בעיני הלקוחות
           </p>
         </div>
 
@@ -54,7 +61,7 @@ const BusinessSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
           >
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-1 rounded-xl hover:from-primary/20 hover:to-secondary/20 transition-all duration-300">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-1 rounded-xl hover:from-primary/20 hover:to-secondary/20 transition-all duration-300 hover:-translate-y-1">
               <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8">
                 <h3 className="text-2xl font-bold mb-6 text-sky-400">למוצרים שמשנים את המשחק</h3>
                 <ul className="space-y-4">
@@ -85,7 +92,7 @@ const BusinessSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
           >
-            <div className="bg-gradient-to-r from-secondary/10 to-primary/10 p-1 rounded-xl hover:from-secondary/20 hover:to-primary/20 transition-all duration-300">
+            <div className="bg-gradient-to-r from-secondary/10 to-primary/10 p-1 rounded-xl hover:from-secondary/20 hover:to-primary/20 transition-all duration-300 hover:-translate-y-1">
               <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8">
                 <h3 className="text-2xl font-bold mb-6 text-sky-400">לעסק שרוצה להוביל</h3>
                 <ul className="space-y-4">
@@ -119,7 +126,11 @@ const BusinessSection = () => {
         >
           <a 
             href="#צור-קשר" 
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block text-lg"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("צור-קשר");
+            }}
           >
             בוא נהפוך אותך למותג שאי אפשר להתעלם ממנו
           </a>

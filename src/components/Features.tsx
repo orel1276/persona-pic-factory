@@ -32,6 +32,13 @@ const Features = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const features: Feature[] = [
     {
       title: "חיסכון כספי משמעותי",
@@ -113,7 +120,7 @@ const Features = () => {
             היתרונות של תמונות תדמית מבוססות בינה מלאכותית
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            אנחנו משלבים טכנולוגיה חדשנית עם הבנה מעמיקה של צילום מקצועי כדי לספק לך את התוצאות הטובות ביותר
+            <strong>אנחנו משלבים טכנולוגיה חדשנית עם הבנה מעמיקה של צילום מקצועי</strong> כדי לספק לך את התוצאות הטובות ביותר
           </p>
         </div>
 
@@ -122,7 +129,7 @@ const Features = () => {
             <div 
               key={index}
               className={cn(
-                "bg-white rounded-xl p-8 transition-all duration-700 transform shadow-lg border border-gray-100",
+                "bg-white rounded-xl p-8 transition-all duration-700 transform shadow-lg border border-gray-100 hover:-translate-y-2 hover:shadow-xl",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
               )}
               style={{ 
@@ -138,17 +145,16 @@ const Features = () => {
         </div>
       </div>
       
-      <div className="text-center mt-12">
+      <div className="text-center mt-16">
         <a 
           href="#צור-קשר" 
-          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block"
+          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
           onClick={(e) => {
             e.preventDefault();
-            const element = document.getElementById("צור-קשר");
-            if (element) element.scrollIntoView({ behavior: 'smooth' });
+            scrollToSection("צור-קשר");
           }}
         >
-          תיצור לי אלבום עכשיו
+          בוא נדבר על התמונה שלך
         </a>
       </div>
     </section>

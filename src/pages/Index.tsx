@@ -4,14 +4,15 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Process from '@/components/Process';
+import BusinessSection from '@/components/BusinessSection';
 import Gallery from '@/components/Gallery';
-import FAQ from '@/components/FAQ';
+import ClientTestimonials from '@/components/ClientTestimonials';
 import AboutMe from '@/components/AboutMe';
+import DIYSection from '@/components/DIYSection';
+import PricingSection from '@/components/PricingSection';
+import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import DIYSection from '@/components/DIYSection';
-import BusinessSection from '@/components/BusinessSection';
-import PricingSection from '@/components/PricingSection';
 import AIMarketingSection from '@/components/AIMarketingSection';
 
 const Index = () => {
@@ -46,10 +47,11 @@ const Index = () => {
         <Hero />
         <AIMarketingSection />
         <Features />
+        <Process />
         <BusinessSection />
         <Gallery />
+        <ClientTestimonials />
         <AboutMe />
-        <Process />
         <DIYSection />
         <PricingSection />
         <FAQ />

@@ -34,6 +34,13 @@ const Gallery = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Example images - in a real application these would be your actual before/after samples
   const images: BeforeAfterImage[] = [
     {
@@ -75,7 +82,7 @@ const Gallery = () => {
             ההבדל בין להיות נעלם לבין להיות בלתי נשכח
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            זה לא עוד עריכת תמונות, זה שינוי תפיסה של הלקוחות לגביך
+            <strong>זה לא עוד עריכת תמונות</strong>, זה שינוי תפיסה של הלקוחות לגביך
           </p>
         </div>
 
@@ -135,7 +142,7 @@ const Gallery = () => {
             {/* Navigation arrows */}
             <button 
               onClick={handlePrev}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all"
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110"
               aria-label="Previous image"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -145,7 +152,7 @@ const Gallery = () => {
             
             <button 
               onClick={handleNext}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all"
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110"
               aria-label="Next image"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -167,6 +174,20 @@ const Gallery = () => {
               />
             ))}
           </div>
+        </div>
+
+        {/* Add standardized CTA */}
+        <div className="text-center mt-16">
+          <a 
+            href="#צור-קשר" 
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("צור-קשר");
+            }}
+          >
+            בוא נדבר על התמונה שלך
+          </a>
         </div>
       </div>
     </section>

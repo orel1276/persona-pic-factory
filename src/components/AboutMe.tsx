@@ -26,10 +26,20 @@ const AboutMe = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100 mt-16" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            מי אני?
+          </span>
           <h2 className="text-4xl font-bold text-primary font-rubik">
             אני אוראל, ואני הופך אנשים רגילים לפצצות תדמית
           </h2>
@@ -104,6 +114,20 @@ const AboutMe = () => {
                     <span>אני נותן לך <strong>יתרון מוחץ על המתחרים</strong> שלך עם תדמית חזקה</span>
                   </li>
                 </ul>
+              </div>
+
+              {/* Add standardized CTA */}
+              <div className="text-center mt-8">
+                <a 
+                  href="#צור-קשר" 
+                  className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("צור-קשר");
+                  }}
+                >
+                  בוא נדבר על התמונה שלך
+                </a>
               </div>
             </div>
           </div>

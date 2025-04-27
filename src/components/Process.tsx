@@ -32,6 +32,13 @@ const Process = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const steps: Step[] = [
     {
       number: 1,
@@ -60,13 +67,13 @@ const Process = () => {
       <div className="container mx-auto px-6" ref={processRef}>
         <div className="text-center mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            התהליך שהופך אותך למגנט של לקוחות
+            התהליך הפשוט שהופך אותך למגנט של לקוחות
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-sky-400 mb-4">
             ארבעה צעדים בדרך לתדמית שתשנה את העסק שלך
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            בזמן שאתה קורא את זה, המתחרים שלך כבר עובדים על התדמית שלהם
+            <strong>בזמן שאתה קורא את זה, המתחרים שלך כבר עובדים על התדמית שלהם</strong>
           </p>
         </div>
 
@@ -105,6 +112,20 @@ const Process = () => {
               </div>
             ))}
           </div>
+        </div>
+        
+        {/* Add standardized CTA at the end */}
+        <div className="text-center mt-16">
+          <a 
+            href="#צור-קשר" 
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("צור-קשר");
+            }}
+          >
+            התחל לשנות את התדמית שלך עכשיו
+          </a>
         </div>
       </div>
     </section>
