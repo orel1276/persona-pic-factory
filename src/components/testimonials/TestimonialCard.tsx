@@ -27,7 +27,7 @@ const TestimonialCard = ({ name, position, messages, avatar, isVisible, index }:
       style={{ transitionDelay: `${index * 200}ms` }}
     >
       {/* WhatsApp-like header */}
-      <div className="bg-[#075E54] text-white p-3">
+      <div className="bg-[#075E54] text-white p-4">
         <div className="flex items-center">
           <Avatar className="h-10 w-10 mr-3 border-2 border-white/20">
             <AvatarImage src={avatar} alt={name} />
@@ -40,8 +40,8 @@ const TestimonialCard = ({ name, position, messages, avatar, isVisible, index }:
         </div>
       </div>
       
-      {/* Messages area */}
-      <div className="p-4 bg-[#E5DDD5] flex-1 flex flex-col justify-between">
+      {/* Messages area with increased spacing */}
+      <div className="p-5 bg-[#E5DDD5] flex-1 flex flex-col justify-between">
         <div>
           {messages.map((message, idx) => (
             <WhatsAppBubble 

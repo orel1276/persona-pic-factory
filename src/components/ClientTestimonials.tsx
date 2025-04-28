@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import TestimonialCard from './testimonials/TestimonialCard';
 
@@ -29,7 +30,7 @@ const ClientTestimonials = () => {
       position: "יועצת עסקית",
       messages: [
         {
-          text: "יא אלוף! אני לא מאמינה מה עשית מהתמונות ששלחתי.\nבאמת שלא ציפיתי שזה ייראה ככה... כאילו סטודיו של אלפי שקלים.\nהצלת ��ותי! תודה ענקית 🙏🏼",
+          text: "יא אלופה! אני לא מאמינה מה עשית מהתמונות ששלחתי.\nבאמת שלא ציפיתי שזה ייראה ככה... כאילו סטודיו של אלפי שקלים.\nהצלחת אחי! תודה ענקית 🙏🏼",
           time: "14:22"
         }
       ],
@@ -67,9 +68,14 @@ const ClientTestimonials = () => {
       dir="rtl"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
-          מה הלקוחות שלנו אומרים
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            מה הלקוחות שלנו אומרים
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            תגובות אמיתיות אחרי שקיבלו את התמונות החדשות
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
