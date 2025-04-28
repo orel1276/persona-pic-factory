@@ -1,6 +1,5 @@
-
 import React, { useEffect, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
+import TestimonialCard from './testimonials/TestimonialCard';
 
 const ClientTestimonials = () => {
   const testimonialsRef = useRef<HTMLDivElement>(null);
@@ -60,13 +59,6 @@ const ClientTestimonials = () => {
     }
   ];
 
-  const WhatsAppBubble = ({ text, time }: { text: string, time: string }) => (
-    <div className="bg-[#E7FFE1] rounded-lg p-4 mb-2 max-w-[85%] mr-auto relative">
-      <p className="text-[#111B21] whitespace-pre-line text-base">{text}</p>
-      <span className="text-xs text-gray-500 block text-right mt-1">{time}</span>
-    </div>
-  );
-
   return (
     <section 
       id="testimonials" 
@@ -86,42 +78,12 @@ const ClientTestimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div 
+            <TestimonialCard 
               key={index}
-              className={cn(
-                "bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-700 transform",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-              )}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              {/* WhatsApp-like header */}
-              <div className="bg-[#075E54] text-white p-3">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm opacity-90">{testimonial.position}</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Messages area */}
-              <div className="p-4 bg-[#E5DDD5]">
-                {testimonial.messages.map((message, idx) => (
-                  <WhatsAppBubble 
-                    key={idx}
-                    text={message.text}
-                    time={message.time}
-                  />
-                ))}
-              </div>
-            </div>
+              {...testimonial}
+              isVisible={isVisible}
+              index={index}
+            />
           ))}
         </div>
       </div>
