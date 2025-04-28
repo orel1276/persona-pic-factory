@@ -77,41 +77,31 @@ const Process = () => {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
-          
-          <div className="space-y-20 relative">
-            {steps.map((step, index) => (
-              <div 
-                key={index}
-                className={cn(
-                  "flex flex-col md:flex-row items-center transition-all duration-1000 transform",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
-                )}
-                style={{ transitionDelay: isVisible ? `${index * 200}ms` : '0ms' }}
-              >
-                <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:order-1 md:text-left md:pl-12'}`}>
-                  <div 
-                    className="glass rounded-xl p-8 relative transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/5"
-                  >
-                    <h3 className="text-xl font-bold mb-3 flex items-center">
-                      <span className="bg-sky-500 text-white rounded-full w-10 h-10 inline-flex items-center justify-center mr-3 font-bold">
-                        {step.number}
-                      </span>
-                      {step.title}
-                    </h3>
-                    <p className="text-white/80">{step.description}</p>
-                  </div>
-                </div>
-                
-                {/* Circle in the middle */}
-                <div className="hidden md:flex w-12 h-12 absolute left-1/2 transform -translate-x-1/2 rounded-full bg-sky-500 text-white items-center justify-center text-xl font-bold">
+        {/* New grid layout for the steps */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative">
+          {steps.map((step, index) => (
+            <div 
+              key={index}
+              className={cn(
+                "glass rounded-xl p-8 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/5 h-full flex flex-col",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
+              )}
+              style={{ transitionDelay: isVisible ? `${index * 150}ms` : '0ms' }}
+            >
+              {/* Step number and title */}
+              <div className="flex items-center mb-4">
+                <span className="bg-sky-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold">
                   {step.number}
-                </div>
+                </span>
+                <h3 className="text-xl font-bold">
+                  {step.title}
+                </h3>
               </div>
-            ))}
-          </div>
+              
+              {/* Step description */}
+              <p className="text-white/80">{step.description}</p>
+            </div>
+          ))}
         </div>
         
         {/* Add standardized CTA at the end */}

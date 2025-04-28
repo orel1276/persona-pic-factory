@@ -41,7 +41,7 @@ const Gallery = () => {
     }
   };
 
-  // Updated images with the new uploaded content
+  // Original images with the requested captions
   const images: BeforeAfterImage[] = [
     {
       before: "/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png",
