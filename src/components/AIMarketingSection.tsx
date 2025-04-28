@@ -32,16 +32,16 @@ const AIMarketingSection = () => {
         <div className="flex flex-col items-center text-center space-y-6">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
             <span className="block text-sky-400 mb-2 drop-shadow-lg">
-              כן, גם אם אלו האנשים הכי קרובים אליך
+              רושם ראשוני נוצר
             </span>
             <span className="block text-white/90">
-              אתה רואה צעירים שהתעשרו תוך לילה
+              לפני שמספיקים לומר מילה
             </span>
           </h2>
         
           <p className="text-center text-white/80 mb-12 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed">
-            נוסעים על רכבי יוקרה וחיים את החלום.{" "}
-            <span className="text-sky-300">ואני יודע כמה זה רק מוסיף לבלבול ולתסכול שלך מכנפיים.</span>
+            איך אתה נראה בתמונה שלך – זה מה שיגרום לאנשים{" "}
+            <span className="text-sky-300">לעצור, להאמין, להתחבר – או להמשיך הלאה.</span>
           </p>
 
           <div className={cn(
@@ -50,9 +50,11 @@ const AIMarketingSection = () => {
           )}>
             <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
               <p>
-                אבל בוא נדבר על{" "}
-                <span className="text-sky-400 font-semibold">מה שבאמת חשוב</span>.
-                {" "}איך אתה נראה בעיני הלקוחות שלך, ואיך זה משפיע על ההצלחה שלך.
+                במקום להמר על תמונות חובבניות,{" "}
+                <span className="text-sky-400 font-semibold">
+                  בוא נבנה לך תדמית שתראה בדיוק את מה שאתה באמת:
+                </span>
+                {" "}מקצועי, אמין, ומוכן להזדמנויות הבאות שלך.
               </p>
             </div>
 
@@ -62,21 +64,12 @@ const AIMarketingSection = () => {
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
-              <p>
-                אני יכול לקחת את התמונות הרגילות שלך ולהפוך אותן{" "}
-                <span className="text-primary font-semibold">לתדמית שמשדרת הצלחה</span>.
-                {" "}בלי פוזות מאולצות, בלי צילומי סטודיו יקרים.
-              </p>
-            </div>
-
             <div className="bg-gradient-to-r from-sky-500/10 to-primary/10 p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
               <p>
-                תן לי{" "}
+                שלח לי כמה תמונות פשוטות –{" "}
                 <span className="text-sky-400 font-semibold">
-                  24 שעות להפוך את התמונה שלך
+                  ואני אדאג שהעולם יראה אותך בגרסה הכי חזקה שלך
                 </span>
-                {" "}לכזו שתגרום ללקוחות שלך להרגיש שהם חייבים לעבוד איתך.
               </p>
             </div>
           </div>
