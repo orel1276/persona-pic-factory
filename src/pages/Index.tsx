@@ -14,6 +14,7 @@ import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import AIMarketingSection from '@/components/AIMarketingSection';
+import TimeSection from '@/components/TimeSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,7 @@ const Index = () => {
         <Hero />
         <AIMarketingSection />
         <Features />
+        <TimeSection />
         <Process />
         <BusinessSection />
         <Gallery />
