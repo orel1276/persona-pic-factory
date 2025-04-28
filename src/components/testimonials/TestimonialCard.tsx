@@ -1,8 +1,7 @@
 
 import { cn } from "@/lib/utils";
-import { MessageCircle, User, Briefcase } from "lucide-react";
-import WhatsAppBubble from "./WhatsAppBubble";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import WhatsAppBubble from "./WhatsAppBubble";
 
 interface Message {
   text: string;
@@ -19,14 +18,6 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ name, position, messages, avatar, isVisible, index }: TestimonialCardProps) => {
-  // Determine which icon to show based on position
-  const getPositionIcon = (position: string) => {
-    if (position.includes("עסק") || position.includes("מנכ") || position.includes("שיווק")) {
-      return <Briefcase className="h-4 w-4 text-white/80" />;
-    }
-    return <User className="h-4 w-4 text-white/80" />;
-  };
-
   return (
     <div 
       className={cn(
@@ -43,11 +34,8 @@ const TestimonialCard = ({ name, position, messages, avatar, isVisible, index }:
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
           <div className="flex-1">
-            <div className="flex items-center gap-1.5">
-              <p className="font-semibold">{name}</p>
-              {getPositionIcon(position)}
-            </div>
-            <p className="text-sm opacity-90">{position}</p>
+            <p className="font-bold text-base">{name}</p>
+            <p className="text-sm opacity-80">{position}</p>
           </div>
         </div>
       </div>
