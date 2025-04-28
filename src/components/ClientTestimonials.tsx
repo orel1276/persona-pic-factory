@@ -60,8 +60,8 @@ const ClientTestimonials = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-12 text-center">
-            הלקוחות של FILMKAL משתפים
+          <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
+            הלקוחות של <span className="neon-text-blue">Film</span><span className="neon-text-pink">Kal</span> משתפים
           </h2>
         </div>
 
