@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Check } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const AIMarketingSection = () => {
@@ -33,23 +32,25 @@ const AIMarketingSection = () => {
       className="py-16 md:py-24 px-6 relative overflow-hidden bg-background"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-12">
-          {/* Image - On the left for desktop, on bottom for mobile */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
+          {/* Image - Left side for desktop, bottom for mobile */}
           <div 
             className={cn(
-              "w-full md:w-[45%] order-last md:order-first transition-all duration-1000 delay-400",
-              isVisible ? "opacity-100 translate-y-0 md:translate-x-0" : "opacity-0 translate-y-8 md:translate-x-12"
+              "relative w-full md:w-[45%] order-last md:order-first transition-all duration-1000 delay-400 md:h-[600px] flex items-center",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
+            {/* Soft background circle */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[90%] aspect-square rounded-full bg-sky-100/20 blur-2xl" />
+            
             <img
               src="/lovable-uploads/622ad20a-206a-464e-bcf4-8919bf081a04.png"
               alt="אוראל - מומחה תדמית דיגיטלית"
-              className="w-4/5 md:w-full h-auto mx-auto md:max-w-xl"
-              style={{ objectFit: 'contain', objectPosition: 'center' }}
+              className="relative w-[90%] h-auto object-contain object-left"
             />
           </div>
 
-          {/* Text Content - On the right for desktop, on top for mobile */}
+          {/* Text Content - Right side for desktop, top for mobile */}
           <div className="w-full md:w-[55%] space-y-8 text-right">
             <h2 
               className={cn(
@@ -57,24 +58,19 @@ const AIMarketingSection = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
-              אני אוראל, ואני הופך אנשים רגילים לפצצות תדמית.
+              אני אוראל, ואני הופך אנשים רגילים לפצצות תדמית
             </h2>
-
-            <p 
-              className={cn(
-                "text-xl md:text-2xl text-muted-foreground transition-all duration-700 delay-100",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-            >
-              אני לא עורך תמונות – אני יוצר תדמית שמושכת לקוחות.
-            </p>
 
             <div 
               className={cn(
-                "space-y-4 text-lg text-foreground/90 transition-all duration-700 delay-200",
+                "space-y-6 text-lg text-foreground/90 transition-all duration-700 delay-200",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
+              <p>
+                אני לא עורך תמונות – אני יוצר תדמית שמושכת לקוחות.
+              </p>
+
               <p>
                 בגיל 33, צברתי ניסיון מעשי בהבנת מה באמת יוצר את הרושם הראשוני בעולם הדיגיטלי.
               </p>
@@ -94,22 +90,22 @@ const AIMarketingSection = () => {
 
             <div 
               className={cn(
-                "p-6 rounded-xl bg-muted/50 border border-border/50 space-y-4 transition-all duration-700 delay-300",
+                "p-6 rounded-xl bg-slate-900/50 border border-border/50 space-y-4 transition-all duration-700 delay-300",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
               <h3 className="font-semibold text-xl text-primary">למה כדאי לעבוד איתי?</h3>
               <ul className="space-y-3 text-foreground/90">
                 <li className="flex gap-2 items-start">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-primary mt-1">✓</span>
                   <span>אני לא עורך תמונות, אני מעצב תדמית מנצחת</span>
                 </li>
                 <li className="flex gap-2 items-start">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-primary mt-1">✓</span>
                   <span>אני מבין בדיוק איך לגרום ללקוחות לראות אותך כמו מקצוען</span>
                 </li>
                 <li className="flex gap-2 items-start">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-primary mt-1">✓</span>
                   <span>אני נותן יתרון תחרותי עם תדמית חזקה שתגרום לעסק שלך לבלוט</span>
                 </li>
               </ul>

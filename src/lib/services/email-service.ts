@@ -17,19 +17,16 @@ export const sendContactEmail = async (data: ContactFormData) => {
       reply_to: data.email,
       phone: data.phone || 'לא הוזן',
       message: data.message || 'לא הוזן הודעה',
+      to_name: 'FilmKal', // Added recipient name
     };
 
-    const response = await emailjs.send(
+    await emailjs.send(
       EMAIL_CONFIG.serviceID,
       EMAIL_CONFIG.templateID,
       templateParams
     );
 
-    if (response.status !== 200) {
-      throw new Error('שליחת האימייל נכשלה');
-    }
-
-    return response;
+    return { success: true };
   } catch (error) {
     console.error('Email sending error:', error);
     throw error;
