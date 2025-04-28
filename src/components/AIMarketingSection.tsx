@@ -31,24 +31,24 @@ const AIMarketingSection = () => {
       className="py-16 md:py-24 px-4 relative overflow-hidden bg-background"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           {/* Image - On the left for desktop */}
           <div 
             className={cn(
-              "w-full md:w-5/12 order-1 md:order-1 transition-all duration-1000 delay-400",
+              "w-full md:w-[45%] order-last md:order-first transition-all duration-1000 delay-400",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
             )}
           >
             <img
-              src="/lovable-uploads/d880f8be-861b-42de-912d-0c9268eaa245.png"
+              src="/lovable-uploads/622ad20a-206a-464e-bcf4-8919bf081a04.png"
               alt="אוראל - מומחה תדמית דיגיטלית"
-              className="w-[90%] md:w-full max-w-lg mx-auto transform scale-125"
+              className="w-full h-auto max-w-xl mx-auto"
               style={{ objectFit: 'contain', objectPosition: 'center' }}
             />
           </div>
 
           {/* Text Content - On the right for desktop */}
-          <div className="w-full md:w-7/12 order-2 md:order-2 space-y-6 text-right">
+          <div className="w-full md:w-[55%] space-y-8 text-right">
             <h2 
               className={cn(
                 "text-3xl md:text-4xl lg:text-5xl font-bold text-primary transition-all duration-700",
@@ -78,7 +78,7 @@ const AIMarketingSection = () => {
               </p>
 
               <p>
-                המשימה שלי? להפוך אותך ללמגנט לקוחות חדשים מהר יותר – בלי שתצטרך לדבר הרבה.
+                המשימה שלי? להפוך אותך ל<span className="text-primary">מגנט לקוחות חדשים</span> מהר יותר – בלי שתצטרך לדבר הרבה.
               </p>
 
               <p>
@@ -86,18 +86,18 @@ const AIMarketingSection = () => {
               </p>
 
               <p>
-                אני כאן כדי לעזור לך להראות כמו המומחה שאתה באמת – גם אם אתה מצלם רק עם הטלפון.
+                אני כאן כדי לעזור לך להראות כמו <span className="text-primary">המומחה שאתה באמת</span> – גם אם אתה מצלם רק עם הטלפון.
               </p>
             </div>
 
             <div 
               className={cn(
-                "p-6 rounded-xl border border-border/50 space-y-4 transition-all duration-700 delay-300",
+                "p-6 rounded-xl bg-muted/50 border border-border/50 space-y-4 transition-all duration-700 delay-300",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
               <h3 className="font-semibold text-xl text-primary">למה כדאי לעבוד איתי?</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-foreground/90">
                 <li className="flex gap-2 items-start">
                   <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <span>אני לא עורך תמונות, אני מעצב תדמית מנצחת</span>
