@@ -1,9 +1,9 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Check } from 'lucide-react';
 
 const AIMarketingSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -17,61 +17,97 @@ const AIMarketingSection = () => {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const element = document.getElementById('ai-marketing');
+    if (element) {
+      observer.observe(element);
     }
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-br from-gray-900 to-gray-800">
-      <div className="container mx-auto max-w-4xl" ref={sectionRef}>
-        <div className="flex flex-col items-center text-center space-y-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
-            <span className="block text-sky-400 mb-2 drop-shadow-lg">
-              רושם ראשוני נוצר
-            </span>
-            <span className="block text-white/90">
-              לפני שמספיקים לומר מילה
-            </span>
-          </h2>
-        
-          <p className="text-center text-white/80 mb-12 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed">
-            איך אתה נראה בתמונה שלך – זה מה שיגרום לאנשים{" "}
-            <span className="text-sky-300">לעצור, להאמין, להתחבר – או להמשיך הלאה.</span>
-          </p>
+    <section
+      id="ai-marketing"
+      className="py-16 md:py-24 px-4 relative overflow-hidden bg-background"
+    >
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
+          {/* Text Content */}
+          <div className="w-full md:w-7/12 space-y-6 text-right">
+            <h2 
+              className={cn(
+                "text-3xl md:text-4xl lg:text-5xl font-bold text-primary transition-all duration-700",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+            >
+              אני אוראל, ואני יוצר תדמית שמושכת לקוחות.
+            </h2>
 
-          <div className={cn(
-            "space-y-8 text-lg md:text-xl text-white/90 transition-all duration-1000 transform max-w-3xl",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}>
-            <div className="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
+            <p 
+              className={cn(
+                "text-xl md:text-2xl text-muted-foreground transition-all duration-700 delay-100",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+            >
+              לא סתם עריכה. לא עוד תמונות. אני יוצר תדמית שמרגישה אמיתית – ומביאה לקוחות.
+            </p>
+
+            <div 
+              className={cn(
+                "space-y-4 text-lg text-foreground/90 transition-all duration-700 delay-200",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+            >
               <p>
-                במקום להמר על תמונות חובבניות,{" "}
-                <span className="text-sky-400 font-semibold">
-                  בוא נבנה לך תדמית שתראה בדיוק את מה שאתה באמת:
-                </span>
-                {" "}מקצועי, אמין, ומוכן להזדמנויות הבאות שלך.
+                אני אוראל, בן 33, מומחה ביצירת תדמית דיגיטלית שמושכת את האנשים הנכונים.
+                בעזרת כמה תמונות פשוטות מהטלפון שלך – אני הופך אותך לנוכחות מקצועית, אותנטית ומשכנעת.
               </p>
-            </div>
 
-            <div className="text-center py-6">
-              <p className="inline-block bg-primary/20 text-primary px-6 py-3 rounded-full text-xl md:text-2xl font-medium animate-float">
-                התדמית שלך היא המפתח להצלחה שלך
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-r from-sky-500/10 to-primary/10 p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
               <p>
-                שלח לי כמה תמונות פשוטות –{" "}
-                <span className="text-sky-400 font-semibold">
-                  ואני אדאג שהעולם יראה אותך בגרסה הכי חזקה שלך
-                </span>
+                המשימה שלי? להראות לעולם בדיוק את מה שהכי טוב בך – עוד לפני שהם פוגשים אותך.
+              </p>
+
+              <p>
+                בשנה האחרונה עזרתי לעשרות עסקים להיראות מקצועיים, לעורר אמון ולכבוש לקוחות – בלי להוציא עשרות אלפי שקלים על צילומי סטודיו.
               </p>
             </div>
+
+            <div 
+              className={cn(
+                "p-6 rounded-xl border border-border/50 space-y-4 transition-all duration-700 delay-300",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+            >
+              <h3 className="font-semibold text-xl text-primary">למה כדאי לעבוד איתי?</h3>
+              <ul className="space-y-3">
+                <li className="flex gap-2 items-start">
+                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span>אני לא עורך תמונות, אני מעצב תדמית מנצחת</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span>אני מבין בדיוק איך לגרום ללקוחות לראות אותך כמו מקצוען</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <span>אני נותן יתרון תחרותי עם תדמית חזקה שתגרום לעסק שלך לבלוט</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div 
+            className={cn(
+              "w-full md:w-5/12 transition-all duration-1000 delay-400",
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+            )}
+          >
+            <img
+              src="/lovable-uploads/d880f8be-861b-42de-912d-0c9268eaa245.png"
+              alt="אוראל - מומחה תדמית דיגיטלית"
+              className="w-[80%] md:w-full max-w-lg mx-auto transform scale-125"
+            />
           </div>
         </div>
       </div>
