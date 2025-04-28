@@ -1,6 +1,8 @@
 
 import { cn } from "@/lib/utils";
+import { MessageCircle, User, Briefcase } from "lucide-react";
 import WhatsAppBubble from "./WhatsAppBubble";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface Message {
   text: string;
@@ -16,42 +18,54 @@ interface TestimonialCardProps {
   index: number;
 }
 
-const TestimonialCard = ({ name, position, messages, avatar, isVisible, index }: TestimonialCardProps) => (
-  <div 
-    className={cn(
-      "bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-700 transform",
-      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-    )}
-    style={{ transitionDelay: `${index * 200}ms` }}
-  >
-    {/* WhatsApp-like header */}
-    <div className="bg-[#075E54] text-white p-3">
-      <div className="flex items-center">
-        <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-          <img 
-            src={avatar} 
-            alt={name} 
-            className="w-full h-full object-cover"
-          />
+const TestimonialCard = ({ name, position, messages, avatar, isVisible, index }: TestimonialCardProps) => {
+  // Determine which icon to show based on position
+  const getPositionIcon = (position: string) => {
+    if (position.includes("עסק") || position.includes("מנכ") || position.includes("שיווק")) {
+      return <Briefcase className="h-4 w-4 text-white/80" />;
+    }
+    return <User className="h-4 w-4 text-white/80" />;
+  };
+
+  return (
+    <div 
+      className={cn(
+        "bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-700 transform h-full flex flex-col",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+      )}
+      style={{ transitionDelay: `${index * 200}ms` }}
+    >
+      {/* WhatsApp-like header */}
+      <div className="bg-[#075E54] text-white p-3">
+        <div className="flex items-center">
+          <Avatar className="h-10 w-10 mr-3 border-2 border-white/20">
+            <AvatarImage src={avatar} alt={name} />
+            <AvatarFallback>{name[0]}</AvatarFallback>
+          </Avatar>
+          <div className="flex-1">
+            <div className="flex items-center gap-1.5">
+              <p className="font-semibold">{name}</p>
+              {getPositionIcon(position)}
+            </div>
+            <p className="text-sm opacity-90">{position}</p>
+          </div>
         </div>
+      </div>
+      
+      {/* Messages area */}
+      <div className="p-4 bg-[#E5DDD5] flex-1 flex flex-col justify-between">
         <div>
-          <p className="font-semibold">{name}</p>
-          <p className="text-sm opacity-90">{position}</p>
+          {messages.map((message, idx) => (
+            <WhatsAppBubble 
+              key={idx}
+              text={message.text}
+              time={message.time}
+            />
+          ))}
         </div>
       </div>
     </div>
-    
-    {/* Messages area */}
-    <div className="p-4 bg-[#E5DDD5]">
-      {messages.map((message, idx) => (
-        <WhatsAppBubble 
-          key={idx}
-          text={message.text}
-          time={message.time}
-        />
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
 export default TestimonialCard;

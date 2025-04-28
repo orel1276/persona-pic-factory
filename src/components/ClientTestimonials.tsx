@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import TestimonialCard from './testimonials/TestimonialCard';
 
@@ -44,7 +45,7 @@ const ClientTestimonials = () => {
           time: "15:45"
         }
       ],
-      avatar: "https://i.pravatar.cc/150?img=32"
+      avatar: "https://i.pravatar.cc/150?img=12" // Changed to male avatar
     },
     {
       name: "אודליה",
@@ -67,13 +68,13 @@ const ClientTestimonials = () => {
       dir="rtl"
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            הלקוחות שלנו מספרים
+        <div className="text-center mb-16">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            חוויות לקוחות
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            מה הלקוחות שלנו אומרים
           </h2>
-          <p className="text-gray-600 text-lg">
-            מה אנשים אומרים על השירות שלנו
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
