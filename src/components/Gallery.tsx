@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -48,8 +49,8 @@ const Gallery = () => {
       style: "מנהיג דרך חדשה"
     },
     {
-      before: "/lovable-uploads/582e792e-7734-4566-a4b6-d22bdccd47a7.png",
-      after: "/lovable-uploads/771bc8c8-0b86-4f67-b32f-9c3aa6a84932.png",
+      before: "/lovable-uploads/d880f8be-861b-42de-912d-0c9268eaa245.png",
+      after: "/lovable-uploads/21f854b3-6b2e-4140-a6cc-776dde6ba2c4.png",
       description: "ממראה רגיל למנהיג עסקי מלא השראה",
       style: "יוקרה ומקצועיות שלא ניתן להתעלם מהן"
     },
