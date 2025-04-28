@@ -63,7 +63,7 @@ const ClientTestimonials = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-20 relative overflow-hidden bg-gray-50"
+      className="py-20 relative overflow-hidden bg-white"
       ref={testimonialsRef}
       dir="rtl"
     >
