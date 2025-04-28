@@ -63,7 +63,7 @@ const ClientTestimonials = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-20 relative overflow-hidden bg-white"
+      className="py-20 relative overflow-hidden bg-[#111B21]"
       ref={testimonialsRef}
       dir="rtl"
     >
@@ -77,12 +77,12 @@ const ClientTestimonials = () => {
           </div>
 
           {/* Main title */}
-          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6 text-center max-w-3xl">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 text-center max-w-3xl">
             מה הלקוחות שלנו אומרים אחרי השדרוג
           </h2>
 
           {/* Subtitle */}
-          <p className="text-base md:text-lg text-muted-foreground text-center max-w-2xl">
+          <p className="text-base md:text-lg text-gray-300 text-center max-w-2xl">
             תגובות אמיתיות מאנשים שעברו שינוי בתדמית ובביטחון
           </p>
         </div>

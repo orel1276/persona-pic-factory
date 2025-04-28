@@ -20,7 +20,7 @@ const TestimonialCard = ({ name, position, messages, isVisible, index }: Testimo
   return (
     <div 
       className={cn(
-        "transition-all duration-700 transform h-full",
+        "transition-all duration-700 transform h-full bg-[#111B21] p-4 rounded-lg",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       )}
       style={{ transitionDelay: `${index * 200}ms` }}
