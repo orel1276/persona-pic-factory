@@ -68,12 +68,22 @@ const ClientTestimonials = () => {
       dir="rtl"
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            מה הלקוחות שלנו אומרים
+        <div className="flex flex-col items-center mb-20">
+          {/* Small header with turquoise background */}
+          <div className="inline-block bg-[#00f0ff]/10 rounded-full px-4 py-1.5 mb-8">
+            <span className="text-sm md:text-base font-medium text-[#00f0ff]">
+              חוויות מהתמונות החדשות
+            </span>
+          </div>
+
+          {/* Main title */}
+          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6 text-center max-w-3xl">
+            מה הלקוחות שלנו אומרים אחרי השדרוג
           </h2>
-          <p className="text-muted-foreground text-lg">
-            תגובות אמיתיות אחרי שקיבלו את התמונות החדשות
+
+          {/* Subtitle */}
+          <p className="text-base md:text-lg text-muted-foreground text-center max-w-2xl">
+            תגובות אמיתיות מאנשים שעברו שינוי בתדמית ובביטחון
           </p>
         </div>
 
