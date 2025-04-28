@@ -26,37 +26,28 @@ const ClientTestimonials = () => {
 
   const testimonials = [
     {
-      name: "מאיה",
-      position: "יועצת עסקית",
       messages: [
         {
-          text: "יא אלופה! אני לא מאמינה מה עשית מהתמונות ששלחתי.\nבאמת שלא ציפיתי שזה ייראה ככה... כאילו סטודיו של אלפי שקלים.\nהצלחת אחי! תודה ענקית 🙏🏼",
-          time: "14:22"
+          text: "תקשיב, אני לא מפסיק לקבל תגובות על התמונות!\nזה מטורף כמה תדמית יכולה להשתנות מתמונה אחת טובה.\nאנשים שואלים איפה צילמתי, והכי כיף שזה באמת אני – בלי פוזות מיותרות.\nתודה רבה על העבודה המטורפת והתוצאה שהרבה מעבר למה שציפיתי 🙏🏼",
+          time: "14:26"
         }
-      ],
-      avatar: "https://i.pravatar.cc/150?img=44"
+      ]
     },
     {
-      name: "ניר",
-      position: "בעל עסק לשיווק דיגיטלי",
       messages: [
         {
-          text: "שמע, לא האמנתי שאפשר להוציא משהו כזה מתמונות מהטלפון.\nנראה מיליון דולר!\nכבר העליתי את זה לפייסבוק והתגובות עפו.",
-          time: "15:45"
+          text: "וואלה, בהתחלה לא האמנתי שזה ייצא כזה רמה.\nשלחתי תמונות פשוטות מהטלפון — ויצאה תוצאה שנראית מיליון דולר.\nהשירות היה מהיר, מקצועי, בלי כאב ראש, ועם תוצאה שמדברת בעד עצמה.\nתודה אלופים 🙌🏼 ממליץ לכולם!",
+          time: "15:18"
         }
-      ],
-      avatar: "https://i.pravatar.cc/150?img=12"
+      ]
     },
     {
-      name: "אודליה",
-      position: "מאמנת כושר",
       messages: [
         {
-          text: "איזה תוצאה מטורפת!!\nהלקוחות ישר שאלו איפה צילמתי את זה חחח 😅\nתודה על השירות המהיר והמטורף, ממליצה עליך לכולם!",
-          time: "16:30"
+          text: "אני חייב לפרגן — אין דברים כאלה.\nמרגע שהעליתי את התמונות לאוויר, קיבלתי פניות וביקורות מעולות.\nזה באמת משנה איך שאתה נראה בעיני אחרים.\nתודה על שירות ברמה הגבוהה ביותר ועל סבלנות אין קץ ❤️",
+          time: "16:04"
         }
-      ],
-      avatar: "https://i.pravatar.cc/150?img=28"
+      ]
     }
   ];
 
@@ -69,22 +60,9 @@ const ClientTestimonials = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center mb-20">
-          {/* Small header with turquoise background */}
-          <div className="inline-block bg-[#00f0ff]/10 rounded-full px-4 py-1.5 mb-8">
-            <span className="text-sm md:text-base font-medium text-[#00f0ff]">
-              חוויות מהתמונות החדשות
-            </span>
-          </div>
-
-          {/* Main title */}
-          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 text-center max-w-3xl">
-            מה הלקוחות שלנו אומרים אחרי השדרוג
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-12 text-center">
+            הלקוחות של FILMKAL משתפים
           </h2>
-
-          {/* Subtitle */}
-          <p className="text-base md:text-lg text-gray-300 text-center max-w-2xl">
-            תגובות אמיתיות מאנשים שעברו שינוי בתדמית ובביטחון
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
