@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Check } from 'lucide-react';
 
 interface PricingPlan {
   title: string;
@@ -10,7 +11,7 @@ interface PricingPlan {
   features: string[];
   buttonText: string;
   recommended?: boolean;
-  bestValue?: boolean;
+  buttonVariant: 'blue' | 'pink';
 }
 
 const PricingSection = () => {
@@ -47,19 +48,20 @@ const PricingSection = () => {
   const pricingPlans: PricingPlan[] = [
     {
       title: "אלבום תדמית אישי",
-      subtitle: "להפוך אותך למגנט של לקוחות",
+      subtitle: "להפוך אותך למגנט ללקוחות",
       originalPrice: 349,
       discountedPrice: 249,
       features: [
-        "10 תמונות תדמית שמושכות לקוחות",
-        "מגוון רקעים שמשדרים מקצועיות",
-        "מודל AI בהתאמה אישית רק לך",
-        "קבלת תוצאות תוך 24 שעות בדיוק",
-        "רישיון לשימוש אישי ומקצועי",
-        "איכות גבוהה לכל פלטפורמה",
-        "תיקון ראשון חינם - אם לא תהיה מרוצה ב-100%"
+        "10 תמונות תדמית מקצועיות",
+        "התאמה אישית לסגנון שלך",
+        "קבלת התוצאה תוך 24 שעות",
+        "רישיון מלא לשימוש",
+        "ליווי אישי לאורך כל התהליך",
+        "מגוון רקעים מקצועיים",
+        "תיקון ראשון חינם"
       ],
-      buttonText: "בוא נדבר על התמונה שלך"
+      buttonText: "בוא ניצור את האלבום האישי שלך",
+      buttonVariant: 'pink'
     },
     {
       title: "אלבום למוצר ומותג",
@@ -67,32 +69,29 @@ const PricingSection = () => {
       originalPrice: 449,
       discountedPrice: 349,
       features: [
-        "10 תמונות מותג שמוכרות בלי מילים",
-        "התאמה לזהות המותג שיוצרת עקביות",
-        "מודל ייעודי שמבין את המוצר שלך",
-        "רישיון מסחרי מלא - בלי הגבלות",
-        "תוצאות תוך 24 שעות שמשנות את המשחק",
-        "ליווי אישי לאורך כל התהליך"
+        "10 תמונות מותג מקצועיות",
+        "התאמה מלאה לזהות המותג",
+        "קבלת התוצאה תוך 24 שעות",
+        "רישיון מסחרי מלא",
+        "ליווי אישי לאורך התהליך",
+        "מגוון רקעים עסקיים",
+        "תיקונים ללא הגבלה"
       ],
-      buttonText: "התחל לשנות את התדמית שלך",
+      buttonText: "התחל ליצור אלבום למותג שלך",
       recommended: true,
-      bestValue: true
+      buttonVariant: 'blue'
     }
   ];
 
   return (
-    <section id="תמחור" className="py-24 px-6 bg-white" ref={pricingRef}>
+    <section id="תמחור" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50" ref={pricingRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            מחירים מיוחדים לזמן מוגבל
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-sky-500">תהיה כנה עם עצמך - </span>
-            <span className="text-primary">כמה לקוחות אחד שווה לך?</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-sky-500">
+            כמה שווה להשקיע בעצמך?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            <strong>אם תדמית טובה יותר תביא לך אפילו לקוח אחד נוסף</strong>, ההשקעה הזו כבר החזירה את עצמה פי 10
+            בחר את התוכנית שמתאימה לך – ותן לעולם לראות את הגרסה הכי טובה שלך
           </p>
         </div>
 
@@ -101,10 +100,10 @@ const PricingSection = () => {
             <div 
               key={index}
               className={cn(
-                "rounded-2xl overflow-hidden transition-all duration-700 transform shadow-lg border relative hover:-translate-y-2",
+                "rounded-2xl overflow-hidden transition-all duration-700 transform bg-white shadow-lg hover:shadow-xl border border-gray-100",
                 plan.recommended 
-                  ? "border-primary/30 shadow-primary/10" 
-                  : "border-gray-200",
+                  ? "border-primary/10" 
+                  : "border-gray-100",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               )}
               style={{ 
@@ -112,14 +111,8 @@ const PricingSection = () => {
               }}
             >
               {plan.recommended && (
-                <div className="bg-gradient-to-r from-primary to-secondary text-white text-center py-2">
-                  <p className="text-sm font-medium">הבחירה של רוב הלקוחות שלנו</p>
-                </div>
-              )}
-              
-              {plan.bestValue && (
-                <div className="absolute top-4 right-4 bg-yellow-500 text-black py-1 px-3 rounded-full text-sm font-bold z-10 transform rotate-12">
-                  ROI מטורף
+                <div className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white text-center py-2">
+                  <p className="text-sm font-medium">הבחירה המועדפת של הלקוחות שלנו</p>
                 </div>
               )}
               
@@ -128,18 +121,16 @@ const PricingSection = () => {
                 <p className="text-gray-600 mb-6">{plan.subtitle}</p>
                 
                 <div className="mb-6">
-                  <span className="text-3xl font-bold text-primary">₪{plan.discountedPrice}</span>
+                  <span className="text-3xl font-bold text-gray-900">₪{plan.discountedPrice}</span>
                   <span className="text-gray-400 line-through mr-2">₪{plan.originalPrice}</span>
-                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מבצע בלעדי</span>
+                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מבצע מיוחד</span>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <svg className="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      {feature}
+                    <li key={idx} className="flex items-center gap-2 text-gray-700">
+                      <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -147,10 +138,10 @@ const PricingSection = () => {
                 <button
                   onClick={() => scrollToSection("צור-קשר")}
                   className={cn(
-                    "w-full py-3 rounded-lg font-medium transition-all hover:scale-105",
-                    plan.recommended 
-                      ? "bg-gradient-to-r from-sky-500 to-cyan-400 text-black shadow-lg hover:shadow-xl" 
-                      : "bg-white border-2 border-primary text-primary hover:bg-primary/5"
+                    "w-full py-4 rounded-full font-medium text-white transition-all hover:scale-[1.02] shadow-lg",
+                    plan.buttonVariant === 'blue' 
+                      ? "bg-gradient-to-r from-sky-500 to-cyan-400 hover:from-sky-600 hover:to-cyan-500" 
+                      : "bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500"
                   )}
                 >
                   {plan.buttonText}
