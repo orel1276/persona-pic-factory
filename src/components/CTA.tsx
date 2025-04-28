@@ -3,18 +3,43 @@ import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import emailjs from 'emailjs-com';
 import { toast } from '@/components/ui/use-toast';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+
+const formSchema = z.object({
+  name: z.string().min(2, { message: 'נא להזין שם מלא' }),
+  email: z.string().email({ message: 'נא להזין כתובת אימייל תקינה' }),
+  phone: z.string().min(9, { message: 'נא להזין מספר טלפון תקין' }).optional(),
+  message: z.string().optional(),
+});
 
 const CTA = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    },
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,81 +61,51 @@ const CTA = () => {
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     
     // Initialize EmailJS with your service ID
-    // Note: In a production environment, you should use environment variables for these values
     const serviceID = 'default_service'; // Replace with your actual service ID
     const templateID = 'template_default'; // Replace with your actual template ID
-    const userID = 'user_yourUserID'; // Replace with your actual user ID
+    const userID = 'YOUR_USER_ID'; // Replace with your actual user ID
     
     // Prepare the template parameters
     const templateParams = {
       to_email: 'orel1276@gmail.com',
-      from_name: formData.name,
-      from_email: formData.email,
-      from_phone: formData.phone,
-      message: formData.message
+      from_name: data.name,
+      from_email: data.email,
+      from_phone: data.phone,
+      message: data.message
     };
     
-    // Send the email
-    // Note: For this to work in production, you need to set up EmailJS properly
-    // This is a frontend-only solution. For a more secure approach, you might want to use a serverless function
-    
-    // Simulating email sending for demo purposes
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
+    // Send email using EmailJS
+    emailjs.send(serviceID, templateID, templateParams, userID)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        form.reset();
+        
+        toast({
+          title: "הטופס נשלח בהצלחה!",
+          description: "פרטיך נשלחו לכתובת orel1276@gmail.com",
+        });
+        
+        // Reset submitted state after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+        setIsSubmitting(false);
+        
+        toast({
+          title: "שגיאה בשליחת הטופס",
+          description: "אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ",
+          variant: "destructive",
+        });
       });
-      
-      toast({
-        title: "הטופס נשלח בהצלחה!",
-        description: "פרטיך נשלחו לכתובת orel1276@gmail.com",
-      });
-      
-      // Reset submitted state after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    }, 1500);
-    
-    // Uncomment below to use actual EmailJS
-    // emailjs.send(serviceID, templateID, templateParams, userID)
-    //   .then((response) => {
-    //     setIsSubmitting(false);
-    //     setIsSubmitted(true);
-    //     setFormData({
-    //       name: '',
-    //       email: '',
-    //       phone: '',
-    //       message: ''
-    //     });
-    //     toast({
-    //       title: "הטופס נשלח בהצלחה!",
-    //       description: "פרטיך נשלחו לכתובת orel1276@gmail.com",
-    //     });
-    //     setTimeout(() => setIsSubmitted(false), 5000);
-    //   })
-    //   .catch((error) => {
-    //     setIsSubmitting(false);
-    //     toast({
-    //       title: "שגיאה בשליחת הטופס",
-    //       description: "אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ",
-    //       variant: "destructive",
-    //     });
-    //   });
   };
 
   return (
@@ -142,75 +137,100 @@ const CTA = () => {
               </p>
               
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">שם מלא</label>
-                    <input
-                      type="text"
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <FormField
+                      control={form.control}
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                      placeholder="השם שלך"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium text-gray-700">שם מלא</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="השם שלך"
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">אימייל</label>
-                    <input
-                      type="email"
+                    
+                    <FormField
+                      control={form.control}
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                      placeholder="your@email.com"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium text-gray-700">אימייל</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="your@email.com"
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">טלפון</label>
-                    <input
-                      type="tel"
+                    
+                    <FormField
+                      control={form.control}
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                      placeholder="050-1234567"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium text-gray-700">טלפון</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="050-1234567"
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">כמה מילים על מה שאתה צריך</label>
-                    <textarea
+                    
+                    <FormField
+                      control={form.control}
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                      placeholder="ספר לי קצת על הצרכים שלך..."
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium text-gray-700">כמה מילים על מה שאתה צריך</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="ספר לי קצת על הצרכים שלך..."
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                              rows={3}
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2 justify-center mt-3 text-gray-700 text-xs md:text-sm">
-                    <span className="flex items-center">✅ תוצאה תוך 24 שעות</span>
-                    <span className="flex items-center">✅ ליווי אישי</span>
-                    <span className="flex items-center">✅ דיסקרטיות מלאה</span>
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full py-2.5 mt-2 rounded-md transition-all text-lg ${
-                      isSubmitting 
-                        ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold shadow-md hover:shadow-lg'
-                    }`}
-                  >
-                    {isSubmitting ? 'שולח...' : 'בוא ניצור את התמונה שתספר את הסיפור שלך'}
-                  </button>
-                </form>
+                    
+                    <div className="flex flex-wrap gap-2 justify-center mt-3 text-gray-700 text-xs md:text-sm">
+                      <span className="flex items-center">✅ תוצאה תוך 24 שעות</span>
+                      <span className="flex items-center">✅ ליווי אישי</span>
+                      <span className="flex items-center">✅ דיסקרטיות מלאה</span>
+                    </div>
+                    
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`w-full py-2.5 mt-2 rounded-md transition-all text-lg ${
+                        isSubmitting 
+                          ? 'bg-gray-400 cursor-not-allowed' 
+                          : 'bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold shadow-md hover:shadow-lg'
+                      }`}
+                    >
+                      {isSubmitting ? 'שולח...' : 'בוא ניצור את התמונה שתספר את הסיפור שלך'}
+                    </Button>
+                  </form>
+                </Form>
               ) : (
                 <div className="bg-green-50 border border-green-200 rounded-md p-4 md:p-6 text-center">
                   <svg className="w-10 h-10 text-green-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

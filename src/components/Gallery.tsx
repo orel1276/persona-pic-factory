@@ -41,25 +41,19 @@ const Gallery = () => {
     }
   };
 
-  // Example images - in a real application these would be your actual before/after samples
+  // Updated images with the new uploaded content
   const images: BeforeAfterImage[] = [
     {
-      before: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
-      after: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
-      description: "ממנהל שנראה סתמי למנכ\"ל שכולם רוצים לעבוד איתו",
-      style: "מראה של מנהיג"
+      before: "/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png",
+      after: "/lovable-uploads/44777209-852d-4ab9-90df-4757cb57f428.png",
+      description: "סתם נהג אוטובוס",
+      style: "מנהיג דרך חדשה"
     },
     {
-      before: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-      after: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
-      description: "מבלתי נראית למומחית שאי אפשר להתעלם ממנה",
-      style: "סמכותיות ומקצועיות"
-    },
-    {
-      before: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-      after: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
-      description: "מיזם רגיל למותג שמושך השקעות",
-      style: "מראה של מוביל שוק"
+      before: "/lovable-uploads/582e792e-7734-4566-a4b6-d22bdccd47a7.png",
+      after: "/lovable-uploads/771bc8c8-0b86-4f67-b32f-9c3aa6a84932.png",
+      description: "ממראה רגיל למנהיג עסקי מלא השראה",
+      style: "יוקרה ומקצועיות שלא ניתן להתעלם מהן"
     },
   ];
 

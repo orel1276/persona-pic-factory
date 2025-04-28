@@ -41,8 +41,18 @@ const Features = () => {
 
   const features: Feature[] = [
     {
-      title: "חיסכון כספי משמעותי",
-      description: "חסוך אלפי שקלים על צילומי סטודיו, צלם מקצועי, תאורה ועוד. קבל תוצאות מעולות במחיר נמוך משמעותית.",
+      title: "תוצאה שנראית אמיתית – כאילו צולמה בסטודיו",
+      description: "בזכות טכנולוגיה מתקדמת, התמונות שלך ייראו טבעיות, אמינות ומקצועיות — בלי להרגיש שהן נוצרו בקליק.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      )
+    },
+    {
+      title: "חיסכון אדיר בזמן וכסף",
+      description: "בלי קביעות מול צלמים, בלי ימי צילום, בלי אלפי שקלים. תוצאה מרשימה – במהירות ובעלות נוחה.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
@@ -53,18 +63,8 @@ const Features = () => {
       )
     },
     {
-      title: "חיסכון בזמן יקר",
-      description: "שכח מהצורך לתאם צילומים, להגיע לסטודיו, לעבור הכנות ארוכות. פשוט שלח תמונות קיימות וקבל תוצאות מהירות.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-      )
-    },
-    {
-      title: "מותאם למי שאתה – לא רק איך שאתה נראה",
-      description: "המודל מאומן על התמונות האישיות שלך, מה שמבטיח תוצאה אותנטית שמשקפת את המראה האמיתי שלך בגרסה המיטבית.",
+      title: "תדמית שמחוברת לאישיות שלך",
+      description: "התמונות מותאמות אליך אישית – משקפות בדיוק את מה שאתה רוצה להעביר: ביטחון, מקצועיות, חום, אמינות או כל מסר אחר שתבחר.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -73,18 +73,8 @@ const Features = () => {
       )
     },
     {
-      title: "תוצאה שתרגיש הכי אתה – ברמה של צלם אמיתי",
-      description: "בזכות הטכנולוגיה המתקדמת של הבינה המלאכותית, התוצאות שלנו עומדות בסטנדרטים הגבוהים ביותר ולא נופלות מצילום מקצועי.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-          <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-      )
-    },
-    {
-      title: "אפשרויות מגוונות",
-      description: "אין צורך להסתפק בסט תמונות אחד. קבל מגוון רחב של אפשרויות, רקעים, תנוחות ועוד, כדי למצוא את התמונה המושלמת.",
+      title: "מבחר סגנונות ותמונות לבחירה",
+      description: "רקע לבן? סביבת משרד? או אווירת טבע יוקרתית? קבל סט של תמונות מגוונות, כדי לבחור בדיוק את מה שמתאים לך.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -96,12 +86,22 @@ const Features = () => {
       )
     },
     {
-      title: "דיסקרטיות מלאה",
-      description: "כל התמונות והמידע שלך מטופלים בדיסקרטיות מוחלטת. אנחנו לא משתמשים בתמונות שלך לשום מטרה אחרת ללא אישורך.",
+      title: "אבטחת פרטיות מלאה",
+      description: "כל החומרים נשמרים בדיסקרטיות מוחלטת. אף תמונה לא תעשה שימוש אחר ללא רשותך.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      )
+    },
+    {
+      title: "תוצאה שמקדמת אותך להזדמנויות חדשות",
+      description: "תמונה טובה פותחת דלתות. התמונה שלך תעזור ליצור חיבור מיידי, אמון והזדמנויות חדשות – בלי שתצטרך לומר מילה.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
       )
     }
@@ -117,10 +117,10 @@ const Features = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-            היתרונות של תמונות תדמית מבוססות בינה מלאכותית
+            תדמית מקצועית, זמינה ומהירה – מבלי לקום מהכיסא
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            <strong>אנחנו משלבים טכנולוגיה חדשנית עם הבנה מעמיקה של צילום מקצועי</strong> כדי לספק לך את התוצאות הטובות ביותר
+            שילוב חכם של בינה מלאכותית וטאץ' אישי אמיתי – כדי להוציא ממך את הגרסה הכי מרשימה שלך, בלי סשנים מעייפים, בלי סטודיו, ובלי לקרוע את הכיס.
           </p>
         </div>
 
