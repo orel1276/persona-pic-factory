@@ -64,22 +64,26 @@ const CTA = () => {
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     
-    // Initialize EmailJS with your service ID
-    const serviceID = 'default_service'; // Replace with your actual service ID
-    const templateID = 'template_default'; // Replace with your actual template ID
-    const userID = 'YOUR_USER_ID'; // Replace with your actual user ID
+    // EmailJS configuration
+    // Using public keys which is fine for client-side usage
+    const serviceID = 'service_eot5ts1'; // Update with your actual EmailJS service ID
+    const templateID = 'template_1yq3xaj'; // Update with your actual EmailJS template ID
+    const publicKey = 'AhwH5k2tKikGCwcCG'; // Update with your actual EmailJS public key
     
     // Prepare the template parameters
     const templateParams = {
-      to_email: 'orel1276@gmail.com',
       from_name: data.name,
-      from_email: data.email,
-      from_phone: data.phone,
-      message: data.message
+      reply_to: data.email,
+      phone: data.phone || 'לא הוזן',
+      message: data.message || 'לא הוזן הודעה',
+      to_email: 'orel1276@gmail.com',
     };
     
+    // Initialize EmailJS (this is the recommended way in newer versions)
+    emailjs.init(publicKey);
+    
     // Send email using EmailJS
-    emailjs.send(serviceID, templateID, templateParams, userID)
+    emailjs.send(serviceID, templateID, templateParams)
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         setIsSubmitting(false);
