@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -41,11 +40,10 @@ const Gallery = () => {
     }
   };
 
-  // Original images with the requested captions
   const images: BeforeAfterImage[] = [
     {
-      before: "/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png",
-      after: "/lovable-uploads/44777209-852d-4ab9-90df-4757cb57f428.png",
+      before: "/lovable-uploads/e3cca4db-8fba-49dd-ba8b-9a1e161caa6b.png",
+      after: "/lovable-uploads/e5e1d8f0-83ff-4854-a2b0-7426c9181c65.png",
       description: "סתם נהג אוטובוס",
       style: "מנהיג דרך חדשה"
     },
