@@ -43,6 +43,11 @@
     @apply border-border;
   }
 
+  html {
+    font-size: 16px;
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -56,6 +61,10 @@
   
   /* Mobile heading sizes */
   @media (max-width: 768px) {
+    html {
+      font-size: 17px; /* 10-15% increase in base font size for mobile */
+    }
+
     h1 {
       @apply text-3xl leading-tight;
     }
@@ -144,23 +153,7 @@
   /* Mobile optimizations */
   @media (max-width: 640px) {
     .container {
-      @apply px-4;
-    }
-    
-    h1 {
-      @apply text-2xl mb-4;
-    }
-    
-    h2 {
-      @apply text-xl mb-3;
-    }
-    
-    h3 {
-      @apply text-lg mb-2;
-    }
-    
-    .text-sm {
-      font-size: 0.8125rem;
+      @apply px-5;
     }
     
     /* Improve touch targets on mobile */
@@ -247,27 +240,24 @@ html {
     @apply py-12;
   }
   
-  .section-spacing {
-    @apply my-10;
+  section + section {
+    @apply mt-10;
   }
   
   /* Fix for circular dependency */
   .content-spacing {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
   }
   
   /* Better button sizing on mobile */
   button, .button, a.button {
-    @apply py-2 px-4 text-sm;
+    @apply py-3 px-5 text-base;
   }
-  
-  /* Fix for circular dependency */
-  /* Removing the .space-y-4 application */
   
   /* Make form elements larger for touch */
   input, select, textarea {
-    @apply p-3;
+    @apply p-4;
   }
   
   /* Fix overflow issues on mobile */
@@ -278,6 +268,22 @@ html {
   /* Improve tap targets */
   a, button {
     @apply py-2;
+  }
+
+  /* Improve image sizing for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Optimize spacing for better mobile readability */
+  p, ul, ol {
+    @apply mb-4;
+  }
+  
+  /* Ensure buttons are large enough for finger taps */
+  .btn, .button, button, [type="button"], [type="submit"] {
+    @apply min-h-[48px] min-w-[48px];
   }
 }
 
@@ -299,21 +305,21 @@ html {
 /* Mobile form improvements */
 @media (max-width: 768px) {
   form {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   
   label {
-    @apply text-sm mb-1;
+    @apply text-sm mb-2 block;
   }
   
   input, textarea, select {
-    @apply text-base py-2.5 px-3;
+    @apply text-base py-3 px-4 w-full;
   }
   
   /* Improved readability for form labels and hints */
   .form-hint {
-    @apply text-xs mt-1;
+    @apply text-sm mt-1;
   }
   
   /* Better feedback for form interactions */

@@ -1,10 +1,12 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import TestimonialCard from './testimonials/TestimonialCard';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ClientTestimonials = () => {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,13 +56,13 @@ const ClientTestimonials = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-20 relative overflow-hidden bg-[#111B21]"
+      className="py-20 px-6 relative overflow-hidden bg-[#111B21]"
       ref={testimonialsRef}
       dir="rtl"
     >
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
+      <div className="container mx-auto">
+        <div className="flex flex-col items-center mb-16 md:mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 text-center">
             הלקוחות של <span className="neon-text-blue">Film</span><span className="neon-text-pink">Kal</span> משתפים
           </h2>
         </div>

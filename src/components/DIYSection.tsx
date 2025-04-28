@@ -37,14 +37,14 @@ const DIYSection = () => {
   return (
     <section 
       id="diy" 
-      className="py-32 px-6 bg-background relative overflow-hidden mt-24" 
+      className="py-24 md:py-32 px-6 bg-background relative overflow-hidden mt-16 md:mt-24" 
       ref={sectionRef}
     >
       {/* שיפור אפקט הרקע עם גרדיאנט עדין יותר */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-br from-primary/5 via-sky-400/10 to-primary/5 blur-[180px] rounded-full"></div>
       
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="glass rounded-2xl p-8 md:p-12 border border-white/10 shadow-xl transition-all duration-500 hover:shadow-2xl hover:border-white/20">
+        <div className="glass rounded-2xl p-6 md:p-12 border border-white/10 shadow-xl transition-all duration-500 hover:shadow-2xl hover:border-white/20">
           <div 
             className={cn(
               "transition-all duration-1000 transform",
@@ -54,12 +54,12 @@ const DIYSection = () => {
             <div className="flex flex-col space-y-8">
               {/* שיפור המבנה הויזואלי של הכותרת */}
               <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold leading-tight">
                   <span className="text-sky-400 block mb-3">בוא נדבר על הזמן היקר שלך.</span>
                   <span className="text-white">אתה באמת רוצה לבזבז אותו על ניסוי וטעייה?</span>
                 </h2>
                 
-                <p className="text-white/90 text-xl md:text-2xl mt-6 border-r-4 border-sky-400 pr-4 py-2">
+                <p className="text-xl md:text-2xl text-white/90 mt-6 border-r-4 border-sky-400 pr-4 py-2">
                   <Lightbulb className="inline-block ml-2 text-sky-400" size={24} />
                   <span className="font-bold">בוא נהיה כנים</span> - הזמן שלך שווה הרבה יותר מזה.
                 </p>
@@ -67,8 +67,8 @@ const DIYSection = () => {
               
               <div className="text-lg text-white/90 leading-relaxed space-y-8">
                 {/* שיפור הצגת הנקודות החשובות */}
-                <div className="flex items-start space-x-4 space-x-reverse bg-white/5 p-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-                  <span className="text-sky-400 flex-shrink-0 mt-1">
+                <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-4 md:space-x-reverse bg-white/5 p-5 md:p-6 rounded-xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+                  <span className="text-sky-400 flex items-center justify-center md:justify-start md:flex-shrink-0 md:mt-1">
                     <Clock size={24} className="animate-pulse" />
                   </span>
                   <div>
@@ -80,14 +80,14 @@ const DIYSection = () => {
                 </div>
                 
                 {/* הדגשת המסר העיקרי */}
-                <div className="text-center text-xl py-6 px-8 bg-white/5 rounded-xl border-b-2 border-sky-400 hover:bg-white/10 transition-all duration-300 transform hover:scale-[1.02]">
+                <div className="text-center text-xl py-5 md:py-6 px-5 md:px-8 bg-white/5 rounded-xl border-b-2 border-sky-400 hover:bg-white/10 transition-all duration-300 transform hover:scale-[1.02]">
                   <p>
                     מה שבאמת חשוב לך זה <strong className="text-sky-300">תוצאות מהירות</strong> שיקדמו אותך קדימה.
                   </p>
                 </div>
                 
                 {/* רשימת יתרונות משופרת */}
-                <div className="bg-white/5 p-8 rounded-xl hover:bg-white/10 transition-colors duration-300">
+                <div className="bg-white/5 p-6 md:p-8 rounded-xl hover:bg-white/10 transition-colors duration-300">
                   <h3 className="text-xl font-semibold mb-6 text-sky-400 flex items-center">
                     <ArrowRight className="ml-2 rtl:rotate-180" size={20} />
                     כשאתה עובד איתי, אתה מקבל:
@@ -116,7 +116,7 @@ const DIYSection = () => {
                   <div className="mt-10 text-center">
                     <a 
                       href="#צור-קשר" 
-                      className="inline-flex items-center bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full hover:shadow-lg hover:shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 text-lg group"
+                      className="inline-flex items-center bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-6 md:px-8 rounded-full hover:shadow-lg hover:shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 text-lg group w-[90%] md:w-auto justify-center"
                       onClick={(e) => {
                         e.preventDefault();
                         scrollToSection("צור-קשר");

@@ -1,10 +1,12 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const AboutMe = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,13 +36,13 @@ const AboutMe = () => {
   };
 
   return (
-    <section id="about" className="py-24 px-6 bg-gradient-to-b from-white to-gray-100 mt-16" ref={aboutRef}>
+    <section id="about" className="py-20 md:py-24 px-6 bg-gradient-to-b from-white to-gray-100 mt-16 md:mt-20" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             מי אני?
           </span>
-          <h2 className="text-4xl font-bold text-primary font-rubik">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary font-rubik leading-tight">
             אני אוראל, ואני הופך אנשים רגילים לפצצות תדמית
           </h2>
           <p className="text-lg text-gray-600 mt-4">
@@ -51,14 +53,14 @@ const AboutMe = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
           <div 
             className={cn(
-              "flex-shrink-0 mb-8 md:mb-0 transition-all duration-1000 transform",
+              "flex-shrink-0 order-2 md:order-none mb-0 md:mb-0 transition-all duration-1000 transform mt-8 md:mt-0",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
             {/* Improved image positioning within circle */}
-            <div className="relative w-64 h-64 md:w-72 md:h-72 hover:scale-105 transition-all duration-500">
+            <div className="relative w-64 h-64 md:w-72 md:h-72 hover:scale-105 transition-all duration-500 mx-auto md:mx-0">
               {/* Circle background with subtle glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_15px_rgba(255,0,150,0.4)]"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 shadow-[0_0_15px_rgba(255,0,150,0.4)]"></div>
               
               {/* Person image - better centered with all features visible */}
               <div className="absolute inset-0 overflow-hidden rounded-full">
@@ -77,7 +79,7 @@ const AboutMe = () => {
           
           <div 
             className={cn(
-              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform content-spacing",
+              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform content-spacing order-1 md:order-none",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
@@ -120,7 +122,7 @@ const AboutMe = () => {
               <div className="text-center mt-8">
                 <a 
                   href="#צור-קשר" 
-                  className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+                  className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-[90%] sm:w-auto"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection("צור-קשר");

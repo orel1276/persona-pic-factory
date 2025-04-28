@@ -2,12 +2,14 @@
 import React, { useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ContactForm } from './contact/ContactForm';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const CTA = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const isMobile = useIsMobile();
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,10 +42,10 @@ const CTA = () => {
   };
 
   return (
-    <section id="צור-קשר" className="py-16 md:py-24 bg-background mt-16">
-      <div className="container mx-auto px-4 md:px-6" ref={ctaRef}>
+    <section id="צור-קשר" className="py-16 md:py-24 bg-background mt-16 md:mt-20">
+      <div className="container mx-auto px-6" ref={ctaRef}>
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold relative inline-block text-sky-400">
+          <h2 className="text-3xl md:text-4xl font-bold relative inline-block text-sky-400 leading-tight">
             מוכן לראות את עצמך בגרסה הכי טובה שלך?
             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-white"></span>
           </h2>

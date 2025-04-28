@@ -27,10 +27,10 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 px-6 bg-background">
+    <section id="faq" className="py-16 md:py-20 px-6 bg-background">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl font-bold text-center mb-2 text-sky-400">שאלות נפוצות</h2>
-        <p className="text-center text-white/80 mb-10 text-lg">שאלות ששואלים אותי מלא 📩</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-sky-400">שאלות נפוצות</h2>
+        <p className="text-center text-white/80 mb-8 md:mb-10 text-lg">שאלות ששואלים אותי מלא 📩</p>
         
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
@@ -39,10 +39,10 @@ const FAQ = () => {
               value={`item-${index}`}
               className="bg-white/5 rounded-lg overflow-hidden border border-white/10"
             >
-              <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/5 transition-colors">
+              <AccordionTrigger className="px-5 md:px-6 py-4 hover:no-underline hover:bg-white/5 transition-colors text-right">
                 <span className="text-lg font-medium text-sky-400">{faq.question}</span>
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-4 text-white/80">
+              <AccordionContent className="px-5 md:px-6 py-4 text-white/80 text-right text-base">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const AIMarketingSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,26 +30,26 @@ const AIMarketingSection = () => {
   return (
     <section
       id="ai-marketing"
-      className="py-16 md:py-24 px-4 relative overflow-hidden bg-background"
+      className="py-16 md:py-24 px-6 relative overflow-hidden bg-background"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
-          {/* Image - On the left for desktop */}
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-12">
+          {/* Image - On the left for desktop, on bottom for mobile */}
           <div 
             className={cn(
               "w-full md:w-[45%] order-last md:order-first transition-all duration-1000 delay-400",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+              isVisible ? "opacity-100 translate-y-0 md:translate-x-0" : "opacity-0 translate-y-8 md:translate-x-12"
             )}
           >
             <img
               src="/lovable-uploads/622ad20a-206a-464e-bcf4-8919bf081a04.png"
               alt="אוראל - מומחה תדמית דיגיטלית"
-              className="w-full h-auto max-w-xl mx-auto"
+              className="w-4/5 md:w-full h-auto mx-auto md:max-w-xl"
               style={{ objectFit: 'contain', objectPosition: 'center' }}
             />
           </div>
 
-          {/* Text Content - On the right for desktop */}
+          {/* Text Content - On the right for desktop, on top for mobile */}
           <div className="w-full md:w-[55%] space-y-8 text-right">
             <h2 
               className={cn(

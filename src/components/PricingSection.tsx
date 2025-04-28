@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface PricingPlan {
   title: string;
@@ -17,6 +18,7 @@ interface PricingPlan {
 const PricingSection = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -84,10 +86,10 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="תמחור" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50" ref={pricingRef}>
+    <section id="תמחור" className="py-20 md:py-24 px-6 bg-gradient-to-b from-white to-gray-50" ref={pricingRef}>
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-sky-500">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-6 text-sky-500">
             כמה שווה להשקיע בעצמך?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -95,7 +97,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
           {pricingPlans.map((plan, index) => (
             <div 
               key={index}
@@ -116,12 +118,12 @@ const PricingSection = () => {
                 </div>
               )}
               
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.title}</h3>
-                <p className="text-gray-600 mb-6">{plan.subtitle}</p>
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{plan.title}</h3>
+                <p className="text-gray-600 mb-5 md:mb-6">{plan.subtitle}</p>
                 
                 <div className="mb-6">
-                  <span className="text-3xl font-bold text-gray-900">₪{plan.discountedPrice}</span>
+                  <span className="text-2xl md:text-3xl font-bold text-gray-900">₪{plan.discountedPrice}</span>
                   <span className="text-gray-400 line-through mr-2">₪{plan.originalPrice}</span>
                   <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מבצע מיוחד</span>
                 </div>
@@ -138,7 +140,7 @@ const PricingSection = () => {
                 <button
                   onClick={() => scrollToSection("צור-קשר")}
                   className={cn(
-                    "w-full py-4 rounded-full font-medium text-white transition-all hover:scale-[1.02] shadow-lg",
+                    "w-full py-3 md:py-4 rounded-full font-medium text-white transition-all hover:scale-[1.02] shadow-lg",
                     plan.buttonVariant === 'blue' 
                       ? "bg-gradient-to-r from-sky-500 to-cyan-400 hover:from-sky-600 hover:to-cyan-500" 
                       : "bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500"

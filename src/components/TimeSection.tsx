@@ -29,13 +29,13 @@ const TimeSection = () => {
   return (
     <section
       id="time-section"
-      className="py-16 md:py-24 px-4 bg-background"
+      className="py-16 md:py-24 px-6 bg-background"
     >
       <div className="container mx-auto max-w-4xl text-center">
         {/* Main Title */}
         <h2 
           className={cn(
-            "text-3xl md:text-4xl font-bold text-primary mb-6 transition-all duration-700",
+            "text-3xl md:text-4xl font-bold text-primary mb-6 transition-all duration-700 leading-snug",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
@@ -83,7 +83,7 @@ const TimeSection = () => {
           )}
         >
           <Button 
-            className="w-[80%] md:w-auto text-lg py-6 px-8"
+            className="w-[90%] sm:w-[80%] md:w-auto text-lg py-6 px-8"
             size="lg"
           >
             התחל לשדרג את התדמית שלך

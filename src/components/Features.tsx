@@ -1,5 +1,7 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Feature {
   title: string;
@@ -10,6 +12,7 @@ interface Feature {
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -84,18 +87,18 @@ const Features = () => {
   ];
 
   return (
-    <section id="יתרונות" className="py-24 bg-white">
-      <div className="container mx-auto px-6" ref={featuresRef}>
-        <div className="text-center mb-16">
+    <section id="יתרונות" className="py-16 md:py-24 px-6 bg-white">
+      <div className="container mx-auto" ref={featuresRef}>
+        <div className="text-center mb-12 md:mb-16">
           <div className="flex justify-center items-center gap-3 mb-4">
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium">
               למה לבחור בנו?
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-black mb-5 md:mb-6 px-2 leading-tight">
             תדמית מקצועית, זמינה ומהירה – מבלי לקום מהכיסא
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto px-2">
             שילוב חכם של בינה מלאכותית ומגע אישי – כדי להוציא ממך את הגרסה הכי מרשימה שלך, בלי סטודיו, בלי ימי צילום, ובלי לקרוע את הכיס.
           </p>
         </div>
@@ -105,7 +108,7 @@ const Features = () => {
             <div 
               key={index}
               className={cn(
-                "bg-white rounded-xl p-8 transition-all duration-700 transform shadow-lg border border-gray-100 hover:-translate-y-2 hover:shadow-xl h-full",
+                "bg-white rounded-xl p-6 md:p-8 transition-all duration-700 transform shadow-lg border border-gray-100 hover:-translate-y-2 hover:shadow-xl h-full",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
               )}
               style={{ 
@@ -121,10 +124,10 @@ const Features = () => {
         </div>
       </div>
       
-      <div className="text-center mt-16">
+      <div className="text-center mt-12 md:mt-16">
         <a 
           href="#צור-קשר" 
-          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-[90%] sm:w-auto"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("צור-קשר");
