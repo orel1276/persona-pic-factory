@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { MessageCircle, Whatsapp } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +40,12 @@ const Navbar = () => {
           onClick={openWhatsApp}
           className="bg-[#25D366] hover:bg-[#00a859] text-white font-medium py-3 px-5 rounded-[30px] shadow-md transition-all duration-300 text-sm flex items-center gap-2 hover:scale-[1.03] hover:shadow-lg mr-5"
         >
-          <Whatsapp size={16} />
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path>
+            <path d="M9 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z"></path>
+            <path d="M13.5 10a.5.5 0 0 1 .5.5v.5a.5.5 0 0 1-1 0v-.5a.5.5 0 0 1 .5-.5z"></path>
+            <path d="M14 13a1 1 0 0 1-2 0"></path>
+          </svg>
           יש לך שאלה? דבר איתי!
         </button>
       </div>
