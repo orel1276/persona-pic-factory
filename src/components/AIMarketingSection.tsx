@@ -31,30 +31,10 @@ const AIMarketingSection = () => {
     >
       <div className="container mx-auto max-w-4xl">
         <div className="flex flex-col items-center text-center">
-          {/* Main heading with updated text */}
-          <h2 
-            className={cn(
-              "text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 text-pink-500",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            נעים מאוד אני אוראל עבייד - ואני הופך אנשים רגילים לפצצות תדמית
-          </h2>
-          
-          {/* Subheading */}
-          <p 
-            className={cn(
-              "text-lg text-white/90 mb-10 transition-all duration-700 delay-100",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            אני לא סתם "עורך תמונות" - אני יוצר נראות שמושכת לקוחות
-          </p>
-
-          {/* Profile image */}
+          {/* Profile image - moved to the top */}
           <div 
             className={cn(
-              "mb-10 transition-all duration-700 delay-200",
+              "mb-10 transition-all duration-700 delay-100",
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             )}
           >
@@ -67,12 +47,32 @@ const AIMarketingSection = () => {
               />
             </div>
           </div>
+          
+          {/* Main heading with updated text */}
+          <h2 
+            className={cn(
+              "text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 delay-200 text-pink-500",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            נעים מאוד אני אוראל עבייד - ואני הופך אנשים רגילים לפצצות תדמית
+          </h2>
+          
+          {/* Subheading */}
+          <p 
+            className={cn(
+              "text-lg text-white/90 mb-10 transition-all duration-700 delay-300",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            אני לא סתם "עורך תמונות" - אני יוצר נראות שמושכת לקוחות
+          </p>
 
           {/* Main content - Removed the repeated line */}
           <div className="space-y-6 max-w-2xl mx-auto">
             <p 
               className={cn(
-                "text-lg text-white/90 transition-all duration-700 delay-300",
+                "text-lg text-white/90 transition-all duration-700 delay-400",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
@@ -81,7 +81,7 @@ const AIMarketingSection = () => {
             
             <p 
               className={cn(
-                "text-lg text-white/90 transition-all duration-700 delay-400",
+                "text-lg text-white/90 transition-all duration-700 delay-500",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
