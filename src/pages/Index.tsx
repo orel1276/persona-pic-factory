@@ -8,7 +8,6 @@ import Process from '@/components/Process';
 import BusinessSection from '@/components/BusinessSection';
 import Gallery from '@/components/Gallery';
 import ClientTestimonials from '@/components/ClientTestimonials';
-import DIYSection from '@/components/DIYSection';
 import PricingSection from '@/components/PricingSection';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -47,7 +46,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <FirstImpressionSection />
-        <AboutMe />
+        <AIMarketingSection />
         <Features />
         <TimeSection />
         <Process />
