@@ -59,10 +59,10 @@ const Index = () => {
         <BusinessSection />
         <PromisesSection />
         <PricingSection />
+        <CTA />
         <FAQ />
         <TrustSection />
         <ContactSection />
-        <CTA />
       </main>
       <Footer />
     </div>

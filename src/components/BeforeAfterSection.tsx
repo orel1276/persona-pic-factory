@@ -59,19 +59,19 @@ const BeforeAfterSection = () => {
   return (
     <section
       id="before-after-section"
-      className="py-16 md:py-24 px-6 bg-white"
+      className="py-16 md:py-24 px-4 md:px-6 bg-white mt-12"
     >
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-5 text-primary">
+          <h2 className="text-2xl md:text-4xl font-bold mb-5 text-primary px-4">
             למה תמונות תדמית שווה הרבה יותר?
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto px-4">
             ההבדל בין להיות סתם עוד אחד בשוק, לבין להיות הבחירה המובנת מאליה
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-12 px-4 md:px-0">
           {comparisonItems.map((item, index) => (
             <div 
               key={index}
@@ -83,8 +83,8 @@ const BeforeAfterSection = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Before Column */}
-                <div className="p-6 md:p-8 bg-slate-50 border-r border-slate-100">
-                  <div className="flex items-center mb-6">
+                <div className="p-6 md:p-8 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-100">
+                  <div className="flex items-center mb-6 justify-center md:justify-start">
                     <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center mr-4">
                       <span className="text-slate-700 text-sm font-bold">לפני</span>
                     </div>
@@ -102,7 +102,7 @@ const BeforeAfterSection = () => {
                 
                 {/* After Column */}
                 <div className="p-6 md:p-8 bg-gradient-to-br from-sky-50 to-white">
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center mb-6 justify-center md:justify-start">
                     <div className="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center mr-4">
                       <span className="text-white text-sm font-bold">אחרי</span>
                     </div>
@@ -122,10 +122,10 @@ const BeforeAfterSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 px-4 md:px-0">
           <button 
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg w-full md:w-auto min-h-[48px]"
           >
             מוכן לשדרג את התדמית שלך? לחץ כאן
           </button>

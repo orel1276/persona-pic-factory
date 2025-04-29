@@ -37,13 +37,13 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="תמחור" className="py-20 md:py-24 px-6 bg-background" ref={pricingRef}>
+    <section id="תמחור" className="py-20 md:py-24 px-6 bg-background mt-12" ref={pricingRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-6 text-primary">
+          <h2 className="text-2xl md:text-4xl font-bold mb-5 md:mb-6 text-primary">
             כמה שווה להיראות כמו מותג?
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto px-4">
             בחר את התדמית שמגיעה לך – ותמיד תיראה כמו הגרסה הכי טובה שלך.
           </p>
         </div>
@@ -51,7 +51,7 @@ const PricingSection = () => {
         {/* Single Card Design */}
         <div 
           className={cn(
-            "max-w-2xl mx-auto rounded-2xl overflow-hidden transition-all duration-700 transform bg-slate-800/60 shadow-xl border border-border/50",
+            "max-w-2xl mx-auto rounded-2xl overflow-hidden transition-all duration-700 transform bg-slate-800/60 shadow-xl border border-border/50 mx-4 md:mx-0",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           )}
         >
@@ -60,21 +60,21 @@ const PricingSection = () => {
             מחיר היכרות - לזמן מוגבל בלבד
           </div>
           
-          <div className="p-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">החבילה המלאה לתדמית שמוכרת</h3>
-            <p className="text-foreground/80 mb-6">כל מה שצריך כדי להיראות כמו מומחה – בלי צלם, בלי סטודיו, בלי מאמץ.</p>
+          <div className="p-6 md:p-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-center">החבילה המלאה לתדמית שמוכרת</h3>
+            <p className="text-foreground/80 mb-6 text-center">כל מה שצריך כדי להיראות כמו מומחה – בלי צלם, בלי סטודיו, בלי מאמץ.</p>
             
-            <div className="mb-8 flex flex-col md:flex-row md:items-end gap-2 md:gap-4">
-              <div className="flex items-center">
+            <div className="mb-8 flex flex-col md:flex-row justify-center md:items-end gap-2 md:gap-4">
+              <div className="flex items-center justify-center">
                 <span className="text-foreground/40 line-through text-xl md:text-2xl">₪549</span>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-red-500 to-transparent mx-2 rotate-[-15deg]"></div>
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <span className="text-3xl md:text-4xl font-bold text-primary">₪349 בלבד</span>
               </div>
             </div>
             
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4 mb-8 px-2">
               <div className="flex items-center gap-3">
                 <div className="rounded-full bg-primary/10 p-1 flex-shrink-0">
                   <Check className="w-5 h-5 text-primary" />
@@ -121,7 +121,7 @@ const PricingSection = () => {
             
             <button
               onClick={scrollToContact}
-              className="w-full py-4 rounded-full font-bold text-white text-xl transition-all hover:scale-[1.02] shadow-lg bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-700 hover:to-pink-700"
+              className="w-full py-4 rounded-full font-bold text-white text-xl transition-all hover:scale-[1.02] shadow-lg bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-700 hover:to-pink-700 min-h-[48px]"
             >
               רוצה להיראות כמו מותג? לחץ כאן להשארת פרטים
             </button>

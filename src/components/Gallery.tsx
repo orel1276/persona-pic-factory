@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -70,23 +71,23 @@ const Gallery = () => {
   };
 
   return (
-    <section id="גלריה" className="py-24 bg-white mt-16">
-      <div className="container mx-auto px-6" ref={galleryRef}>
-        <div className="text-center mb-16">
+    <section id="גלריה" className="py-16 md:py-24 bg-white mt-12">
+      <div className="container mx-auto px-4 md:px-6" ref={galleryRef}>
+        <div className="text-center mb-12">
           <span className="inline-block py-1 px-3 rounded-full bg-secondary text-primary text-sm font-medium mb-4">
             התוצאות מדברות בעצמן
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4 px-4">
             ההבדל בין להיות נעלם לבין להיות בלתי נשכח
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             <strong>זה לא עוד עריכת תמונות</strong>, זה שינוי תפיסה של הלקוחות לגביך
           </p>
         </div>
 
         <div 
           className={cn(
-            "max-w-5xl mx-auto transition-all duration-1000 transform",
+            "max-w-5xl mx-auto transition-all duration-1000 transform px-4 md:px-0",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           )}
         >
@@ -140,7 +141,7 @@ const Gallery = () => {
             {/* Navigation arrows */}
             <button 
               onClick={handlePrev}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110"
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Previous image"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -150,7 +151,7 @@ const Gallery = () => {
             
             <button 
               onClick={handleNext}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110"
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Next image"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -175,10 +176,10 @@ const Gallery = () => {
         </div>
 
         {/* Add standardized CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 px-4 md:px-0">
           <a 
             href="#צור-קשר" 
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105"
+            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-full md:w-auto min-h-[48px]"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("צור-קשר");

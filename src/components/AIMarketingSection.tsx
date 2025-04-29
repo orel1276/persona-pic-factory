@@ -24,10 +24,17 @@ const AIMarketingSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="about-me-section"
-      className="py-16 md:py-24 px-6 bg-[#05152a]"
+      className="py-16 md:py-24 px-6 bg-[#05152a] mt-12"
     >
       <div className="container mx-auto max-w-4xl">
         <div className="flex flex-col items-center text-center">
@@ -51,7 +58,7 @@ const AIMarketingSection = () => {
           {/* Main heading with updated text */}
           <h2 
             className={cn(
-              "text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 delay-200 text-pink-500",
+              "text-2xl md:text-4xl font-bold mb-6 transition-all duration-700 delay-200 text-pink-500 px-4",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
@@ -61,7 +68,7 @@ const AIMarketingSection = () => {
           {/* Subheading */}
           <p 
             className={cn(
-              "text-lg text-white/90 mb-10 transition-all duration-700 delay-300",
+              "text-lg text-white/90 mb-10 transition-all duration-700 delay-300 px-4",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
@@ -69,7 +76,7 @@ const AIMarketingSection = () => {
           </p>
 
           {/* Main content - Removed the repeated line */}
-          <div className="space-y-6 max-w-2xl mx-auto">
+          <div className="space-y-6 max-w-2xl mx-auto px-4">
             <p 
               className={cn(
                 "text-lg text-white/90 transition-all duration-700 delay-400",
@@ -91,12 +98,12 @@ const AIMarketingSection = () => {
             {/* Call to action section */}
             <div 
               className={cn(
-                "mt-10 p-8 bg-[#0c1f3d] rounded-xl border border-white/5 transition-all duration-700 delay-600",
+                "mt-10 p-6 md:p-8 bg-[#0c1f3d] rounded-xl border border-white/5 transition-all duration-700 delay-600",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
-              <h3 className="text-2xl font-bold text-pink-500 mb-4">למה כדאי לך לעבוד איתי?</h3>
-              <div className="space-y-3">
+              <h3 className="text-xl md:text-2xl font-bold text-pink-500 mb-4">למה כדאי לך לעבוד איתי?</h3>
+              <div className="space-y-4">
                 <div className="flex items-center">
                   <span className="text-green-400 mr-2">✓</span>
                   <p className="text-white/90">אני לא עורך תמונות, אני מעצב תדמית מנצחת</p>
@@ -113,7 +120,8 @@ const AIMarketingSection = () => {
 
               <div className="mt-8">
                 <button 
-                  className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  onClick={scrollToContact}
+                  className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full md:w-auto min-h-[48px]"
                 >
                   רוצה תדמית שמוכרת? השאר פרטים
                 </button>

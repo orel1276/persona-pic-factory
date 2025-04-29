@@ -19,7 +19,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#05152a]"
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#05152a] px-4 md:px-0"
       dir="rtl"
     >
       {/* Background overlay */}
@@ -29,11 +29,11 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 relative z-20 flex flex-col items-center text-center">
-        <div className="max-w-3xl mx-auto space-y-20">
+        <div className="max-w-3xl mx-auto space-y-12 md:space-y-20">
           {/* Main Title */}
           <h1 
             className={cn(
-              "text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight transition-all duration-1000 transform",
+              "text-3xl md:text-6xl lg:text-7xl font-bold text-white leading-tight transition-all duration-1000 transform",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
@@ -43,7 +43,7 @@ const Hero = () => {
           {/* Subtitle */}
           <p 
             className={cn(
-              "text-xl md:text-2xl text-white/90 max-w-2xl mx-auto transition-all duration-1000 delay-200 transform leading-relaxed",
+              "text-lg md:text-2xl text-white/90 max-w-2xl mx-auto transition-all duration-1000 delay-200 transform leading-relaxed",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
@@ -53,13 +53,13 @@ const Hero = () => {
           {/* CTA Button */}
           <div 
             className={cn(
-              "transition-all duration-1000 delay-300 transform",
+              "w-full transition-all duration-1000 delay-300 transform",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
             <button 
               onClick={scrollToContact}
-              className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white text-xl md:text-2xl font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[280px]"
+              className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white text-xl md:text-2xl font-bold py-6 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full md:w-auto min-h-[48px]"
             >
               בוא נדבר על התמונה שלך
             </button>

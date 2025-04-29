@@ -47,22 +47,22 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-20 px-6 bg-background">
+    <section id="faq" className="py-16 md:py-20 px-6 bg-background mt-12">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-sky-400">שאלות נפוצות</h2>
-        <p className="text-center text-white/80 mb-8 md:mb-10 text-lg">כל מה שרצית לדעת על תמונות תדמית AI</p>
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-2 text-sky-400">שאלות נפוצות</h2>
+        <p className="text-center text-white/80 mb-8 md:mb-10 text-lg px-4">כל מה שרצית לדעת על תמונות תדמית AI</p>
         
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-4 px-4 md:px-0">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
               className="bg-white/5 rounded-lg overflow-hidden border border-white/10"
             >
-              <AccordionTrigger className="px-5 md:px-6 py-4 hover:no-underline hover:bg-white/5 transition-colors text-right">
-                <span className="text-lg font-medium text-sky-400">{faq.question}</span>
+              <AccordionTrigger className="px-4 md:px-6 py-4 hover:no-underline hover:bg-white/5 transition-colors text-right">
+                <span className="text-base md:text-lg font-medium text-sky-400">{faq.question}</span>
               </AccordionTrigger>
-              <AccordionContent className="px-5 md:px-6 py-4 text-white/80 text-right text-base">
+              <AccordionContent className="px-4 md:px-6 py-4 text-white/80 text-right text-base">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
@@ -70,7 +70,7 @@ const FAQ = () => {
         </Accordion>
 
         <div className="text-center mt-12">
-          <p className="text-white/70 mb-6">לא מצאת תשובה לשאלה שלך? צור איתי קשר ישירות</p>
+          <p className="text-white/70 mb-6 px-4">לא מצאת תשובה לשאלה שלך? צור איתי קשר ישירות</p>
           <button 
             onClick={() => {
               const contactSection = document.getElementById('contact');
@@ -78,7 +78,7 @@ const FAQ = () => {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-8 rounded-full border border-white/20 transition-all duration-300"
+            className="bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-8 rounded-full border border-white/20 transition-all duration-300 w-full md:w-auto max-w-xs mx-auto min-h-[48px]"
           >
             יש לי שאלה נוספת
           </button>

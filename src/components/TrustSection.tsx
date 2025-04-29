@@ -44,7 +44,7 @@ const TrustSection = () => {
   return (
     <section
       id="trust-section"
-      className="py-16 md:py-20 px-6 bg-[#05152a]"
+      className="py-16 md:py-20 px-6 bg-[#05152a] mt-12"
     >
       <div className="container mx-auto max-w-4xl">
         <div 
@@ -56,7 +56,7 @@ const TrustSection = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-sky-400 mb-4">
             למה אלפי אנשים סומכים עלי?
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto px-4">
             תדמית משדרת אמינות, ואני משקיע בכל לקוח כאילו התדמית שלו היא התדמית שלי
           </p>
         </div>
@@ -64,13 +64,13 @@ const TrustSection = () => {
         {/* Stats Counter */}
         <div 
           className={cn(
-            "grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 transition-all duration-700 delay-200",
+            "grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 transition-all duration-700 delay-200 px-4 md:px-0",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-sky-400 mb-2">{stat.value}</div>
+            <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-6 text-center">
+              <div className="text-2xl md:text-4xl font-bold text-sky-400 mb-2">{stat.value}</div>
               <div className="text-white/80 text-sm">{stat.label}</div>
             </div>
           ))}
@@ -79,23 +79,23 @@ const TrustSection = () => {
         {/* Trust Badges */}
         <div 
           className={cn(
-            "bg-white/5 border border-white/10 rounded-xl p-8 mb-12 transition-all duration-700 delay-300",
+            "bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 mb-12 transition-all duration-700 delay-300 mx-4 md:mx-0",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
           <div className="flex flex-wrap justify-center items-center gap-3">
-            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80">✓ תשלום מאובטח</div>
-            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80">✓ דיסקרטיות מלאה</div>
-            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80">✓ שירות אישי</div>
-            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80">✓ אחריות מלאה</div>
-            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80">✓ זמינות 24/7</div>
+            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80 text-sm">✓ תשלום מאובטח</div>
+            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80 text-sm">✓ דיסקרטיות מלאה</div>
+            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80 text-sm">✓ שירות אישי</div>
+            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80 text-sm">✓ אחריות מלאה</div>
+            <div className="bg-white/10 rounded-full px-4 py-2 text-white/80 text-sm">✓ זמינות 24/7</div>
           </div>
         </div>
 
         {/* Certifications or Additional Trust Elements */}
         <div 
           className={cn(
-            "text-center transition-all duration-700 delay-400",
+            "text-center transition-all duration-700 delay-400 px-4 md:px-0",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >

@@ -36,7 +36,7 @@ const FirstImpressionSection = () => {
   return (
     <section
       id="first-impression"
-      className="py-16 md:py-24 px-6 relative overflow-hidden bg-[#05152a] flex items-center justify-center border-t border-white/10"
+      className="py-16 md:py-24 px-6 relative overflow-hidden bg-[#05152a] flex items-center justify-center border-t border-white/10 mt-12"
     >
       <div className="container mx-auto max-w-4xl">
         <div className={cn(
@@ -45,19 +45,19 @@ const FirstImpressionSection = () => {
           "transition-all duration-700"
         )}>
           {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto px-4">
             <span className="text-sky-400">רושם ראשוני</span> נוצר לפני{" "}
             <span className="text-white">שמספיקים לומר מילה</span>
           </h2>
           
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto px-4">
             איך אתה נראה בתמונה שלך – זה מה שיגרום לאנשים לעצור, להאמין, 
             להתחבר – או להמשיך הלאה.
           </p>
           
           {/* First box */}
-          <div className="bg-[#0c2341]/80 rounded-2xl p-6 border border-white/10 mb-10 max-w-3xl w-full">
+          <div className="bg-[#0c2341]/80 rounded-2xl p-6 border border-white/10 mb-10 max-w-3xl w-full mx-4 md:mx-0">
             <p className="text-lg md:text-xl text-white/90">
               במקום להמר על תמונות חובבניות, <span className="text-sky-400">בוא נבנה לך תדמית</span> שתראה בדיוק את מה שאתה 
               <span className="text-sky-400"> באמת</span>: מקצועי, אמין, ומוכן להזדמנויות הבאות שלך.
@@ -67,13 +67,13 @@ const FirstImpressionSection = () => {
           {/* CTA Button */}
           <button 
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-xl mb-10"
+            className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-xl mb-10 mx-4 w-full md:w-auto min-h-[48px]"
           >
             רוצה תדמית שמוכרת? השאר פרטים
           </button>
           
           {/* Second box */}
-          <div className="bg-gradient-to-r from-[#0c2341]/90 to-[#0c2341]/70 rounded-2xl p-6 border border-white/10 max-w-3xl w-full">
+          <div className="bg-gradient-to-r from-[#0c2341]/90 to-[#0c2341]/70 rounded-2xl p-6 border border-white/10 max-w-3xl w-full mx-4 md:mx-0">
             <p className="text-lg md:text-xl text-white/90">
               שלח לי כמה תמונות פשוטות – <span className="text-sky-400">ואני אדאג שהעולם יראה אותך בגרסה הכי חזקה שלך</span>
             </p>

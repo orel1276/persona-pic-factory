@@ -68,7 +68,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="name"
@@ -78,7 +78,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
               <FormControl>
                 <Input
                   placeholder="השם שלך"
-                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
+                  className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                   {...field}
                 />
               </FormControl>
@@ -96,7 +96,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
               <FormControl>
                 <Input
                   placeholder="your@email.com"
-                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
+                  className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                   {...field}
                 />
               </FormControl>
@@ -114,7 +114,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
               <FormControl>
                 <Input
                   placeholder="050-1234567"
-                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
+                  className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                   {...field}
                 />
               </FormControl>
@@ -132,8 +132,8 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
               <FormControl>
                 <Textarea
                   placeholder="ספר לי קצת על הצרכים שלך..."
-                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
-                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white"
+                  rows={4}
                   {...field}
                 />
               </FormControl>
@@ -142,7 +142,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           )}
         />
         
-        <div className="flex flex-wrap gap-2 justify-center mt-3 text-white text-xs md:text-sm bg-slate-700/30 p-3 rounded-lg">
+        <div className="flex flex-wrap gap-2 justify-center mt-3 text-white text-xs md:text-sm bg-slate-700/30 p-4 rounded-lg">
           <span className="flex items-center">✅ תוצאה תוך 24 שעות</span>
           <span className="flex items-center">✅ ליווי אישי</span>
           <span className="flex items-center">✅ דיסקרטיות מלאה</span>
@@ -151,7 +151,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         <Button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-2.5 mt-4 rounded-md transition-all text-lg ${
+          className={`w-full py-4 mt-4 rounded-md transition-all text-lg min-h-[48px] ${
             isSubmitting 
               ? 'bg-gray-400 cursor-not-allowed' 
               : 'bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold shadow-md hover:shadow-lg hover:scale-[1.02]'
