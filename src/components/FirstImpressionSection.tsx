@@ -36,7 +36,7 @@ const FirstImpressionSection = () => {
   return (
     <section
       id="first-impression"
-      className="py-16 md:py-24 px-6 relative overflow-hidden bg-[#05152a] flex items-center justify-center"
+      className="py-16 md:py-24 px-6 relative overflow-hidden bg-[#05152a] flex items-center justify-center border-t border-white/10"
     >
       <div className="container mx-auto max-w-4xl">
         <div className={cn(
@@ -57,7 +57,7 @@ const FirstImpressionSection = () => {
           </p>
           
           {/* First box */}
-          <div className="bg-[#0c2341]/80 rounded-2xl p-6 border border-border/20 mb-10 max-w-3xl w-full">
+          <div className="bg-[#0c2341]/80 rounded-2xl p-6 border border-white/10 mb-10 max-w-3xl w-full">
             <p className="text-lg md:text-xl text-white/90">
               במקום להמר על תמונות חובבניות, <span className="text-sky-400">בוא נבנה לך תדמית</span> שתראה בדיוק את מה שאתה 
               <span className="text-sky-400"> באמת</span>: מקצועי, אמין, ומוכן להזדמנויות הבאות שלך.
@@ -73,7 +73,7 @@ const FirstImpressionSection = () => {
           </button>
           
           {/* Second box */}
-          <div className="bg-gradient-to-r from-[#0c2341]/90 to-[#0c2341]/70 rounded-2xl p-6 border border-border/20 max-w-3xl w-full">
+          <div className="bg-gradient-to-r from-[#0c2341]/90 to-[#0c2341]/70 rounded-2xl p-6 border border-white/10 max-w-3xl w-full">
             <p className="text-lg md:text-xl text-white/90">
               שלח לי כמה תמונות פשוטות – <span className="text-sky-400">ואני אדאג שהעולם יראה אותך בגרסה הכי חזקה שלך</span>
             </p>

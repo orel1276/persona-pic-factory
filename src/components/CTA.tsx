@@ -14,12 +14,12 @@ const CTA = () => {
   };
 
   return (
-    <section id="צור-קשר" className="py-16 md:py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <section id="צור-קשר" className="py-16 md:py-24 px-6 bg-[#05152a] border-t border-white/10">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-sky-400 mb-8">
           רוצה להפוך את התדמית שלך למכונת לידים משומנת?
         </h2>
-        <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+        <p className="text-lg text-white/90 mb-10 max-w-3xl mx-auto">
           דבר איתי עוד היום – וביחד נבנה לך תדמית שתגרום ללקוחות לרצות לעבוד איתך.
         </p>
         <button

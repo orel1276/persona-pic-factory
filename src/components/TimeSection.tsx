@@ -26,16 +26,23 @@ const TimeSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="time-section"
-      className="py-16 md:py-24 px-6 bg-background"
+      className="py-16 md:py-24 px-6 bg-[#05152a] border-t border-white/10"
     >
       <div className="container mx-auto max-w-4xl text-center">
         {/* Main Title */}
         <h2 
           className={cn(
-            "text-3xl md:text-4xl font-bold text-primary mb-6 transition-all duration-700 leading-snug",
+            "text-3xl md:text-4xl font-bold text-sky-400 mb-6 transition-all duration-700 leading-snug",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
@@ -45,7 +52,7 @@ const TimeSection = () => {
         {/* Supporting Text */}
         <p 
           className={cn(
-            "text-lg md:text-xl text-muted-foreground mb-12 transition-all duration-700 delay-100",
+            "text-lg md:text-xl text-white/80 mb-12 transition-all duration-700 delay-100",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
@@ -69,8 +76,8 @@ const TimeSection = () => {
               key={index}
               className="flex items-start gap-3 text-right"
             >
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span className="text-lg text-foreground/90">{benefit}</span>
+              <Check className="w-5 h-5 text-sky-400 mt-1 flex-shrink-0" />
+              <span className="text-lg text-white/90">{benefit}</span>
             </div>
           ))}
         </div>
@@ -83,7 +90,8 @@ const TimeSection = () => {
           )}
         >
           <Button 
-            className="w-[90%] sm:w-[80%] md:w-auto text-lg py-6 px-8"
+            onClick={scrollToContact}
+            className="w-[90%] sm:w-[80%] md:w-auto text-lg py-6 px-8 bg-gradient-to-r from-fuchsia-600 to-pink-600"
             size="lg"
           >
             התחל לשדרג את התדמית שלך

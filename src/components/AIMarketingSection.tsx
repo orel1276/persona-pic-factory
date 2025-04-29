@@ -27,7 +27,7 @@ const AIMarketingSection = () => {
   return (
     <section
       id="about-me-section"
-      className="py-16 md:py-24 px-6 bg-gray-50"
+      className="py-16 md:py-24 px-6 bg-[#05152a]"
     >
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-10">
@@ -35,7 +35,7 @@ const AIMarketingSection = () => {
           <div className="order-2 md:order-1 md:w-1/2">
             <h2 
               className={cn(
-                "text-3xl md:text-4xl font-bold text-primary mb-6 transition-all duration-700",
+                "text-3xl md:text-4xl font-bold text-sky-400 mb-6 transition-all duration-700",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
@@ -44,7 +44,7 @@ const AIMarketingSection = () => {
             
             <p 
               className={cn(
-                "text-lg text-gray-700 mb-6 transition-all duration-700 delay-100",
+                "text-lg text-white/90 mb-6 transition-all duration-700 delay-100",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
@@ -53,7 +53,7 @@ const AIMarketingSection = () => {
             
             <p 
               className={cn(
-                "text-lg text-gray-700 transition-all duration-700 delay-200",
+                "text-lg text-white/90 transition-all duration-700 delay-200",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >

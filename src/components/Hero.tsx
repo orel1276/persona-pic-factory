@@ -19,12 +19,12 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800"
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#05152a]"
       dir="rtl"
     >
       {/* Background overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/60 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05152a]/90 to-[#05152a]/60 z-10"></div>
       </div>
 
       {/* Content */}

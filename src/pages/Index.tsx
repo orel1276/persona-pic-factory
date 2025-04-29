@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -28,7 +29,7 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-background z-50">
+      <div className="fixed inset-0 flex items-center justify-center bg-[#05152a] z-50">
         <div className="text-center">
           <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-xl">
@@ -40,7 +41,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background" dir="rtl">
+    <div className="min-h-screen flex flex-col bg-[#05152a] text-white" dir="rtl">
       <Navbar />
       <main className="flex-grow">
         <Hero />
