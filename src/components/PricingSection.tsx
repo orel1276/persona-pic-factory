@@ -4,17 +4,6 @@ import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-interface PricingPlan {
-  title: string;
-  subtitle: string;
-  originalPrice: number;
-  discountedPrice: number;
-  features: string[];
-  buttonText: string;
-  recommended?: boolean;
-  buttonVariant: 'blue' | 'pink';
-}
-
 const PricingSection = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -40,117 +29,107 @@ const PricingSection = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Function to handle redirect to payment page
+  const redirectToPayment = () => {
+    // Replace with your actual payment URL
+    window.location.href = "https://paypage.example.com/filmkal-package"; 
+    // Note: You should replace this with your actual payment gateway URL
   };
-
-  const pricingPlans: PricingPlan[] = [
-    {
-      title: "אלבום תדמית אישי",
-      subtitle: "להפוך אותך למגנט ללקוחות",
-      originalPrice: 349,
-      discountedPrice: 249,
-      features: [
-        "10 תמונות תדמית מקצועיות",
-        "התאמה אישית לסגנון שלך",
-        "קבלת התוצאה תוך 24 שעות",
-        "רישיון מלא לשימוש",
-        "ליווי אישי לאורך כל התהליך",
-        "מגוון רקעים מקצועיים",
-        "תיקון ראשון חינם"
-      ],
-      buttonText: "בוא ניצור את האלבום האישי שלך",
-      buttonVariant: 'pink'
-    },
-    {
-      title: "אלבום למוצר ומותג",
-      subtitle: "לשדרג את העסק שלך למובילות",
-      originalPrice: 449,
-      discountedPrice: 349,
-      features: [
-        "10 תמונות מותג מקצועיות",
-        "התאמה מלאה לזהות המותג",
-        "קבלת התוצאה תוך 24 שעות",
-        "רישיון מסחרי מלא",
-        "ליווי אישי לאורך התהליך",
-        "מגוון רקעים עסקיים",
-        "תיקונים ללא הגבלה"
-      ],
-      buttonText: "התחל ליצור אלבום למותג שלך",
-      recommended: true,
-      buttonVariant: 'blue'
-    }
-  ];
 
   return (
     <section id="תמחור" className="py-20 md:py-24 px-6 bg-gradient-to-b from-white to-gray-50" ref={pricingRef}>
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-6 text-sky-500">
-            כמה שווה להשקיע בעצמך?
+            כמה שווה להיראות כמו מותג?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            בחר את התוכנית שמתאימה לך – ותן לעולם לראות את הגרסה הכי טובה שלך
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            בחר את התדמית שמגיעה לך – ותמיד תיראה כמו הגרסה הכי טובה שלך.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
-          {pricingPlans.map((plan, index) => (
-            <div 
-              key={index}
-              className={cn(
-                "rounded-2xl overflow-hidden transition-all duration-700 transform bg-white shadow-lg hover:shadow-xl border border-gray-100",
-                plan.recommended 
-                  ? "border-primary/10" 
-                  : "border-gray-100",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-              )}
-              style={{ 
-                transitionDelay: isVisible ? `${index * 200}ms` : '0ms',
-              }}
-            >
-              {plan.recommended && (
-                <div className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white text-center py-2">
-                  <p className="text-sm font-medium">הבחירה המועדפת של הלקוחות שלנו</p>
-                </div>
-              )}
-              
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{plan.title}</h3>
-                <p className="text-gray-600 mb-5 md:mb-6">{plan.subtitle}</p>
-                
-                <div className="mb-6">
-                  <span className="text-2xl md:text-3xl font-bold text-gray-900">₪{plan.discountedPrice}</span>
-                  <span className="text-gray-400 line-through mr-2">₪{plan.originalPrice}</span>
-                  <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded mr-2">מבצע מיוחד</span>
-                </div>
-                
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-gray-700">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button
-                  onClick={() => scrollToSection("צור-קשר")}
-                  className={cn(
-                    "w-full py-3 md:py-4 rounded-full font-medium text-white transition-all hover:scale-[1.02] shadow-lg",
-                    plan.buttonVariant === 'blue' 
-                      ? "bg-gradient-to-r from-sky-500 to-cyan-400 hover:from-sky-600 hover:to-cyan-500" 
-                      : "bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500"
-                  )}
-                >
-                  {plan.buttonText}
-                </button>
+        {/* Single Card Design */}
+        <div 
+          className={cn(
+            "max-w-2xl mx-auto rounded-2xl overflow-hidden transition-all duration-700 transform bg-white shadow-xl border border-gray-100",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+          )}
+        >
+          {/* Featured Tag */}
+          <div className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-slate-800 text-center py-2 px-4 font-medium text-sm">
+            מחיר היכרות - לזמן מוגבל בלבד
+          </div>
+          
+          <div className="p-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">החבילה המלאה לתדמית שמוכרת</h3>
+            <p className="text-gray-600 mb-6">כל מה שצריך כדי להיראות כמו מומחה – בלי צלם, בלי סטודיו, בלי מאמץ.</p>
+            
+            <div className="mb-8 flex flex-col md:flex-row md:items-end gap-2 md:gap-4">
+              <div className="flex items-center">
+                <span className="text-gray-400 line-through text-xl md:text-2xl">₪549</span>
+                <div className="w-12 h-[2px] bg-gradient-to-r from-red-500 to-transparent mx-2 rotate-[-15deg]"></div>
+              </div>
+              <div>
+                <span className="text-3xl md:text-4xl font-bold text-fuchsia-600">₪349 בלבד</span>
               </div>
             </div>
-          ))}
+            
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">10 תמונות AI מרהיבות</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">התאמה אישית למיתוג שלך</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">קבלת תוצאה תוך 24 שעות</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">דיסקרטיות מלאה</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">מודל AI שנבנה במיוחד עבורך</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">תיקונים חופשיים לפי הצורך</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-green-100 p-1 flex-shrink-0">
+                  <Check className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="text-gray-800">ליווי אישי לאורך התהליך</span>
+              </div>
+            </div>
+            
+            <button
+              onClick={redirectToPayment}
+              className="w-full py-4 rounded-full font-bold text-white text-xl transition-all hover:scale-[1.02] shadow-lg bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-700 hover:to-pink-700"
+            >
+              רוצה להיראות כמו מותג? לחץ כאן לרכישה
+            </button>
+            
+            <p className="text-gray-500 text-sm mt-4 text-center">
+              זה לא המחיר שאתה משלם על תמונה – זה המחיר שאתה משלם על איך שרואים אותך.
+            </p>
+          </div>
         </div>
       </div>
     </section>

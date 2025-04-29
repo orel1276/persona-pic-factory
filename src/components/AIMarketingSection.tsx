@@ -33,29 +33,11 @@ const AIMarketingSection = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
-          {/* Image - Left side for desktop, bottom for mobile */}
-          <div 
-            className={cn(
-              "relative w-full md:w-[45%] order-last md:order-first transition-all duration-1000 delay-400 md:h-[600px] flex items-center",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-              isMobile ? "mt-8" : ""
-            )}
-          >
-            {/* Soft background circle - light pink */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-square rounded-full bg-pink-100/20 blur-2xl" />
-            
-            <img
-              src="/lovable-uploads/be0497d4-c0af-40ca-a705-0db1d3b0ef85.png"
-              alt="אוראל - מומחה תדמית דיגיטלית"
-              className="relative w-[95%] h-auto object-contain object-left ml-0"
-            />
-          </div>
-
-          {/* Text Content - Right side for desktop, top for mobile */}
-          <div className="w-full md:w-[55%] space-y-8 text-right">
+          {/* Text Content - Left side for desktop, top for mobile */}
+          <div className="w-full md:w-[55%] space-y-8 text-right order-last md:order-first">
             <h2 
               className={cn(
-                "text-3xl md:text-4xl lg:text-5xl font-bold text-primary transition-all duration-700",
+                "text-3xl md:text-4xl font-bold text-primary transition-all duration-700",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
@@ -110,6 +92,29 @@ const AIMarketingSection = () => {
                   <span>אני נותן יתרון תחרותי עם תדמית חזקה שתגרום לעסק שלך לבלוט</span>
                 </li>
               </ul>
+            </div>
+          </div>
+          
+          {/* Image - Right side for desktop, bottom for mobile */}
+          <div 
+            className={cn(
+              "relative w-full md:w-[45%] order-first md:order-last transition-all duration-1000 delay-400 flex items-center justify-center md:justify-start",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            {/* Circular image container */}
+            <div className="relative w-72 h-72 md:w-[350px] md:h-[350px]">
+              {/* Background glow effect */}
+              <div className="absolute inset-0 rounded-full bg-primary/10 shadow-[0_0_25px_rgba(255,0,150,0.2)]"></div>
+              
+              {/* Main circular image with border */}
+              <div className="absolute inset-0 rounded-full border-4 border-primary/20 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
+                  alt="אוראל - מומחה תדמית דיגיטלית" 
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </div>
