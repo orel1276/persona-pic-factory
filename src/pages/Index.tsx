@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import FirstImpressionSection from '@/components/FirstImpressionSection';
 import Features from '@/components/Features';
 import Process from '@/components/Process';
 import BusinessSection from '@/components/BusinessSection';
@@ -44,6 +45,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <FirstImpressionSection />
         <AIMarketingSection />
         <Features />
         <TimeSection />
@@ -51,7 +53,6 @@ const Index = () => {
         <BusinessSection />
         <Gallery />
         <ClientTestimonials />
-        {/* Removed duplicate AboutMe component */}
         <DIYSection />
         <PricingSection />
         <FAQ />
