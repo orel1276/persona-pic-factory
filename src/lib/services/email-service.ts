@@ -21,9 +21,11 @@ export const sendContactEmail = async (data: ContactFormData) => {
       message: data.message || 'לא הוזן הודעה',
       to_name: 'FilmKal',
       subject: 'פנייה חדשה מהאתר',
-      email: data.email, // Adding email as a separate field for template compatibility
-      to_email: 'orel12761276@gmail.com' // Setting the recipient email
+      email: data.email,
+      to_email: 'orel12761276@gmail.com'
     };
+
+    console.log('Sending email with params:', templateParams);
 
     // Send the email
     const response = await emailjs.send(
@@ -31,6 +33,8 @@ export const sendContactEmail = async (data: ContactFormData) => {
       EMAIL_CONFIG.templateID,
       templateParams
     );
+
+    console.log('Email sent successfully:', response);
 
     // Return success response
     return { success: true, response };

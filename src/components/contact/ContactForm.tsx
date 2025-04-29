@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -37,16 +36,26 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    
     try {
+      console.log("Form data being submitted:", data);
       await sendContactEmail(data);
+      
+      // Reset form after successful submission
       form.reset();
+      
+      // Call the success handler
       onSubmitSuccess();
+      
+      // Show success toast
       toast({
         title: "הטופס נשלח בהצלחה!",
         description: "נחזור אליך בהקדם",
       });
     } catch (err) {
       console.error('Error sending form:', err);
+      
+      // Show error toast
       toast({
         title: "שגיאה בשליחת הטופס",
         description: "אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ",
