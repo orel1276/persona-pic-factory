@@ -2,14 +2,15 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
   const isMobile = useIsMobile();
-  const navigate = useNavigate();
 
-  const redirectToPayment = () => {
-    navigate("/payment");
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -22,10 +23,10 @@ const CTA = () => {
           דבר איתי עוד היום – וביחד נבנה לך תדמית שתגרום ללקוחות לרצות לעבוד איתך.
         </p>
         <button
-          onClick={redirectToPayment}
+          onClick={scrollToContact}
           className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-xl"
         >
-          בוא נדבר על התמונה שלך
+          רוצה תדמית שמוכרת? השאר פרטים
         </button>
       </div>
     </section>

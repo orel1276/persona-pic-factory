@@ -3,13 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useNavigate } from 'react-router-dom';
 
 const PricingSection = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,8 +29,11 @@ const PricingSection = () => {
     };
   }, []);
 
-  const redirectToPayment = () => {
-    navigate("/payment"); 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -119,10 +120,10 @@ const PricingSection = () => {
             </div>
             
             <button
-              onClick={redirectToPayment}
+              onClick={scrollToContact}
               className="w-full py-4 rounded-full font-bold text-white text-xl transition-all hover:scale-[1.02] shadow-lg bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-700 hover:to-pink-700"
             >
-              רוצה להיראות כמו מותג? לחץ כאן לרכישה
+              רוצה להיראות כמו מותג? לחץ כאן להשארת פרטים
             </button>
             
             <p className="text-foreground/60 text-sm mt-4 text-center">

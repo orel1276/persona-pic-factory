@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -64,11 +65,11 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-700">שם מלא</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">שם מלא</FormLabel>
               <FormControl>
                 <Input
                   placeholder="השם שלך"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
                   {...field}
                 />
               </FormControl>
@@ -82,11 +83,11 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-700">אימייל</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">אימייל</FormLabel>
               <FormControl>
                 <Input
                   placeholder="your@email.com"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
                   {...field}
                 />
               </FormControl>
@@ -100,11 +101,11 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-700">טלפון</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">טלפון</FormLabel>
               <FormControl>
                 <Input
                   placeholder="050-1234567"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
                   {...field}
                 />
               </FormControl>
@@ -118,11 +119,11 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-700">כמה מילים על מה שאתה צריך</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">כמה מילים על מה שאתה צריך</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="ספר לי קצת על הצרכים שלך..."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-white"
                   rows={3}
                   {...field}
                 />
@@ -132,7 +133,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           )}
         />
         
-        <div className="flex flex-wrap gap-2 justify-center mt-3 text-gray-700 text-xs md:text-sm">
+        <div className="flex flex-wrap gap-2 justify-center mt-3 text-white text-xs md:text-sm bg-slate-700/30 p-3 rounded-lg">
           <span className="flex items-center">✅ תוצאה תוך 24 שעות</span>
           <span className="flex items-center">✅ ליווי אישי</span>
           <span className="flex items-center">✅ דיסקרטיות מלאה</span>
@@ -141,13 +142,13 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         <Button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-2.5 mt-2 rounded-md transition-all text-lg ${
+          className={`w-full py-2.5 mt-4 rounded-md transition-all text-lg ${
             isSubmitting 
               ? 'bg-gray-400 cursor-not-allowed' 
-              : 'bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold shadow-md hover:shadow-lg'
+              : 'bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold shadow-md hover:shadow-lg hover:scale-[1.02]'
           }`}
         >
-          {isSubmitting ? 'שולח...' : 'בוא ניצור את התמונה שתספר את הסיפור שלך'}
+          {isSubmitting ? 'שולח...' : 'שלח ובוא ניצור תדמית חדשה ביחד'}
         </Button>
       </form>
     </Form>

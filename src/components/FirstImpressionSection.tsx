@@ -26,8 +26,11 @@ const FirstImpressionSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const redirectToPayment = () => {
-    window.location.href = "/payment"; 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -63,10 +66,10 @@ const FirstImpressionSection = () => {
           
           {/* CTA Button */}
           <button 
-            onClick={redirectToPayment}
+            onClick={scrollToContact}
             className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-xl mb-10"
           >
-            התדמית שלך היא המפתח להצלחה שלך
+            רוצה תדמית שמוכרת? השאר פרטים
           </button>
           
           {/* Second box */}

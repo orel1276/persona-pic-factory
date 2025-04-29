@@ -22,6 +22,7 @@ export const sendContactEmail = async (data: ContactFormData) => {
       to_name: 'FilmKal',
       subject: 'פנייה חדשה מהאתר',
       email: data.email, // Adding email as a separate field for template compatibility
+      to_email: 'orel12761276@gmail.com' // Setting the recipient email
     };
 
     // Send the email

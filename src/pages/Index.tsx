@@ -15,6 +15,7 @@ import Footer from '@/components/Footer';
 import AIMarketingSection from '@/components/AIMarketingSection';
 import TimeSection from '@/components/TimeSection';
 import AboutMe from '@/components/AboutMe';
+import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,7 +55,9 @@ const Index = () => {
         <Gallery />
         <ClientTestimonials />
         <PricingSection />
+        <AboutMe />
         <FAQ />
+        <ContactSection />
         <CTA />
       </main>
       <Footer />
