@@ -15,6 +15,9 @@ import Footer from '@/components/Footer';
 import AIMarketingSection from '@/components/AIMarketingSection';
 import TimeSection from '@/components/TimeSection';
 import ContactSection from '@/components/ContactSection';
+import BeforeAfterSection from '@/components/BeforeAfterSection';
+import TrustSection from '@/components/TrustSection';
+import PromisesSection from '@/components/PromisesSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,13 +51,16 @@ const Index = () => {
         <AIMarketingSection />
         <FirstImpressionSection />
         <Gallery />
+        <BeforeAfterSection />
         <Process />
         <ClientTestimonials />
         <TimeSection />
         <Features />
         <BusinessSection />
+        <PromisesSection />
         <PricingSection />
         <FAQ />
+        <TrustSection />
         <ContactSection />
         <CTA />
       </main>
