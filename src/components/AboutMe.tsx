@@ -28,62 +28,32 @@ const AboutMe = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const redirectToPayment = () => {
+    // Replace with your actual payment URL when available
+    window.location.href = "https://paypage.example.com/filmkal-package"; 
   };
 
   return (
-    <section id="about" className="py-20 md:py-24 px-6 bg-gradient-to-b from-white to-gray-100 mt-16 md:mt-20" ref={aboutRef}>
+    <section id="about" className="py-20 md:py-24 px-6 bg-background mt-16 md:mt-20" ref={aboutRef}>
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10 md:mb-12">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            מי אני?
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary font-rubik leading-tight">
             אני אוראל, ואני הופך אנשים רגילים לפצצות תדמית
           </h2>
-          <p className="text-lg text-gray-600 mt-4">
+          <p className="text-lg text-foreground/70 mt-4">
             אני לא סתם "עורך תמונות" – אני יוצר נראות שמושכת לקוחות
           </p>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row-reverse items-center md:items-start gap-8 md:gap-12">
           <div 
             className={cn(
-              "flex-shrink-0 order-2 md:order-none mb-0 md:mb-0 transition-all duration-1000 transform mt-8 md:mt-0",
+              "flex-shrink-0 order-1 md:order-none mb-0 md:mb-0 transition-all duration-1000 transform mt-8 md:mt-0",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
-            {/* Improved image positioning within circle */}
-            <div className="relative w-64 h-64 md:w-72 md:h-72 hover:scale-105 transition-all duration-500 mx-auto md:mx-0">
-              {/* Circle background with subtle glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 shadow-[0_0_15px_rgba(255,0,150,0.4)]"></div>
-              
-              {/* Person image - better centered with all features visible */}
-              <div className="absolute inset-0 overflow-hidden rounded-full">
-                <img 
-                  src="/lovable-uploads/1fe94a47-e803-45e8-a676-8b8a651a7fbf.png" 
-                  alt="אוראל עבייד" 
-                  className="object-cover w-full h-full"
-                  style={{ 
-                    objectPosition: "center 35%",
-                    transform: "scale(1.08)"
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-          
-          <div 
-            className={cn(
-              "text-gray-700 text-lg max-w-2xl transition-all duration-1000 delay-300 transform content-spacing order-1 md:order-none",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            )}
-          >
-            <div className="space-y-6">
+            {/* Text content - Right side for desktop, bottom for mobile */}
+            <div className="space-y-6 text-foreground/90 max-w-2xl text-right">
               <p>
                 אני בן 33, מומחה לבינה מלאכותית ו<strong>מהפכן בעולם התדמית הדיגיטלית</strong>.
               </p>
@@ -100,7 +70,7 @@ const AboutMe = () => {
                 העיקרון שלי פשוט: לעזור לך להראות כמו <strong>המומחה שאתה באמת</strong>, בלי שתצטרך להוציא אלפי שקלים על צילומי סטודיו יקרים.
               </p>
               
-              <div className="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300">
+              <div className="mt-8 bg-slate-800/50 p-6 rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
                 <h3 className="text-xl font-bold text-primary mb-4">למה כדאי לך לעבוד איתי?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
@@ -120,16 +90,34 @@ const AboutMe = () => {
 
               {/* Add standardized CTA */}
               <div className="text-center mt-8">
-                <a 
-                  href="#צור-קשר" 
-                  className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-[90%] sm:w-auto"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("צור-קשר");
-                  }}
+                <button 
+                  onClick={redirectToPayment}
+                  className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-[90%] sm:w-auto"
                 >
                   בוא נדבר על התמונה שלך
-                </a>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div 
+            className={cn(
+              "w-full md:w-[45%] transition-all duration-1000 delay-100 flex items-center justify-center md:justify-start",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            {/* Circular image container - Large and prominent */}
+            <div className="relative w-80 h-80 md:w-[400px] md:h-[400px]">
+              {/* Background glow effect */}
+              <div className="absolute inset-0 rounded-full bg-primary/10 shadow-[0_0_25px_rgba(255,0,150,0.2)]"></div>
+              
+              {/* Main circular image with border */}
+              <div className="absolute inset-0 rounded-full border-4 border-primary/20 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/be0497d4-c0af-40ca-a705-0db1d3b0ef85.png" 
+                  alt="אוראל - מומחה תדמית דיגיטלית" 
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
             </div>
           </div>

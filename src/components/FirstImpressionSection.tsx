@@ -27,11 +27,9 @@ const FirstImpressionSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const redirectToPayment = () => {
+    // Replace with your actual payment URL when available
+    window.location.href = "https://paypage.example.com/filmkal-package"; 
   };
 
   return (
@@ -66,7 +64,7 @@ const FirstImpressionSection = () => {
             </div>
             
             <button 
-              onClick={() => scrollToSection("צור-קשר")}
+              onClick={redirectToPayment}
               className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-xl"
             >
               התדמית שלך היא המפתח להצלחה שלך

@@ -15,6 +15,7 @@ import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import AIMarketingSection from '@/components/AIMarketingSection';
 import TimeSection from '@/components/TimeSection';
+import AboutMe from '@/components/AboutMe';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,14 +47,13 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <FirstImpressionSection />
-        <AIMarketingSection />
+        <AboutMe />
         <Features />
         <TimeSection />
         <Process />
         <BusinessSection />
         <Gallery />
         <ClientTestimonials />
-        <DIYSection />
         <PricingSection />
         <FAQ />
         <CTA />
