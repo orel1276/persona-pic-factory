@@ -37,16 +37,17 @@ const AIMarketingSection = () => {
           <div 
             className={cn(
               "relative w-full md:w-[45%] order-last md:order-first transition-all duration-1000 delay-400 md:h-[600px] flex items-center",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+              isMobile ? "mt-8" : ""
             )}
           >
-            {/* Soft background circle */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[90%] aspect-square rounded-full bg-sky-100/20 blur-2xl" />
+            {/* Soft background circle - light pink */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full aspect-square rounded-full bg-pink-100/20 blur-2xl" />
             
             <img
-              src="/lovable-uploads/622ad20a-206a-464e-bcf4-8919bf081a04.png"
+              src="/lovable-uploads/be0497d4-c0af-40ca-a705-0db1d3b0ef85.png"
               alt="אוראל - מומחה תדמית דיגיטלית"
-              className="relative w-[90%] h-auto object-contain object-left"
+              className="relative w-[95%] h-auto object-contain object-left ml-0"
             />
           </div>
 

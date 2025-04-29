@@ -10,23 +10,29 @@ const EMAIL_CONFIG = {
 
 export const sendContactEmail = async (data: ContactFormData) => {
   try {
+    // Initialize EmailJS with the public key
     emailjs.init(EMAIL_CONFIG.publicKey);
     
+    // Prepare the template parameters with all required fields
     const templateParams = {
       from_name: data.name,
       reply_to: data.email,
       phone: data.phone || 'לא הוזן',
       message: data.message || 'לא הוזן הודעה',
-      to_name: 'FilmKal', // Added recipient name
+      to_name: 'FilmKal',
+      subject: 'פנייה חדשה מהאתר',
+      email: data.email, // Adding email as a separate field for template compatibility
     };
 
-    await emailjs.send(
+    // Send the email
+    const response = await emailjs.send(
       EMAIL_CONFIG.serviceID,
       EMAIL_CONFIG.templateID,
       templateParams
     );
 
-    return { success: true };
+    // Return success response
+    return { success: true, response };
   } catch (error) {
     console.error('Email sending error:', error);
     throw error;

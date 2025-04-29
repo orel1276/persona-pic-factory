@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -6,7 +7,6 @@ import Process from '@/components/Process';
 import BusinessSection from '@/components/BusinessSection';
 import Gallery from '@/components/Gallery';
 import ClientTestimonials from '@/components/ClientTestimonials';
-import AboutMe from '@/components/AboutMe';
 import DIYSection from '@/components/DIYSection';
 import PricingSection from '@/components/PricingSection';
 import FAQ from '@/components/FAQ';
@@ -51,7 +51,7 @@ const Index = () => {
         <BusinessSection />
         <Gallery />
         <ClientTestimonials />
-        <AboutMe />
+        {/* Removed duplicate AboutMe component */}
         <DIYSection />
         <PricingSection />
         <FAQ />

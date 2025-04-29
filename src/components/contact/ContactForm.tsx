@@ -20,9 +20,10 @@ import { sendContactEmail } from '@/lib/services/email-service';
 interface ContactFormProps {
   onSubmitSuccess: () => void;
   isSubmitting: boolean;
+  setIsSubmitting: (value: boolean) => void;
 }
 
-export const ContactForm = ({ onSubmitSuccess, isSubmitting }: ContactFormProps) => {
+export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: ContactFormProps) => {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -34,21 +35,24 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting }: ContactFormProps)
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
     try {
       await sendContactEmail(data);
       form.reset();
       onSubmitSuccess();
       toast({
         title: "הטופס נשלח בהצלחה!",
-        description: "פרטיך נשלחו לכתובת orel1276@gmail.com",
+        description: "נחזור אליך בהקדם",
       });
     } catch (err) {
-      console.log('FAILED...', err);
+      console.error('Error sending form:', err);
       toast({
         title: "שגיאה בשליחת הטופס",
         description: "אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

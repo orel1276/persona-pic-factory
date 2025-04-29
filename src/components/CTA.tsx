@@ -32,7 +32,6 @@ const CTA = () => {
   }, []);
 
   const handleSubmitSuccess = () => {
-    setIsSubmitting(false);
     setIsSubmitted(true);
     
     // Reset submitted state after 5 seconds
@@ -73,6 +72,7 @@ const CTA = () => {
                 <ContactForm
                   onSubmitSuccess={handleSubmitSuccess}
                   isSubmitting={isSubmitting}
+                  setIsSubmitting={setIsSubmitting}
                 />
               ) : (
                 <div className="bg-green-50 border border-green-200 rounded-md p-4 md:p-6 text-center">
