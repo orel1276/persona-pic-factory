@@ -33,22 +33,22 @@ const FirstImpressionSection = () => {
   return (
     <section
       id="first-impression"
-      className="py-16 md:py-24 px-6 relative overflow-hidden bg-[#05152a]"
+      className="py-16 md:py-24 px-6 relative overflow-hidden bg-[#05152a] flex items-center justify-center"
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-4xl">
         <div className={cn(
           "flex flex-col items-center justify-center text-center",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
           "transition-all duration-700"
         )}>
           {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-3xl">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto">
             <span className="text-sky-400">רושם ראשוני</span> נוצר לפני{" "}
             <span className="text-white">שמספיקים לומר מילה</span>
           </h2>
           
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl">
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto">
             איך אתה נראה בתמונה שלך – זה מה שיגרום לאנשים לעצור, להאמין, 
             להתחבר – או להמשיך הלאה.
           </p>

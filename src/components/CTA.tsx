@@ -2,12 +2,14 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   const redirectToPayment = () => {
-    window.location.href = "/payment"; 
+    navigate("/payment");
   };
 
   return (

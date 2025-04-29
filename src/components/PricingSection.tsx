@@ -1,12 +1,15 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useNavigate } from 'react-router-dom';
 
 const PricingSection = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,7 +32,7 @@ const PricingSection = () => {
   }, []);
 
   const redirectToPayment = () => {
-    window.location.href = "/payment"; 
+    navigate("/payment"); 
   };
 
   return (

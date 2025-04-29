@@ -1,19 +1,18 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const redirectToPayment = () => {
+    navigate("/payment");
   };
 
   return (
@@ -58,10 +57,7 @@ const Hero = () => {
             )}
           >
             <button 
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("צור-קשר");
-              }}
+              onClick={redirectToPayment}
               className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white text-xl md:text-2xl font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[280px]"
             >
               בוא נדבר על התמונה שלך
