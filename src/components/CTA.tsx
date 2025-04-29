@@ -1,12 +1,23 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { usePayment } from '@/lib/payment';
 
 const CTA = () => {
   const isMobile = useIsMobile();
-  const { redirectToPayment } = usePayment();
+
+  const redirectToPayment = () => {
+    // Replace with your actual payment URL when available
+    window.location.href = "https://paypage.example.com/filmkal-package"; 
+  };
+
+  // Replace any onClick or href in the button with this function
+  // Example:
+  // <button 
+  //   onClick={redirectToPayment}
+  //   className="..."
+  // >
+  //   הדף לרכישה
+  // </button>
 
   return (
     <section id="צור-קשר" className="py-16 md:py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
@@ -18,7 +29,7 @@ const CTA = () => {
           דבר איתי עוד היום – וביחד נבנה לך תדמית שתגרום ללקוחות לרצות לעבוד איתך.
         </p>
         <button
-          onClick={() => redirectToPayment()}
+          onClick={redirectToPayment}
           className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-xl"
         >
           בוא נדבר על התמונה שלך

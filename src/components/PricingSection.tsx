@@ -3,13 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { usePayment } from '@/lib/payment';
 
 const PricingSection = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
-  const { redirectToPayment } = usePayment();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,6 +28,12 @@ const PricingSection = () => {
       observer.disconnect();
     };
   }, []);
+
+  // Function to handle redirect to payment page
+  const redirectToPayment = () => {
+    // Replace with your actual payment URL when available
+    window.location.href = "https://paypage.example.com/filmkal-package"; 
+  };
 
   return (
     <section id="תמחור" className="py-20 md:py-24 px-6 bg-background" ref={pricingRef}>
@@ -115,7 +119,7 @@ const PricingSection = () => {
             </div>
             
             <button
-              onClick={() => redirectToPayment()}
+              onClick={redirectToPayment}
               className="w-full py-4 rounded-full font-bold text-white text-xl transition-all hover:scale-[1.02] shadow-lg bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-700 hover:to-pink-700"
             >
               רוצה להיראות כמו מותג? לחץ כאן לרכישה
