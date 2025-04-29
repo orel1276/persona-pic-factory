@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -29,8 +28,7 @@ const AboutMe = () => {
   }, []);
 
   const redirectToPayment = () => {
-    // Replace with your actual payment URL when available
-    window.location.href = "https://paypage.example.com/filmkal-package"; 
+    window.location.href = "/payment"; 
   };
 
   return (

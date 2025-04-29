@@ -27,8 +27,7 @@ const FirstImpressionSection = () => {
   }, []);
 
   const redirectToPayment = () => {
-    // Replace with your actual payment URL when available
-    window.location.href = "https://paypage.example.com/filmkal-package"; 
+    window.location.href = "/payment"; 
   };
 
   return (

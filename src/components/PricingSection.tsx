@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
@@ -29,10 +28,8 @@ const PricingSection = () => {
     };
   }, []);
 
-  // Function to handle redirect to payment page
   const redirectToPayment = () => {
-    // Replace with your actual payment URL when available
-    window.location.href = "https://paypage.example.com/filmkal-package"; 
+    window.location.href = "/payment"; 
   };
 
   return (

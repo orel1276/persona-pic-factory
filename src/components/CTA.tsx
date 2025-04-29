@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -6,18 +7,8 @@ const CTA = () => {
   const isMobile = useIsMobile();
 
   const redirectToPayment = () => {
-    // Replace with your actual payment URL when available
-    window.location.href = "https://paypage.example.com/filmkal-package"; 
+    window.location.href = "/payment"; 
   };
-
-  // Replace any onClick or href in the button with this function
-  // Example:
-  // <button 
-  //   onClick={redirectToPayment}
-  //   className="..."
-  // >
-  //   הדף לרכישה
-  // </button>
 
   return (
     <section id="צור-קשר" className="py-16 md:py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
