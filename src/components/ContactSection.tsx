@@ -1,7 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ContactForm } from './contact/ContactForm';
-import { WhatsApp } from 'lucide-react';
+// Changing from WhatsApp to a supported icon
+import { MessageCircle } from 'lucide-react';
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -74,12 +75,12 @@ const ContactSection = () => {
                   רוצה לדבר באופן מיידי? אפשר ליצור קשר ישירות בוואטסאפ או להשאיר פרטים בטופס.
                 </p>
 
-                {/* WhatsApp Button */}
+                {/* WhatsApp Button - Using MessageCircle instead of WhatsApp icon */}
                 <button 
                   onClick={openWhatsApp}
                   className="bg-[#25D366] hover:bg-[#1da851] w-full text-white font-medium py-4 px-5 rounded-lg shadow-md transition-all duration-300 text-lg flex items-center justify-center gap-3 hover:shadow-lg mb-6"
                 >
-                  <WhatsApp size={24} />
+                  <MessageCircle size={24} />
                   רוצה לדבר איתי ישירות? לחץ כאן לוואטסאפ
                 </button>
                 
