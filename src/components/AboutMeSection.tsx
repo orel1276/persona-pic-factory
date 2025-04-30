@@ -38,7 +38,7 @@ const AboutMeSection = () => {
           </li>
           <li className="flex items-center justify-center">
             <span className="text-green-400 mr-2">✔️</span>
-            <span className="text-white/90">למעלה מ-500 לקוחות מרוצים</span>
+            <span className="text-white/90">למעלה מ-150 לקוחות מרוצים</span>
           </li>
           <li className="flex items-center justify-center">
             <span className="text-green-400 mr-2">✔️</span>
