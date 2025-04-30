@@ -1,6 +1,6 @@
-
 import emailjs from 'emailjs-com';
 import { ContactFormData } from '../schemas/contact-form-schema';
+import { sendContactEmailResend } from './resend-service';
 
 // Updated EmailJS configuration
 const EMAIL_CONFIG = {
@@ -11,7 +11,8 @@ const EMAIL_CONFIG = {
   userID: 'AhwH5k2tKikGCwcCG'
 };
 
-export const sendContactEmail = async (data: ContactFormData) => {
+// Original EmailJS implementation
+export const sendContactEmailOriginal = async (data: ContactFormData) => {
   try {
     // Initialize EmailJS with the user ID (important for newer versions)
     emailjs.init(EMAIL_CONFIG.userID);
@@ -71,3 +72,6 @@ export const sendContactEmail = async (data: ContactFormData) => {
     throw new Error(`שגיאה בשליחת הטופס: ${errorMessage}`);
   }
 }
+
+// Use the Resend implementation as the default
+export const sendContactEmail = sendContactEmailResend;
