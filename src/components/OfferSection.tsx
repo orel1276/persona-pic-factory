@@ -19,7 +19,7 @@ const OfferSection = () => {
           
           <div className="flex justify-center items-center gap-3 mb-6">
             <p className="text-white/70 line-through text-lg">549 ש"ח</p>
-            <p className="text-2xl md:text-3xl font-bold text-primary">349 ש"ח בלבד</p>
+            <p className="text-2xl md:text-3xl font-bold text-primary">279 ש"ח בלבד</p>
           </div>
           
           <ul className="space-y-3 text-lg max-w-md mx-auto mb-8">

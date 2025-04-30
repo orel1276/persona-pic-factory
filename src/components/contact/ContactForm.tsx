@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
 import { contactFormSchema, type ContactFormData } from '@/lib/schemas/contact-form-schema';
 import { sendContactEmail } from '@/lib/services/email-service';
 
@@ -32,9 +31,6 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       email: '',
       phone: '',
       message: '',
-      personalGuidance: false,
-      result24Hours: false,
-      privacy: false,
     },
   });
 
@@ -146,64 +142,22 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           )}
         />
         
-        {/* Checkboxes */}
+        {/* Features list with green checkmarks */}
         <div className="space-y-4 bg-gray-800/30 p-4 rounded-lg">
-          <FormField
-            control={form.control}
-            name="personalGuidance"
-            render={({ field }) => (
-              <FormItem className="flex items-center space-x-3 space-x-reverse">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                    className="data-[state=checked]:bg-green-500 border-gray-500"
-                  />
-                </FormControl>
-                <FormLabel className="text-sm font-medium text-gray-300 mr-2">
-                  ליווי אישי
-                </FormLabel>
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center space-x-3 space-x-reverse">
+            <span className="text-green-500 text-xl">✓</span>
+            <span className="text-sm font-medium text-gray-300">ליווי אישי</span>
+          </div>
           
-          <FormField
-            control={form.control}
-            name="result24Hours"
-            render={({ field }) => (
-              <FormItem className="flex items-center space-x-3 space-x-reverse">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                    className="data-[state=checked]:bg-green-500 border-gray-500"
-                  />
-                </FormControl>
-                <FormLabel className="text-sm font-medium text-gray-300 mr-2">
-                  תוצאה תוך 24 שעות
-                </FormLabel>
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center space-x-3 space-x-reverse">
+            <span className="text-green-500 text-xl">✓</span>
+            <span className="text-sm font-medium text-gray-300">תוצאה תוך 24 שעות</span>
+          </div>
           
-          <FormField
-            control={form.control}
-            name="privacy"
-            render={({ field }) => (
-              <FormItem className="flex items-center space-x-3 space-x-reverse">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                    className="data-[state=checked]:bg-green-500 border-gray-500"
-                  />
-                </FormControl>
-                <FormLabel className="text-sm font-medium text-gray-300 mr-2">
-                  דיסקרטיות מלאה
-                </FormLabel>
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center space-x-3 space-x-reverse">
+            <span className="text-green-500 text-xl">✓</span>
+            <span className="text-sm font-medium text-gray-300">דיסקרטיות מלאה</span>
+          </div>
         </div>
         
         <Button

@@ -10,6 +10,8 @@ import BeforeAfterResults from '@/components/BeforeAfterResults';
 import OfferSection from '@/components/OfferSection';
 import UrgencySection from '@/components/UrgencySection';
 import CTASection from '@/components/CTASection';
+import ClientTestimonials from '@/components/ClientTestimonials';
+import FAQ from '@/components/FAQ';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,9 +45,11 @@ const Index = () => {
         <PainSection />
         <AboutMeSection />
         <BeforeAfterResults />
+        <ClientTestimonials />
         <OfferSection />
         <UrgencySection />
         <CTASection />
+        <FAQ />
         <ContactSection />
       </main>
       <Footer />
