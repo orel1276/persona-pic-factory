@@ -19,13 +19,13 @@ export const sendContactEmail = async (data: ContactFormData) => {
       reply_to: data.email,
       phone: data.phone || 'לא הוזן',
       message: data.message || 'לא הוזן הודעה',
-      personalGuidance: data.personalGuidance ? 'כן' : 'לא',
-      result24Hours: data.result24Hours ? 'כן' : 'לא',
-      privacy: data.privacy ? 'כן' : 'לא',
+      personalGuidance: 'כן',
+      result24Hours: 'כן',
+      privacy: 'כן',
       to_name: 'FilmKal',
       subject: 'פנייה חדשה מהאתר',
       email: data.email,
-      to_email: 'orel12761276@gmail.com'
+      to_email: 'orel1276@gmail.com'
     };
 
     console.log('Sending email with params:', templateParams);

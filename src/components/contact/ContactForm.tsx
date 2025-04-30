@@ -2,7 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from '@/components/ui/use-toast';
+import { toast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -31,6 +31,9 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       email: '',
       phone: '',
       message: '',
+      personalGuidance: true,
+      result24Hours: true,
+      privacy: true,
     },
   });
 
@@ -74,7 +77,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-300">שם מלא</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">שם מלא *</FormLabel>
               <FormControl>
                 <Input
                   placeholder="השם שלך"
@@ -92,10 +95,11 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-300">אימייל</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">אימייל *</FormLabel>
               <FormControl>
                 <Input
                   placeholder="your@email.com"
+                  type="email"
                   className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                   {...field}
                 />
@@ -110,10 +114,11 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-300">טלפון</FormLabel>
+              <FormLabel className="text-sm font-medium text-gray-300">טלפון *</FormLabel>
               <FormControl>
                 <Input
                   placeholder="050-1234567"
+                  type="tel"
                   className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                   {...field}
                 />
