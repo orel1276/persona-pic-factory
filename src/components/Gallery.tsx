@@ -104,7 +104,7 @@ const Gallery = () => {
                   className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  נבלע בים של מתחרים
+                  עבור על התמונה כדי לראות את ההבדל
                 </div>
               </div>
               
@@ -124,7 +124,7 @@ const Gallery = () => {
                   className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  בולט מעל כולם
+                  עבור עריכת תדמית מקצועית
                 </div>
               </div>
             </div>
