@@ -2,22 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import FirstImpressionSection from '@/components/FirstImpressionSection';
-import Features from '@/components/Features';
-import Process from '@/components/Process';
-import BusinessSection from '@/components/BusinessSection';
-import Gallery from '@/components/Gallery';
-import ClientTestimonials from '@/components/ClientTestimonials';
-import PricingSection from '@/components/PricingSection';
-import FAQ from '@/components/FAQ';
-import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import AIMarketingSection from '@/components/AIMarketingSection';
-import TimeSection from '@/components/TimeSection';
 import ContactSection from '@/components/ContactSection';
-import BeforeAfterSection from '@/components/BeforeAfterSection';
-import TrustSection from '@/components/TrustSection';
-import PromisesSection from '@/components/PromisesSection';
+import PainSection from '@/components/PainSection';
+import AboutMeSection from '@/components/AboutMeSection';
+import BeforeAfterResults from '@/components/BeforeAfterResults';
+import OfferSection from '@/components/OfferSection';
+import UrgencySection from '@/components/UrgencySection';
+import CTASection from '@/components/CTASection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,20 +40,12 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <AIMarketingSection />
-        <FirstImpressionSection />
-        <Gallery />
-        <BeforeAfterSection />
-        <Process />
-        <ClientTestimonials />
-        <TimeSection />
-        <Features />
-        <BusinessSection />
-        <PromisesSection />
-        <PricingSection />
-        <CTA />
-        <FAQ />
-        <TrustSection />
+        <PainSection />
+        <AboutMeSection />
+        <BeforeAfterResults />
+        <OfferSection />
+        <UrgencySection />
+        <CTASection />
         <ContactSection />
       </main>
       <Footer />

@@ -39,7 +39,7 @@ const ContactSection = () => {
   return (
     <section 
       id="contact" 
-      className={`py-16 md:py-24 px-4 md:px-6 bg-[#05152a] transition-all duration-700 mt-12 ${
+      className={`py-16 md:py-24 px-4 md:px-6 bg-[#05152a] transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       ref={sectionRef}
@@ -83,16 +83,12 @@ const ContactSection = () => {
                   רוצה לדבר איתי ישירות? לחץ כאן לוואטסאפ
                 </button>
                 
-                <div className="space-y-4 text-white/80">
-                  <div className="p-4 bg-slate-700/40 rounded-lg text-center md:text-right">
-                    <h4 className="font-bold text-white mb-2">למה לבחור בי?</h4>
-                    <p>תדמית מקצועית שתוכל להשתמש בה בכל מקום - ברשתות חברתיות, באתר שלך, בחומרי שיווק, ועוד.</p>
-                  </div>
-                  
-                  <div className="p-4 bg-slate-700/40 rounded-lg text-center md:text-right">
-                    <h4 className="font-bold text-white mb-2">איך זה עובד?</h4>
-                    <p>אתה שולח לי תמונות פשוטות מהטלפון, ואני מחזיר לך תדמית מקצועית תוך 24 שעות.</p>
-                  </div>
+                <div className="bg-slate-700/40 rounded-lg p-4 text-center md:text-right">
+                  <h4 className="font-bold text-white mb-2">10 תמונות מקצועיות תוך 24 שעות</h4>
+                  <p className="text-white/80">
+                    תקבל סט של 10 תמונות תדמית מקצועיות שיהפכו אותך למומחה בעיני הלקוחות שלך.
+                    לא צריך סטודיו, לא צריך צלם מקצועי - רק תמונות רגילות מהטלפון.
+                  </p>
                 </div>
               </div>
             </div>
