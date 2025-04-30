@@ -71,8 +71,8 @@ const BeforeAfterResults = () => {
                 <h3 className="font-bold text-gray-700 mb-2">{card.title}</h3>
                 <p className="text-sm text-gray-500">
                   {hoveredCard === card.id ? 
-                    "עבר עריכת תדמית מקצועית" : 
-                    "עבר על התמונה כדי לראות את ההבדל"}
+                    "עבור עריכת תדמית מקצועית" : 
+                    "עבור על התמונה כדי לראות את ההבדל"}
                 </p>
               </div>
             </div>
