@@ -28,9 +28,8 @@ interface ContactFormProps {
 export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: ContactFormProps) => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  
-  // Track if form was submitted at least once (for showing success message)
   const [wasSubmittedSuccessfully, setWasSubmittedSuccessfully] = useState(false);
+  const [submitAttempts, setSubmitAttempts] = useState(0);
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -45,10 +44,21 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
     },
   });
 
-  // Throttle form submission to prevent multiple submissions
+  // Prevent multiple rapid submission attempts
   const onSubmit = async (data: ContactFormData) => {
     // Prevent multiple submissions
     if (isSubmitting) return;
+    
+    // Track submission attempts and prevent too many in a short time
+    setSubmitAttempts(prev => prev + 1);
+    if (submitAttempts > 3) {
+      toast({
+        title: "יותר מדי נסיונות",
+        description: "אנא המתן מספר שניות ונסה שוב",
+        variant: "destructive",
+      });
+      return;
+    }
     
     setIsSubmitting(true);
     setFormStatus('submitting');
@@ -56,6 +66,13 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
     
     try {
       console.log("Form data being submitted:", data);
+      
+      // Validate phone number - remove non-digit characters for validation
+      const phoneDigitsOnly = data.phone.replace(/\D/g, '');
+      if (phoneDigitsOnly.length < 9) {
+        throw new Error("מספר טלפון לא תקין");
+      }
+      
       await sendContactEmail(data);
       
       // Reset form after successful submission
@@ -78,6 +95,10 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       setTimeout(() => {
         setFormStatus('idle');
       }, 5000);
+      
+      // Reset submission attempts counter after success
+      setSubmitAttempts(0);
+      
     } catch (err) {
       console.error('Error sending form:', err);
       setFormStatus('error');
@@ -91,9 +112,15 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       // Show error toast
       toast({
         title: "שגיאה בשליחת הטופס",
-        description: "אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ",
+        description: "אנא נסה שוב או צור קשר ישירות בוואטסאפ",
         variant: "destructive",
       });
+      
+      // Reset attempt counter after a brief delay
+      setTimeout(() => {
+        setSubmitAttempts(Math.max(0, submitAttempts - 1));
+      }, 10000);
+      
     } finally {
       setIsSubmitting(false);
     }
@@ -116,7 +143,10 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
           <AlertTriangle className="h-5 w-5 text-red-500" />
           <AlertTitle>שגיאה בשליחת הטופס</AlertTitle>
           <AlertDescription>
-            אנא נסה שוב מאוחר יותר או צור קשר ישירות בוואטסאפ
+            {errorMessage}
+            <div className="mt-2">
+              אנא נסה שוב או צור קשר ישירות בוואטסאפ
+            </div>
           </AlertDescription>
         </Alert>
       )}
@@ -135,6 +165,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
                     className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                     {...field}
                     disabled={formStatus === 'submitting'}
+                    aria-required="true"
                   />
                 </FormControl>
                 <FormMessage />
@@ -155,6 +186,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
                     className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                     {...field}
                     disabled={formStatus === 'submitting'}
+                    aria-required="true"
                   />
                 </FormControl>
                 <FormMessage />
@@ -175,6 +207,12 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
                     className="w-full px-4 py-3 border border-gray-700 bg-gray-800/50 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-base text-white min-h-[48px]"
                     {...field}
                     disabled={formStatus === 'submitting'}
+                    aria-required="true"
+                    onChange={(e) => {
+                      // Allow only numbers and hyphens in phone field
+                      const value = e.target.value;
+                      field.onChange(value);
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
