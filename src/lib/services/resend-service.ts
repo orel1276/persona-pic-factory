@@ -23,9 +23,9 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
           <p><strong>אימייל:</strong> ${data.email}</p>
           <p><strong>טלפון:</strong> ${data.phone || 'לא הוזן'}</p>
           <p><strong>הודעה:</strong> ${data.message || 'לא הוזנה הודעה'}</p>
-          <p><strong>ליווי אישי:</strong> כן</p>
-          <p><strong>תוצאה תוך 24 שעות:</strong> כן</p>
-          <p><strong>דיסקרטיות מלאה:</strong> כן</p>
+          <p><strong>ליווי אישי:</strong> ${data.personalGuidance ? 'כן' : 'לא'}</p>
+          <p><strong>תוצאה תוך 24 שעות:</strong> ${data.result24Hours ? 'כן' : 'לא'}</p>
+          <p><strong>דיסקרטיות מלאה:</strong> ${data.privacy ? 'כן' : 'לא'}</p>
         </div>
       `,
     };
@@ -51,7 +51,7 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     }
 
     // Return success response
-    return { success: true, response: responseData };
+    return { success: true, data: responseData };
   } catch (error) {
     console.error('Email sending error:', error);
     
@@ -61,7 +61,7 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
       errorMessage = error.message;
     }
     
-    throw new Error(`שגיאה בשליחת הטופס: ${errorMessage}`);
+    return { success: false, error: errorMessage };
   }
 };
 

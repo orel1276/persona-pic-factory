@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -72,6 +73,10 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       const result = await sendContactEmail(data);
       console.log("Email send result:", result);
       
+      if (!result.success) {
+        throw new Error(result.error || "שגיאה בשליחת הטופס");
+      }
+      
       // Reset form after successful submission
       form.reset();
       
@@ -103,8 +108,8 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       let errorMsg = 'אירעה שגיאה בשליחת הטופס';
       if (err instanceof Error) {
         errorMsg = err.message;
-        setErrorMessage(errorMsg);
       }
+      setErrorMessage(errorMsg);
       
       // Show error toast
       toast({
