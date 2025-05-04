@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
 import { Form } from '@/components/ui/form';
 import { contactFormSchema, type ContactFormData } from '@/lib/schemas/contact-form-schema';
-import { sendContactEmail } from '@/lib/services/email-service';
+import { sendContactEmail } from '@/lib/services/resend-service';
 
 // Import the refactored components
 import { NameField } from './form-fields/NameField';
@@ -70,7 +69,8 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         throw new Error("מספר טלפון לא תקין");
       }
       
-      await sendContactEmail(data);
+      const result = await sendContactEmail(data);
+      console.log("Email send result:", result);
       
       // Reset form after successful submission
       form.reset();
@@ -109,7 +109,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       // Show error toast
       toast({
         title: "שגיאה בשליחת הטופס",
-        description: "אנא נסה שוב או צור קשר ישירות בוואטסאפ",
+        description: errorMsg,
         variant: "destructive",
       });
       

@@ -9,10 +9,12 @@ const RESEND_API_KEY = 're_CrodkTDc_HkTCbnMbx6R4rEiyFk7K7oL9'; // Updated with t
  */
 export const sendContactEmailResend = async (data: ContactFormData) => {
   try {
+    console.log('Starting email sending process with Resend...');
+    
     // Prepare the email content
     const emailContent = {
-      from: 'contact@filmkal.com',
-      to: 'filmkal321@gmail.com', // Updated recipient email
+      from: 'onboarding@resend.dev', // Use the verified sender domain from Resend
+      to: 'filmkal321@gmail.com', // Recipient email
       subject: 'פנייה חדשה מהאתר',
       html: `
         <div dir="rtl" style="font-family: sans-serif; padding: 20px;">
@@ -44,6 +46,7 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     console.log('Resend API response:', responseData);
 
     if (!response.ok) {
+      console.error('Error response from Resend:', responseData);
       throw new Error(responseData.message || 'שגיאה בשליחת האימייל');
     }
 
