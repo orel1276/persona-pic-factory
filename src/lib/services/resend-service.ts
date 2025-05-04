@@ -8,8 +8,8 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
   try {
     console.log('Starting email sending process via Edge Function...');
     
-    // Call our Supabase Edge Function
-    const response = await fetch('https://csbjxbryfrxkxngxydgz.supabase.co/functions/v1/send-email', {
+    // Call our Supabase Edge Function with the updated URL
+    const response = await fetch('https://wihtcqxiledpufidlufp.supabase.co/functions/v1/rapid-worker', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
