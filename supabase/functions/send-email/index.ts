@@ -9,6 +9,7 @@ const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Content-Type': 'application/json',
 };
 
 serve(async (req) => {
@@ -18,10 +19,12 @@ serve(async (req) => {
   }
 
   try {
+    console.log("Request received by Edge Function");
     const data = await req.json();
     console.log('Received form data:', data);
 
     if (!RESEND_API_KEY) {
+      console.error('RESEND_API_KEY environment variable is not set');
       throw new Error('RESEND_API_KEY environment variable is not set');
     }
 
@@ -69,10 +72,7 @@ serve(async (req) => {
       JSON.stringify({ success: true, data: responseData }),
       { 
         status: 200, 
-        headers: { 
-          'Content-Type': 'application/json',
-          ...corsHeaders
-        } 
+        headers: corsHeaders
       }
     );
   } catch (error) {
@@ -89,10 +89,7 @@ serve(async (req) => {
       JSON.stringify({ success: false, error: errorMessage }),
       { 
         status: 400, 
-        headers: { 
-          'Content-Type': 'application/json',
-          ...corsHeaders
-        } 
+        headers: corsHeaders
       }
     );
   }

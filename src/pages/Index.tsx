@@ -12,6 +12,7 @@ import UrgencySection from '@/components/UrgencySection';
 import CTASection from '@/components/CTASection';
 import ClientTestimonials from '@/components/ClientTestimonials';
 import FAQ from '@/components/FAQ';
+import { Toaster } from '@/components/ui/toaster';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +54,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 };

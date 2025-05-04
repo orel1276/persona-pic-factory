@@ -70,6 +70,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         throw new Error("מספר טלפון לא תקין");
       }
       
+      console.log("Calling sendContactEmail function...");
       const result = await sendContactEmail(data);
       console.log("Email send result:", result);
       

@@ -15,10 +15,23 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
+      // Add credentials to ensure cookies are sent
+      credentials: 'include',
     });
 
-    const responseData = await response.json();
-    console.log('Edge Function response:', responseData);
+    console.log('Edge Function response status:', response.status);
+
+    // Try to parse the JSON response, but handle cases where it might not be valid JSON
+    let responseData;
+    const responseText = await response.text();
+    
+    try {
+      responseData = JSON.parse(responseText);
+      console.log('Edge Function response data:', responseData);
+    } catch (e) {
+      console.error('Failed to parse response as JSON:', responseText);
+      return { success: false, error: 'תשובה לא תקינה מהשרת' };
+    }
 
     if (!response.ok) {
       console.error('Error response from Edge Function:', responseData);
