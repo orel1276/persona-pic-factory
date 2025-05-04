@@ -1,57 +1,32 @@
 
 import { ContactFormData } from '../schemas/contact-form-schema';
 
-// Resend API configuration with actual API key
-const RESEND_API_KEY = 're_CrodkTDc_HkTCbnMbx6R4rEiyFk7K7oL9'; // Updated with the actual API key
-
 /**
- * Sends contact form data via Resend
+ * Sends contact form data via Supabase Edge Function
  */
 export const sendContactEmailResend = async (data: ContactFormData) => {
   try {
-    console.log('Starting email sending process with Resend...');
+    console.log('Starting email sending process via Edge Function...');
     
-    // Prepare the email content
-    const emailContent = {
-      from: 'onboarding@resend.dev', // Use the verified sender domain from Resend
-      to: 'filmkal321@gmail.com', // Recipient email
-      subject: 'פנייה חדשה מהאתר',
-      html: `
-        <div dir="rtl" style="font-family: sans-serif; padding: 20px;">
-          <h2>התקבלה פנייה חדשה מהאתר</h2>
-          <p><strong>שם:</strong> ${data.name}</p>
-          <p><strong>אימייל:</strong> ${data.email}</p>
-          <p><strong>טלפון:</strong> ${data.phone || 'לא הוזן'}</p>
-          <p><strong>הודעה:</strong> ${data.message || 'לא הוזנה הודעה'}</p>
-          <p><strong>ליווי אישי:</strong> ${data.personalGuidance ? 'כן' : 'לא'}</p>
-          <p><strong>תוצאה תוך 24 שעות:</strong> ${data.result24Hours ? 'כן' : 'לא'}</p>
-          <p><strong>דיסקרטיות מלאה:</strong> ${data.privacy ? 'כן' : 'לא'}</p>
-        </div>
-      `,
-    };
-
-    console.log('Sending email with Resend:', emailContent);
-
-    // Send the email using Resend API
-    const response = await fetch('https://api.resend.com/emails', {
+    // Call our Supabase Edge Function
+    const response = await fetch('https://csbjxbryfrxkxngxydgz.supabase.co/functions/v1/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
-      body: JSON.stringify(emailContent),
+      body: JSON.stringify(data),
     });
 
     const responseData = await response.json();
-    console.log('Resend API response:', responseData);
+    console.log('Edge Function response:', responseData);
 
     if (!response.ok) {
-      console.error('Error response from Resend:', responseData);
-      throw new Error(responseData.message || 'שגיאה בשליחת האימייל');
+      console.error('Error response from Edge Function:', responseData);
+      return { success: false, error: responseData.error || 'שגיאה בשליחת האימייל' };
     }
 
     // Return success response
-    return { success: true, data: responseData };
+    return { success: true, data: responseData.data };
   } catch (error) {
     console.error('Email sending error:', error);
     
