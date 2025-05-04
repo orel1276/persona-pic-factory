@@ -1,9 +1,8 @@
 
 import { ContactFormData } from '../schemas/contact-form-schema';
 
-// Resend API configuration
-// Note: In production, use an environment variable for the API key
-const RESEND_API_KEY = 're_123456789'; // Replace with your actual Resend API key
+// Resend API configuration with actual API key
+const RESEND_API_KEY = 're_CrodkTDc_HkTCbnMbx6R4rEiyFk7K7oL9'; // Updated with the actual API key
 
 /**
  * Sends contact form data via Resend
@@ -13,7 +12,7 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     // Prepare the email content
     const emailContent = {
       from: 'contact@filmkal.com',
-      to: 'orel1276@gmail.com',
+      to: 'filmkal321@gmail.com', // Updated recipient email
       subject: 'פנייה חדשה מהאתר',
       html: `
         <div dir="rtl" style="font-family: sans-serif; padding: 20px;">
