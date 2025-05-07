@@ -70,7 +70,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         throw new Error("מספר טלפון לא תקין");
       }
       
-      console.log("Calling sendContactEmail function with URL in resend-service.ts");
+      console.log("Calling sendContactEmail function with the Edge Function name: send-email");
       const result = await sendContactEmail(data);
       console.log("Email send result:", result);
       

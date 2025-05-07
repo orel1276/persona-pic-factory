@@ -5,9 +5,9 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 
-// Update CORS headers to be more specific - allow both localhost and your production domain
+// Update CORS headers to allow both development and production domains
 const corsHeaders = {
-  'Access-Control-Allow-Origin': 'https://filmkal.com',  // Update with your actual domain
+  'Access-Control-Allow-Origin': '*',  // Allow all origins during development
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Credentials': 'true',  // Important for credentials: 'include'
