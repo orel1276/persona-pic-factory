@@ -7,6 +7,7 @@ import { ContactFormData } from '../schemas/contact-form-schema';
 export const sendContactEmailResend = async (data: ContactFormData) => {
   try {
     console.log('Starting email sending process via Edge Function...');
+    console.log('Form data being sent:', data);
     
     // Call our Supabase Edge Function with the correct name
     const response = await fetch('https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email', {
@@ -15,8 +16,8 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-      // Add credentials to ensure cookies are sent
-      credentials: 'include',
+      // Remove credentials to potentially fix CORS issues
+      // credentials: 'include',
     });
 
     console.log('Edge Function response status:', response.status);

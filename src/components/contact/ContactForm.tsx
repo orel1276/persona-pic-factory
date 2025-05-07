@@ -70,7 +70,10 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         throw new Error("מספר טלפון לא תקין");
       }
       
-      console.log("Calling sendContactEmail function with the Edge Function name: send-email");
+      // More descriptive logging to help debug the issue
+      console.log("Calling sendContactEmail function to Edge Function: send-email");
+      console.log("Using fetch URL: https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email");
+      
       const result = await sendContactEmail(data);
       console.log("Email send result:", result);
       
@@ -110,12 +113,15 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       if (err instanceof Error) {
         errorMsg = err.message;
       }
-      setErrorMessage(errorMsg);
       
-      // Show error toast
+      // Add additional troubleshooting info to the error message
+      const extendedErrorMsg = `${errorMsg} (נסה לרענן את הדף ולשלוח שוב)`;
+      setErrorMessage(extendedErrorMsg);
+      
+      // Show error toast with more detail
       toast({
         title: "שגיאה בשליחת הטופס",
-        description: errorMsg,
+        description: extendedErrorMsg,
         variant: "destructive",
       });
       

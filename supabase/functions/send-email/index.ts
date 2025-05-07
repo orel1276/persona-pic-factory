@@ -5,26 +5,28 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 
-// Update CORS headers to allow both development and production domains
+// Set CORS headers to be as permissive as possible for debugging
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',  // Allow all origins during development
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': '*',  // Allow all headers for testing
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Credentials': 'true',  // Important for credentials: 'include'
+  'Access-Control-Max-Age': '86400',  // 24 hours
   'Content-Type': 'application/json',
 };
 
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
+    console.log("Received OPTIONS request - responding with CORS headers");
     return new Response('ok', { headers: corsHeaders });
   }
 
   try {
     console.log("Request received by Edge Function");
     
-    // Log the request URL and headers for debugging
+    // Log the request details for debugging
     console.log('Request URL:', req.url);
+    console.log('Request method:', req.method);
     console.log('Request headers:', Object.fromEntries(req.headers.entries()));
     
     const data = await req.json();
@@ -66,8 +68,19 @@ serve(async (req) => {
       body: JSON.stringify(emailContent),
     });
 
-    const responseData = await response.json();
-    console.log('Resend API response:', responseData);
+    // Log the raw response for debugging
+    const responseText = await response.text();
+    console.log('Raw Resend API response:', responseText);
+    
+    // Parse JSON response, if possible
+    let responseData;
+    try {
+      responseData = JSON.parse(responseText);
+      console.log('Parsed Resend API response:', responseData);
+    } catch (e) {
+      console.error('Error parsing Resend API response as JSON:', e);
+      throw new Error(`Invalid response from Resend API: ${responseText}`);
+    }
 
     if (!response.ok) {
       console.error('Error response from Resend:', responseData);
