@@ -6,11 +6,14 @@ import { corsHeaders } from "../_shared/cors.ts";
 import { Resend } from "https://esm.sh/resend@3.1.0";
 
 // Initialize Supabase client with the service role key for the Edge Function
-// This allows the function to bypass RLS policies
-const supabaseClient = createClient(
-  Deno.env.get("SUPABASE_URL") ?? "",
-  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
-);
+// This key has admin privileges and bypasses RLS
+const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+
+const supabaseClient = createClient(supabaseUrl, supabaseServiceRoleKey);
+
+console.log("Edge Function initialized with Supabase URL:", supabaseUrl);
+console.log("Service Role Key available:", !!supabaseServiceRoleKey);
 
 Deno.serve(async (req) => {
   console.log("Edge Function: send-email function called");
@@ -48,12 +51,13 @@ Deno.serve(async (req) => {
     }
     
     // Store lead in database using service role to bypass RLS
-    console.log("Storing lead in database...");
+    console.log("Storing lead in database using service role...");
     const { error: insertError } = await supabaseClient
       .from("leads")
       .insert({
         name: data.name,
         email: data.email,
+        phone: data.phone,
         message: data.message || "",
       });
 
