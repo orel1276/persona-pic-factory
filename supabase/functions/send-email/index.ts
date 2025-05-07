@@ -1,130 +1,126 @@
 
-// Follow this setup guide to integrate the Deno runtime into your application:
-// https://deno.land/manual/examples/deploy_node_server
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+// supabase/functions/send-email/index.ts
 
-const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { corsHeaders } from "../_shared/cors.ts";
+import { Resend } from "https://esm.sh/resend@3.1.0";
 
-// Set CORS headers to be as permissive as possible for debugging
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',  // Allow all origins during development
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Max-Age': '86400',  // 24 hours
-  'Content-Type': 'application/json',
-};
+// Initialize Supabase client with the service role key for the Edge Function
+// This allows the function to bypass RLS policies
+const supabaseClient = createClient(
+  Deno.env.get("SUPABASE_URL") ?? "",
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
+);
 
-serve(async (req) => {
+Deno.serve(async (req) => {
+  console.log("Edge Function: send-email function called");
+  
   // Handle CORS preflight requests
-  if (req.method === 'OPTIONS') {
-    console.log("Received OPTIONS request - responding with CORS headers");
-    return new Response('ok', { headers: corsHeaders });
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { headers: corsHeaders });
   }
-
+  
   try {
-    console.log("Request received by Edge Function");
-    
-    // Log the request details for debugging
-    console.log('Request URL:', req.url);
-    console.log('Request method:', req.method);
-    console.log('Request headers:', Object.fromEntries(req.headers.entries()));
-    
     const data = await req.json();
-    console.log('Received form data:', data);
-
-    if (!RESEND_API_KEY) {
-      console.error('RESEND_API_KEY environment variable is not set');
-      throw new Error('RESEND_API_KEY environment variable is not set');
-    } else {
-      console.log('RESEND_API_KEY is configured properly');
-    }
-
-    // Use a verified sender email in Resend
-    // The "from" email must be either a verified domain in Resend or use onboarding@resend.dev
-    const from = 'onboarding@resend.dev';
-    const to = 'filmkal321@gmail.com'; // Your email address
+    console.log("Received data:", JSON.stringify(data));
     
-    // Log this information
-    console.log(`Preparing to send email from ${from} to ${to}`);
+    // Initialize Resend with API key
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    console.log("Resend API key available:", !!resendApiKey);
+    
+    if (!resendApiKey) {
+      throw new Error("RESEND_API_KEY not found in environment variables");
+    }
+    
+    const resend = new Resend(resendApiKey);
+    
+    // Validate required fields
+    if (!data.name || !data.email || !data.phone) {
+      return new Response(
+        JSON.stringify({ 
+          error: "Missing required fields (name, email, or phone)" 
+        }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+    
+    // Store lead in database using service role to bypass RLS
+    console.log("Storing lead in database...");
+    const { error: insertError } = await supabaseClient
+      .from("leads")
+      .insert({
+        name: data.name,
+        email: data.email,
+        message: data.message || "",
+      });
 
-    // Prepare the email content
-    const emailContent = {
-      from: from, 
-      to: to, 
-      subject: 'פנייה חדשה מהאתר',
+    if (insertError) {
+      console.error("Error inserting lead:", insertError);
+      return new Response(
+        JSON.stringify({ error: `Error storing lead: ${insertError.message}` }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+    
+    // Send confirmation email
+    console.log("Sending email...");
+    const { error: emailError } = await resend.emails.send({
+      from: "Art Image <contact@artimage.xyz>",
+      to: ["filmkal321@gmail.com"],
+      subject: `פנייה חדשה מאתר התדמית - ${data.name}`,
       html: `
-        <div dir="rtl" style="font-family: sans-serif; padding: 20px;">
-          <h2>התקבלה פנייה חדשה מהאתר</h2>
+        <div dir="rtl" style="text-align: right; font-family: Arial, sans-serif;">
+          <h2>פנייה חדשה מאתר התדמית</h2>
           <p><strong>שם:</strong> ${data.name}</p>
           <p><strong>אימייל:</strong> ${data.email}</p>
-          <p><strong>טלפון:</strong> ${data.phone || 'לא הוזן'}</p>
-          <p><strong>הודעה:</strong> ${data.message || 'לא הוזנה הודעה'}</p>
-          <p><strong>ליווי אישי:</strong> ${data.personalGuidance ? 'כן' : 'לא'}</p>
-          <p><strong>תוצאה תוך 24 שעות:</strong> ${data.result24Hours ? 'כן' : 'לא'}</p>
-          <p><strong>דיסקרטיות מלאה:</strong> ${data.privacy ? 'כן' : 'לא'}</p>
+          <p><strong>טלפון:</strong> ${data.phone}</p>
+          ${data.message ? `<p><strong>הודעה:</strong> ${data.message}</p>` : ""}
+          <p>נא ליצור קשר בהקדם.</p>
         </div>
       `,
-    };
-
-    console.log('Email content prepared:', JSON.stringify(emailContent, null, 2));
-
-    // Send the email using Resend API
-    console.log('Sending request to Resend API...');
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify(emailContent),
     });
-
-    // Log the raw response status for debugging
-    console.log('Resend API Response Status:', response.status);
     
-    // Log the raw response for debugging
-    const responseText = await response.text();
-    console.log('Raw Resend API response:', responseText);
+    if (emailError) {
+      console.error("Error sending email:", emailError);
+      return new Response(
+        JSON.stringify({ error: `Error sending email: ${emailError.message || "Unknown error"}` }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
     
-    // Parse JSON response, if possible
-    let responseData;
-    try {
-      responseData = JSON.parse(responseText);
-      console.log('Parsed Resend API response:', responseData);
-    } catch (e) {
-      console.error('Error parsing Resend API response as JSON:', e);
-      throw new Error(`Invalid response from Resend API: ${responseText}`);
-    }
-
-    if (!response.ok) {
-      console.error('Error response from Resend:', responseData);
-      throw new Error(responseData.message || 'שגיאה בשליחת האימייל');
-    }
-
-    // Return success response with CORS headers
+    // Return success response
+    console.log("Email sent successfully");
     return new Response(
-      JSON.stringify({ success: true, data: responseData }),
-      { 
-        status: 200, 
-        headers: corsHeaders
+      JSON.stringify({ 
+        success: true,
+        message: "Email sent and lead stored successfully" 
+      }),
+      {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
+    
   } catch (error) {
-    console.error('Email sending error:', error);
+    // Log and return any errors
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Error:", errorMessage);
     
-    let errorMessage = 'שגיאה בשליחת האימייל';
-    
-    if (error instanceof Error) {
-      errorMessage = error.message;
-    }
-    
-    // Return error response with CORS headers
     return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { 
-        status: 400, 
-        headers: corsHeaders
+      JSON.stringify({ error: errorMessage }),
+      {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
   }
-})
+});

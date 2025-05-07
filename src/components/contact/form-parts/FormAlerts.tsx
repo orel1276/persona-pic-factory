@@ -43,7 +43,9 @@ export const FormAlerts = ({
           <AlertDescription>
             {formatErrorMessage(errorMessage)}
             <div className="mt-2">
-              אם הבעיה נמשכת, אנא צור קשר ישירות בוואטסאפ
+              {errorMessage.includes('auth/unauthorized') ? 
+                'נא להתחבר למערכת כדי לשלוח טופס יצירת קשר.' :
+                'אם הבעיה נמשכת, אנא צור קשר ישירות בוואטסאפ'}
             </div>
           </AlertDescription>
         </Alert>

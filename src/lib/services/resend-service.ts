@@ -1,5 +1,6 @@
 
 import { ContactFormData } from '../schemas/contact-form-schema';
+import { supabase } from '@/integrations/supabase/client';
 
 /**
  * Sends contact form data via Supabase Edge Function
@@ -9,16 +10,32 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     console.log('Starting email sending process via Edge Function...');
     console.log('Form data being sent:', data);
     
+    // Get the current user session
+    const { data: sessionData } = await supabase.auth.getSession();
+    
     // Full URL to the edge function
     const edgeFunctionUrl = 'https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email';
     console.log('Calling Edge Function at:', edgeFunctionUrl);
     
-    // Call our Supabase Edge Function with the correct name
+    // If no session is available, we need to use the anon key in the Authorization header
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    
+    // If we have a session, include the access token
+    if (sessionData?.session) {
+      console.log('User is authenticated, including session token');
+      headers['Authorization'] = `Bearer ${sessionData.session.access_token}`;
+    } else {
+      console.log('No active session found, using anonymous access');
+      // Using the supabase anon key
+      headers['apikey'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpaHRjcXhpbGVkcHVmaWRsdWZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzNjYwOTgsImV4cCI6MjA2MTk0MjA5OH0.CMn6O_iNz7zkT35U-_CN-QqaA0H5A_GAfNT3xJdkOqs';
+    }
+    
+    // Call our Supabase Edge Function
     const response = await fetch(edgeFunctionUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: headers,
       body: JSON.stringify(data),
       // Remove credentials flag as it might cause CORS issues
     });
@@ -41,6 +58,16 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
 
     if (!response.ok) {
       console.error('Error response from Edge Function:', responseData);
+      
+      // Check for specific auth error
+      if (response.status === 401) {
+        return { 
+          success: false, 
+          error: 'נדרשת הרשאה לשליחת טופס יצירת קשר',
+          details: { code: 'auth/unauthorized' }
+        };
+      }
+      
       return { 
         success: false, 
         error: responseData.error || 'שגיאה בשליחת האימייל',
