@@ -71,14 +71,20 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       }
       
       // More descriptive logging to help debug the issue
-      console.log("Calling sendContactEmail function to Edge Function: send-email");
-      console.log("Using fetch URL: https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email");
+      console.log("Calling sendContactEmail function");
+      console.log("Edge Function URL: https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email");
       
       const result = await sendContactEmail(data);
       console.log("Email send result:", result);
       
       if (!result.success) {
-        throw new Error(result.error || "שגיאה בשליחת הטופס");
+        // Show more detailed error information that might help debug
+        const errorDetails = result.details ? JSON.stringify(result.details) : '';
+        const errorMessage = result.isNetworkError 
+          ? "בעיה בחיבור לשרת. בדוק את החיבור לאינטרנט או נסה שוב מאוחר יותר."
+          : result.error || "שגיאה בשליחת הטופס";
+          
+        throw new Error(`${errorMessage} ${errorDetails ? `(${errorDetails})` : ''}`);
       }
       
       // Reset form after successful submission
@@ -114,14 +120,20 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
         errorMsg = err.message;
       }
       
-      // Add additional troubleshooting info to the error message
-      const extendedErrorMsg = `${errorMsg} (נסה לרענן את הדף ולשלוח שוב)`;
-      setErrorMessage(extendedErrorMsg);
+      // Add troubleshooting info to the error message
+      const troubleshootingInfo = `
+        אנא נסה את אחת האפשרויות הבאות:
+        - רענן את הדף ונסה שוב
+        - ודא שיש לך חיבור אינטרנט תקין
+        - נסה ליצור קשר דרך הוואטסאפ
+      `;
+      
+      setErrorMessage(`${errorMsg}\n\n${troubleshootingInfo}`);
       
       // Show error toast with more detail
       toast({
         title: "שגיאה בשליחת הטופס",
-        description: extendedErrorMsg,
+        description: errorMsg,
         variant: "destructive",
       });
       

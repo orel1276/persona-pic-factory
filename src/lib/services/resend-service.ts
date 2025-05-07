@@ -9,22 +9,27 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     console.log('Starting email sending process via Edge Function...');
     console.log('Form data being sent:', data);
     
+    // Full URL to the edge function
+    const edgeFunctionUrl = 'https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email';
+    console.log('Calling Edge Function at:', edgeFunctionUrl);
+    
     // Call our Supabase Edge Function with the correct name
-    const response = await fetch('https://wihtcqxiledpufidlufp.supabase.co/functions/v1/send-email', {
+    const response = await fetch(edgeFunctionUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-      // Remove credentials to potentially fix CORS issues
-      // credentials: 'include',
+      // Remove credentials flag as it might cause CORS issues
     });
 
     console.log('Edge Function response status:', response.status);
+    console.log('Edge Function response headers:', Object.fromEntries(response.headers.entries()));
 
     // Try to parse the JSON response, but handle cases where it might not be valid JSON
     let responseData;
     const responseText = await response.text();
+    console.log('Raw response text:', responseText);
     
     try {
       responseData = JSON.parse(responseText);
@@ -36,7 +41,11 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
 
     if (!response.ok) {
       console.error('Error response from Edge Function:', responseData);
-      return { success: false, error: responseData.error || 'שגיאה בשליחת האימייל' };
+      return { 
+        success: false, 
+        error: responseData.error || 'שגיאה בשליחת האימייל',
+        details: responseData
+      };
     }
 
     // Return success response
@@ -47,10 +56,15 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     let errorMessage = 'שגיאה בשליחת האימייל';
     
     if (error instanceof Error) {
-      errorMessage = error.message;
+      errorMessage = `${error.message} (${error.name})`;
+      console.error('Error details:', error.stack);
     }
     
-    return { success: false, error: errorMessage };
+    return { 
+      success: false, 
+      error: errorMessage,
+      isNetworkError: error instanceof TypeError && error.message.includes('fetch')
+    };
   }
 };
 

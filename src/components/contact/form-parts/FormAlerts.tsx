@@ -14,6 +14,16 @@ export const FormAlerts = ({
   wasSubmittedSuccessfully, 
   errorMessage 
 }: FormAlertsProps) => {
+  // Convert newline characters in error messages to JSX <br> elements
+  const formatErrorMessage = (message: string) => {
+    return message.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        {index < message.split('\n').length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
   return (
     <>
       {formStatus === 'success' && wasSubmittedSuccessfully && (
@@ -31,9 +41,9 @@ export const FormAlerts = ({
           <AlertTriangle className="h-5 w-5 text-red-500" />
           <AlertTitle>שגיאה בשליחת הטופס</AlertTitle>
           <AlertDescription>
-            {errorMessage}
+            {formatErrorMessage(errorMessage)}
             <div className="mt-2">
-              אנא נסה שוב או צור קשר ישירות בוואטסאפ
+              אם הבעיה נמשכת, אנא צור קשר ישירות בוואטסאפ
             </div>
           </AlertDescription>
         </Alert>

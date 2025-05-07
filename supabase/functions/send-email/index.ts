@@ -8,7 +8,7 @@ const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 // Set CORS headers to be as permissive as possible for debugging
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',  // Allow all origins during development
-  'Access-Control-Allow-Headers': '*',  // Allow all headers for testing
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Max-Age': '86400',  // 24 hours
   'Content-Type': 'application/json',
@@ -35,12 +35,22 @@ serve(async (req) => {
     if (!RESEND_API_KEY) {
       console.error('RESEND_API_KEY environment variable is not set');
       throw new Error('RESEND_API_KEY environment variable is not set');
+    } else {
+      console.log('RESEND_API_KEY is configured properly');
     }
+
+    // Use a verified sender email in Resend
+    // The "from" email must be either a verified domain in Resend or use onboarding@resend.dev
+    const from = 'onboarding@resend.dev';
+    const to = 'filmkal321@gmail.com'; // Your email address
+    
+    // Log this information
+    console.log(`Preparing to send email from ${from} to ${to}`);
 
     // Prepare the email content
     const emailContent = {
-      from: 'onboarding@resend.dev', // Use the verified sender domain from Resend
-      to: 'filmkal321@gmail.com', // Recipient email
+      from: from, 
+      to: to, 
       subject: 'פנייה חדשה מהאתר',
       html: `
         <div dir="rtl" style="font-family: sans-serif; padding: 20px;">
@@ -56,9 +66,10 @@ serve(async (req) => {
       `,
     };
 
-    console.log('Sending email with Resend:', emailContent);
+    console.log('Email content prepared:', JSON.stringify(emailContent, null, 2));
 
     // Send the email using Resend API
+    console.log('Sending request to Resend API...');
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -68,6 +79,9 @@ serve(async (req) => {
       body: JSON.stringify(emailContent),
     });
 
+    // Log the raw response status for debugging
+    console.log('Resend API Response Status:', response.status);
+    
     // Log the raw response for debugging
     const responseText = await response.text();
     console.log('Raw Resend API response:', responseText);
