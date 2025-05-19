@@ -72,10 +72,10 @@ Deno.serve(async (req) => {
       );
     }
     
-    // Send confirmation email - עדכון כתובת המייל ל filmkal@gmail.com
+    // שינוי כתובת השולח לכתובת ברירת המחדל של Resend במקום להשתמש בדומיין שלא מאומת
     console.log("Sending email...");
     const { error: emailError } = await resend.emails.send({
-      from: "Art Image <contact@artimage.xyz>",
+      from: "Filmkal <onboarding@resend.dev>", // שימוש בכתובת ברירת המחדל של Resend
       to: ["filmkal@gmail.com"], // שינוי לכתובת המייל המבוקשת
       subject: `פנייה חדשה מאתר התדמית - ${data.name}`,
       html: `
