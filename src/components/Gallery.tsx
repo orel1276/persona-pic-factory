@@ -2,13 +2,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-
-interface BeforeAfterImage {
-  before: string;
-  after: string;
-  description: string;
-  style?: string;
-}
+import { BeforeAfterImage } from './gallery/BeforeAfterImage';
+import { GalleryNavigation } from './gallery/GalleryNavigation';
+import { GalleryDescription } from './gallery/GalleryDescription';
+import { galleryImages } from './gallery/galleryData';
 
 const Gallery = () => {
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -44,35 +41,14 @@ const Gallery = () => {
     }
   };
 
-  const images: BeforeAfterImage[] = [
-    {
-      before: "/lovable-uploads/e3cca4db-8fba-49dd-ba8b-9a1e161caa6b.png",
-      after: "/lovable-uploads/e5e1d8f0-83ff-4854-a2b0-7426c9181c65.png",
-      description: "סתם נהג אוטובוס",
-      style: "מנהיג דרך חדשה"
-    },
-    {
-      before: "/lovable-uploads/d880f8be-861b-42de-912d-0c9268eaa245.png",
-      after: "/lovable-uploads/21f854b3-6b2e-4140-a6cc-776dde6ba2c4.png",
-      description: "ממראה רגיל למנהיג עסקי מלא השראה",
-      style: "יוקרה ומקצועיות שלא ניתן להתעלם מהן"
-    },
-    {
-      before: "/lovable-uploads/7cb08be2-c284-43f9-9056-3d48b4f8e0d5.png",
-      after: "/lovable-uploads/4e1b1ec2-2ba4-4607-b401-6e1087bcedfc.png",
-      description: "כשאתה יודע שאין גבולות למה שאפשר להשיג",
-      style: "מראה שמשדר עוצמה והצלחה"
-    }
-  ];
-
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % images.length);
-    setShowAfter(null); // Reset after state when changing images
+    setActiveIndex((prev) => (prev + 1) % galleryImages.length);
+    resetShowAfter();
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
-    setShowAfter(null); // Reset after state when changing images
+    setActiveIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    resetShowAfter();
   };
 
   // Function to toggle before/after image on mobile
@@ -80,6 +56,11 @@ const Gallery = () => {
     if (isMobile) {
       setShowAfter(prev => prev === null ? true : !prev);
     }
+  };
+
+  // Function to reset the showAfter state
+  const resetShowAfter = () => {
+    setShowAfter(null);
   };
 
   return (
@@ -104,130 +85,33 @@ const Gallery = () => {
           )}
         >
           <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-            <div className="flex flex-col md:flex-row">
-              {/* Before image */}
-              <div 
-                className="w-full md:w-1/2 relative"
-                onClick={toggleAfterImage}
-              >
-                <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-primary py-1 px-3 rounded-full text-sm font-medium z-10">
-                  איך אתה נראה עכשיו
-                </div>
-                <img 
-                  src={images[activeIndex].before} 
-                  alt="Before" 
-                  className={cn(
-                    "w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105",
-                    isMobile && showAfter === true ? "hidden" : "block"
-                  )}
-                />
-                {isMobile && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
-                    <div className="bg-white text-primary font-bold py-2 px-4 rounded-lg shadow-lg">
-                      לחץ לראות אחרי
-                    </div>
-                  </div>
-                )}
-                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  {isMobile ? "לחץ על התמונה לראות אחרי" : "עבור על התמונה כדי לראות את ההבדל"}
-                </div>
-              </div>
-              
-              {/* After image */}
-              <div 
-                className="w-full md:w-1/2 relative"
-                onClick={toggleAfterImage}
-              >
-                <div className="absolute top-4 right-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium z-10">
-                  איך אתה יכול להראות
-                </div>
-                {images[activeIndex].style && (
-                  <div className="absolute top-4 left-4 bg-sky-500 text-white py-1 px-3 rounded-full text-sm font-medium z-10">
-                    {images[activeIndex].style}
-                  </div>
-                )}
-                <img 
-                  src={images[activeIndex].after} 
-                  alt="After"
-                  className={cn(
-                    "w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105",
-                    isMobile ? (showAfter === true ? "block" : "hidden") : "block"
-                  )}
-                />
-                {isMobile && showAfter === true && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
-                    <div className="bg-white text-primary font-bold py-2 px-4 rounded-lg shadow-lg">
-                      לחץ לחזור ללפני
-                    </div>
-                  </div>
-                )}
-                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  עבור עריכת תדמית מקצועית
-                </div>
-              </div>
-            </div>
+            {/* BeforeAfterImage component */}
+            <BeforeAfterImage 
+              before={galleryImages[activeIndex].before}
+              after={galleryImages[activeIndex].after}
+              description={galleryImages[activeIndex].description}
+              style={galleryImages[activeIndex].style}
+              showAfter={showAfter}
+              toggleAfterImage={toggleAfterImage}
+              isMobile={isMobile}
+            />
             
-            <div className="p-5 md:p-6 text-center">
-              <h3 className="text-xl font-bold text-primary mb-2">
-                {images[activeIndex].description}
-              </h3>
-              <p className="text-muted-foreground">
-                <strong>זה לא רק איך שאתה נראה</strong>, זה איך שהלקוחות תופסים אותך
-              </p>
-            </div>
+            {/* Description */}
+            <GalleryDescription 
+              description={galleryImages[activeIndex].description}
+              scrollToSection={scrollToSection}
+            />
             
-            {/* Navigation arrows */}
-            <button 
-              onClick={handlePrev}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 min-h-[44px] min-w-[44px] flex items-center justify-center"
-              aria-label="Previous image"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button 
-              onClick={handleNext}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm text-primary p-2 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 min-h-[44px] min-w-[44px] flex items-center justify-center"
-              aria-label="Next image"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+            {/* Navigation */}
+            <GalleryNavigation 
+              handlePrev={handlePrev}
+              handleNext={handleNext}
+              imagesCount={galleryImages.length}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+              resetShowAfter={resetShowAfter}
+            />
           </div>
-          
-          {/* Dots navigation */}
-          <div className="flex justify-center mt-5 md:mt-6 space-x-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setActiveIndex(index);
-                  setShowAfter(null); // Reset after state
-                }}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  activeIndex === index ? 'bg-primary scale-125' : 'bg-gray-300'
-                }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Add standardized CTA */}
-        <div className="text-center mt-12 md:mt-16 px-4 md:px-0">
-          <a 
-            href="#צור-קשר" 
-            className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-full md:w-auto min-h-[48px]"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("צור-קשר");
-            }}
-          >
-            בוא נדבר על התמונה שלך
-          </a>
         </div>
       </div>
     </section>
