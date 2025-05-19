@@ -121,8 +121,15 @@ const Gallery = () => {
                     isMobile && showAfter === true ? "hidden" : "block"
                   )}
                 />
+                {isMobile && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
+                    <div className="bg-white text-primary font-bold py-2 px-4 rounded-lg shadow-lg">
+                      לחץ לראות אחרי
+                    </div>
+                  </div>
+                )}
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  {isMobile ? "לחץ על התמונה לראות את ההבדל" : "עבור על התמונה כדי לראות את ההבדל"}
+                  {isMobile ? "לחץ על התמונה לראות אחרי" : "עבור על התמונה כדי לראות את ההבדל"}
                 </div>
               </div>
               
@@ -147,6 +154,13 @@ const Gallery = () => {
                     isMobile ? (showAfter === true ? "block" : "hidden") : "block"
                   )}
                 />
+                {isMobile && showAfter === true && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
+                    <div className="bg-white text-primary font-bold py-2 px-4 rounded-lg shadow-lg">
+                      לחץ לחזור ללפני
+                    </div>
+                  </div>
+                )}
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
                   עבור עריכת תדמית מקצועית
                 </div>

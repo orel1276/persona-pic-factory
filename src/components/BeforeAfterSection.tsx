@@ -84,11 +84,15 @@ const BeforeAfterSection = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {isMobile ? (
-                // Mobile layout - stacked
+                // Mobile layout - stacked with improved UI
                 <>
                   {/* Before Column */}
-                  <div className="p-5 md:p-8 bg-slate-50 border-b border-slate-100">
-                    <div className="flex items-center mb-4 md:mb-6 justify-center md:justify-start">
+                  <div className="p-5 md:p-8 bg-slate-50 border-b border-slate-100 relative">
+                    {/* Mobile hint text for tapping */}
+                    <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-xs py-1 px-3 rounded-full shadow-md z-10">
+                      לחץ לראות אחרי
+                    </div>
+                    <div className="flex items-center mb-6 justify-center mt-6">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-200 flex items-center justify-center mr-3 md:mr-4">
                         <span className="text-slate-700 text-xs md:text-sm font-bold">לפני</span>
                       </div>
@@ -106,7 +110,7 @@ const BeforeAfterSection = () => {
                   
                   {/* After Column */}
                   <div className="p-5 md:p-8 bg-gradient-to-br from-sky-50 to-white">
-                    <div className="flex items-center mb-4 md:mb-6 justify-center md:justify-start">
+                    <div className="flex items-center mb-6 justify-center">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-sky-500 flex items-center justify-center mr-3 md:mr-4">
                         <span className="text-white text-xs md:text-sm font-bold">אחרי</span>
                       </div>
