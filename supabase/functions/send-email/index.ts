@@ -72,11 +72,11 @@ Deno.serve(async (req) => {
       );
     }
     
-    // Send confirmation email
+    // Send confirmation email - עדכון כתובת המייל ל filmkal@gmail.com
     console.log("Sending email...");
     const { error: emailError } = await resend.emails.send({
       from: "Art Image <contact@artimage.xyz>",
-      to: ["filmkal321@gmail.com"],
+      to: ["filmkal@gmail.com"], // שינוי לכתובת המייל המבוקשת
       subject: `פנייה חדשה מאתר התדמית - ${data.name}`,
       html: `
         <div dir="rtl" style="text-align: right; font-family: Arial, sans-serif;">
