@@ -1,6 +1,4 @@
 
-// supabase/functions/send-email/index.ts
-
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
 import { Resend } from "https://esm.sh/resend@3.1.0";
@@ -76,7 +74,7 @@ Deno.serve(async (req) => {
     console.log("Sending email...");
     const { error: emailError } = await resend.emails.send({
       from: "Filmkal <onboarding@resend.dev>", // שימוש בכתובת ברירת המחדל של Resend
-      to: ["filmkal@gmail.com"], // שינוי לכתובת המייל המבוקשת
+      to: ["orel1276@gmail.com"], // שימוש רק בכתובת המייל המאומתת של בעל החשבון
       subject: `פנייה חדשה מאתר התדמית - ${data.name}`,
       html: `
         <div dir="rtl" style="text-align: right; font-family: Arial, sans-serif;">
@@ -93,7 +91,10 @@ Deno.serve(async (req) => {
     if (emailError) {
       console.error("Error sending email:", emailError);
       return new Response(
-        JSON.stringify({ error: `Error sending email: ${emailError.message || "Unknown error"}` }),
+        JSON.stringify({ 
+          error: `Error sending email: ${emailError.message || "Unknown error"}`,
+          details: emailError
+        }),
         {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },

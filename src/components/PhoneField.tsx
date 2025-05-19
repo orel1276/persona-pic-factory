@@ -27,9 +27,30 @@ export const PhoneField = ({ form, disabled }: PhoneFieldProps) => {
               disabled={disabled}
               aria-required="true"
               onChange={(e) => {
-                // Allow only numbers and hyphens in phone field
+                // Allow only numbers, spaces, and hyphens in phone field
                 const value = e.target.value;
-                field.onChange(value);
+                const formattedValue = value.replace(/[^\d\s-]/g, '');
+                field.onChange(formattedValue);
+              }}
+              onBlur={(e) => {
+                // Format phone number on blur for better user experience
+                const value = e.target.value.trim();
+                const digitsOnly = value.replace(/\D/g, '');
+                
+                // Simple Israeli phone number format checking
+                if (digitsOnly.length >= 9 && digitsOnly.length <= 10) {
+                  let formattedPhone = digitsOnly;
+                  if (digitsOnly.length === 10 && digitsOnly.startsWith('0')) {
+                    // Format as 050-1234567
+                    formattedPhone = `${digitsOnly.slice(0, 3)}-${digitsOnly.slice(3)}`;
+                  } else if (digitsOnly.length === 9) {
+                    // Format as 050-123456
+                    formattedPhone = `0${digitsOnly.slice(0, 2)}-${digitsOnly.slice(2)}`;
+                  }
+                  field.onChange(formattedPhone);
+                }
+                
+                field.onBlur();
               }}
             />
           </FormControl>

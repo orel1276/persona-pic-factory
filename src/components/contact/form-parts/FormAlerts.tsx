@@ -1,18 +1,20 @@
 
 import React from 'react';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, AlertTriangle } from 'lucide-react';
+import { CheckCircle, AlertTriangle, FileCheck } from 'lucide-react';
 
 interface FormAlertsProps {
   formStatus: 'idle' | 'submitting' | 'success' | 'error';
   wasSubmittedSuccessfully: boolean;
   errorMessage: string | null;
+  isTestingMode?: boolean; // Add a flag for testing mode
 }
 
 export const FormAlerts = ({ 
   formStatus, 
   wasSubmittedSuccessfully, 
-  errorMessage 
+  errorMessage,
+  isTestingMode = false
 }: FormAlertsProps) => {
   // Convert newline characters in error messages to JSX <br> elements
   const formatErrorMessage = (message: string) => {
@@ -27,11 +29,21 @@ export const FormAlerts = ({
   return (
     <>
       {formStatus === 'success' && wasSubmittedSuccessfully && (
-        <Alert className="mb-6 bg-green-900/30 border-green-500 text-white">
-          <CheckCircle className="h-5 w-5 text-green-500" />
-          <AlertTitle>הטופס נשלח בהצלחה!</AlertTitle>
+        <Alert className={`mb-6 ${isTestingMode ? 'bg-yellow-900/30 border-yellow-500' : 'bg-green-900/30 border-green-500'} text-white`}>
+          {isTestingMode ? (
+            <FileCheck className="h-5 w-5 text-yellow-500" />
+          ) : (
+            <CheckCircle className="h-5 w-5 text-green-500" />
+          )}
+          <AlertTitle>
+            {isTestingMode 
+              ? 'הפרטים נשמרו בהצלחה!' 
+              : 'הטופס נשלח בהצלחה!'}
+          </AlertTitle>
           <AlertDescription>
-            תודה שפנית אלינו, נחזור אליך בהקדם.
+            {isTestingMode 
+              ? 'פרטי הטופס נשמרו במערכת. בשלב זה, המייל לא יישלח בפועל בגלל הגבלות של חשבון הנסיון.' 
+              : 'תודה שפנית אלינו, נחזור אליך בהקדם.'}
           </AlertDescription>
         </Alert>
       )}

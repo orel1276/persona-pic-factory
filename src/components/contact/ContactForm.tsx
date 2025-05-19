@@ -10,7 +10,7 @@ import { sendContactEmail } from '@/lib/services/resend-service';
 // Import the refactored components
 import { NameField } from './form-fields/NameField';
 import { EmailField } from './form-fields/EmailField';
-import { PhoneField } from './form-fields/PhoneField';
+import { PhoneField } from '@/components/PhoneField';
 import { MessageField } from './form-fields/MessageField';
 import { FeaturesCheckList } from './form-parts/FeaturesCheckList';
 import { SubmitButton } from './form-parts/SubmitButton';
@@ -27,6 +27,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [wasSubmittedSuccessfully, setWasSubmittedSuccessfully] = useState(false);
   const [submitAttempts, setSubmitAttempts] = useState(0);
+  const [isTestingMode, setIsTestingMode] = useState(false);
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -60,6 +61,7 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
     setIsSubmitting(true);
     setFormStatus('submitting');
     setErrorMessage(null);
+    setIsTestingMode(false);
     
     try {
       console.log("Form data being submitted:", data);
@@ -78,7 +80,38 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       console.log("Email send result:", result);
       
       if (!result.success) {
-        // Show more detailed error information that might help debug
+        // Check if this is a testing mode scenario
+        if (result.testingMode && result.formSubmitted) {
+          // This is a special case - the form was submitted successfully but email not sent due to testing mode
+          // We show a success message but with a note about testing mode
+          setFormStatus('success');
+          setWasSubmittedSuccessfully(true);
+          setIsTestingMode(true);
+          
+          // Reset form after successful submission
+          form.reset();
+          
+          // Call the success handler
+          onSubmitSuccess();
+          
+          // Show adapted success toast
+          toast({
+            title: "הפרטים נשמרו בהצלחה!",
+            description: "הפרטים נשמרו במערכת, אך המייל לא נשלח בשל מגבלות חשבון הנסיון",
+          });
+          
+          // Reset status after a delay
+          setTimeout(() => {
+            setFormStatus('idle');
+          }, 5000);
+          
+          // Reset submission attempts counter after success
+          setSubmitAttempts(0);
+          
+          return;
+        }
+        
+        // Handle regular errors
         const errorDetails = result.details ? JSON.stringify(result.details) : '';
         const errorMessage = result.isNetworkError 
           ? "בעיה בחיבור לשרת. בדוק את החיבור לאינטרנט או נסה שוב מאוחר יותר."
@@ -152,7 +185,8 @@ export const ContactForm = ({ onSubmitSuccess, isSubmitting, setIsSubmitting }: 
       <FormAlerts 
         formStatus={formStatus} 
         wasSubmittedSuccessfully={wasSubmittedSuccessfully} 
-        errorMessage={errorMessage} 
+        errorMessage={errorMessage}
+        isTestingMode={isTestingMode}
       />
 
       <Form {...form}>

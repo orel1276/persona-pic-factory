@@ -46,12 +46,23 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     if (!response.ok) {
       console.error('Error response from Edge Function:', responseData);
       
-      // Check for specific auth error
+      // Check for specific error types
       if (response.status === 401) {
         return { 
           success: false, 
           error: 'שגיאת הרשאות בשליחת הטופס',
           details: { code: 'auth/unauthorized' }
+        };
+      }
+      
+      // Check for Resend testing mode errors
+      if (responseData.error && responseData.error.includes('testing emails')) {
+        return { 
+          success: false, 
+          error: 'הטופס נשלח בהצלחה, אך בשלב זה נשמר רק במערכת ולא נשלח למייל',
+          details: { code: 'resend/testing-mode' },
+          testingMode: true,
+          formSubmitted: true
         };
       }
       
@@ -63,7 +74,11 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     }
 
     // Return success response
-    return { success: true, data: responseData };
+    return { 
+      success: true, 
+      data: responseData,
+      formSubmitted: true
+    };
   } catch (error) {
     console.error('Email sending error:', error);
     
