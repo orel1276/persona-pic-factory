@@ -74,7 +74,7 @@ Deno.serve(async (req) => {
     console.log("Sending email...");
     const { error: emailError } = await resend.emails.send({
       from: "Filmkal <onboarding@resend.dev>", // שימוש בכתובת ברירת המחדל של Resend
-      to: ["orel1276@gmail.com"], // שימוש רק בכתובת המייל המאומתת של בעל החשבון
+      to: ["filmkal321@gmail.com"], // שינוי לכתובת המייל החדשה
       subject: `פנייה חדשה מאתר התדמית - ${data.name}`,
       html: `
         <div dir="rtl" style="text-align: right; font-family: Arial, sans-serif;">
