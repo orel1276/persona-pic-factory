@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
     const data = await req.json();
     console.log("Received data:", JSON.stringify(data));
     
-    // Initialize Resend with API key
+    // Initialize Resend with new API key
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     console.log("Resend API key available:", !!resendApiKey);
     
@@ -70,11 +70,11 @@ Deno.serve(async (req) => {
       );
     }
     
-    // שינוי כתובת השולח לכתובת ברירת המחדל של Resend במקום להשתמש בדומיין שלא מאומת
+    // Send email with updated recipient email address
     console.log("Sending email...");
     const { error: emailError } = await resend.emails.send({
-      from: "Filmkal <onboarding@resend.dev>", // שימוש בכתובת ברירת המחדל של Resend
-      to: ["filmkal321@gmail.com"], // שינוי לכתובת המייל החדשה
+      from: "Filmkal <onboarding@resend.dev>",
+      to: ["filmkal321@gmail.com"], // Updated email recipient
       subject: `פנייה חדשה מאתר התדמית - ${data.name}`,
       html: `
         <div dir="rtl" style="text-align: right; font-family: Arial, sans-serif;">
