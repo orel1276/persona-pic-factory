@@ -20,16 +20,6 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
       'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpaHRjcXhpbGVkcHVmaWRsdWZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzNjYwOTgsImV4cCI6MjA2MTk0MjA5OH0.CMn6O_iNz7zkT35U-_CN-QqaA0H5A_GAfNT3xJdkOqs',
     };
     
-    // Get session data but don't use it for making the request
-    // because it might be causing issues with authorization
-    const { data: sessionData } = await supabase.auth.getSession();
-    if (sessionData?.session) {
-      console.log('User is authenticated, but using anon key for consistent behavior');
-      // We're intentionally not using the session token here, using anon key instead
-    } else {
-      console.log('No active session found, using anonymous access');
-    }
-    
     // Call our Supabase Edge Function
     const response = await fetch(edgeFunctionUrl, {
       method: 'POST',
@@ -73,7 +63,7 @@ export const sendContactEmailResend = async (data: ContactFormData) => {
     }
 
     // Return success response
-    return { success: true, data: responseData.data };
+    return { success: true, data: responseData };
   } catch (error) {
     console.error('Email sending error:', error);
     
