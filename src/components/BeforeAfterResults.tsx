@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type BeforeAfterCard = {
   id: number;
@@ -9,7 +10,8 @@ type BeforeAfterCard = {
 };
 
 const BeforeAfterResults = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeStates, setActiveStates] = useState<{[key: number]: boolean}>({});
+  const isMobile = useIsMobile();
   
   const beforeAfterCards: BeforeAfterCard[] = [
     {
@@ -39,6 +41,34 @@ const BeforeAfterResults = () => {
     }
   };
 
+  const handleCardInteraction = (cardId: number) => {
+    // On mobile, toggle the state on tap
+    if (isMobile) {
+      setActiveStates(prev => ({
+        ...prev,
+        [cardId]: !prev[cardId]
+      }));
+    }
+  };
+
+  const handleMouseEnter = (cardId: number) => {
+    if (!isMobile) {
+      setActiveStates(prev => ({
+        ...prev,
+        [cardId]: true
+      }));
+    }
+  };
+
+  const handleMouseLeave = (cardId: number) => {
+    if (!isMobile) {
+      setActiveStates(prev => ({
+        ...prev,
+        [cardId]: false
+      }));
+    }
+  };
+
   return (
     <section className="py-10 md:py-16 px-4 md:px-6 bg-white text-center">
       <div className="container mx-auto max-w-5xl">
@@ -51,18 +81,19 @@ const BeforeAfterResults = () => {
             <div 
               key={card.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
-              onMouseEnter={() => setHoveredCard(card.id)}
-              onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => handleCardInteraction(card.id)}
+              onMouseEnter={() => handleMouseEnter(card.id)}
+              onMouseLeave={() => handleMouseLeave(card.id)}
             >
               <div className="relative h-64 md:h-72 w-full overflow-hidden">
                 <img 
-                  src={hoveredCard === card.id ? card.afterImage : card.beforeImage}
-                  alt={hoveredCard === card.id ? "תמונה אחרי" : "תמונה לפני"} 
+                  src={activeStates[card.id] ? card.afterImage : card.beforeImage}
+                  alt={activeStates[card.id] ? "תמונה אחרי" : "תמונה לפני"} 
                   className="w-full h-full object-cover transition-all duration-500"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <p className="text-white font-bold">
-                    {hoveredCard === card.id ? "אחרי" : "לפני"}
+                    {activeStates[card.id] ? "אחרי" : "לפני"}
                   </p>
                 </div>
               </div>
@@ -70,9 +101,9 @@ const BeforeAfterResults = () => {
               <div className="p-4">
                 <h3 className="font-bold text-gray-700 mb-2">{card.title}</h3>
                 <p className="text-sm text-gray-500">
-                  {hoveredCard === card.id ? 
+                  {activeStates[card.id] ? 
                     "עבר עריכת תדמית מקצועית" : 
-                    "עבור על התמונה כדי לראות את ההבדל"}
+                    (isMobile ? "לחץ על התמונה לראות את ההבדל" : "עבור על התמונה כדי לראות את ההבדל")}
                 </p>
               </div>
             </div>
@@ -81,7 +112,7 @@ const BeforeAfterResults = () => {
         
         <button
           onClick={scrollToContact}
-          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg"
+          className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg w-full md:w-auto"
         >
           רוצה תמונות כאלה? לחץ כאן
         </button>

@@ -26,6 +26,8 @@ export const PhoneField = ({ form, disabled }: PhoneFieldProps) => {
               {...field}
               disabled={disabled}
               aria-required="true"
+              inputMode="tel"
+              pattern="[0-9\s\-]*"
               onChange={(e) => {
                 // Allow only numbers, spaces, and hyphens in phone field
                 const value = e.target.value;

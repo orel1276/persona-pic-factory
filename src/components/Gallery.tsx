@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface BeforeAfterImage {
   before: string;
@@ -13,6 +14,8 @@ const Gallery = () => {
   const galleryRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showAfter, setShowAfter] = useState<boolean | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,23 +67,32 @@ const Gallery = () => {
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % images.length);
+    setShowAfter(null); // Reset after state when changing images
   };
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+    setShowAfter(null); // Reset after state when changing images
+  };
+
+  // Function to toggle before/after image on mobile
+  const toggleAfterImage = () => {
+    if (isMobile) {
+      setShowAfter(prev => prev === null ? true : !prev);
+    }
   };
 
   return (
-    <section id="גלריה" className="py-16 md:py-24 bg-white mt-12">
+    <section id="גלריה" className="py-12 md:py-24 bg-white mt-8 md:mt-12">
       <div className="container mx-auto px-4 md:px-6" ref={galleryRef}>
-        <div className="text-center mb-12">
-          <span className="inline-block py-1 px-3 rounded-full bg-secondary text-primary text-sm font-medium mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <span className="inline-block py-1 px-3 rounded-full bg-secondary text-primary text-sm font-medium mb-3 md:mb-4">
             התוצאות מדברות בעצמן
           </span>
-          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4 px-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-3 md:mb-4 px-2 md:px-4">
             ההבדל בין להיות נעלם לבין להיות בלתי נשכח
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto px-2 md:px-4">
             <strong>זה לא עוד עריכת תמונות</strong>, זה שינוי תפיסה של הלקוחות לגביך
           </p>
         </div>
@@ -94,22 +106,31 @@ const Gallery = () => {
           <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
             <div className="flex flex-col md:flex-row">
               {/* Before image */}
-              <div className="w-full md:w-1/2 relative">
+              <div 
+                className="w-full md:w-1/2 relative"
+                onClick={toggleAfterImage}
+              >
                 <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-primary py-1 px-3 rounded-full text-sm font-medium z-10">
                   איך אתה נראה עכשיו
                 </div>
                 <img 
                   src={images[activeIndex].before} 
                   alt="Before" 
-                  className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+                  className={cn(
+                    "w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105",
+                    isMobile && showAfter === true ? "hidden" : "block"
+                  )}
                 />
                 <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
-                  עבור על התמונה כדי לראות את ההבדל
+                  {isMobile ? "לחץ על התמונה לראות את ההבדל" : "עבור על התמונה כדי לראות את ההבדל"}
                 </div>
               </div>
               
               {/* After image */}
-              <div className="w-full md:w-1/2 relative">
+              <div 
+                className="w-full md:w-1/2 relative"
+                onClick={toggleAfterImage}
+              >
                 <div className="absolute top-4 right-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium z-10">
                   איך אתה יכול להראות
                 </div>
@@ -120,8 +141,11 @@ const Gallery = () => {
                 )}
                 <img 
                   src={images[activeIndex].after} 
-                  alt="After" 
-                  className="w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+                  alt="After"
+                  className={cn(
+                    "w-full h-80 md:h-[500px] object-cover transition-transform duration-500 hover:scale-105",
+                    isMobile ? (showAfter === true ? "block" : "hidden") : "block"
+                  )}
                 />
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm text-gray-800 py-1 px-3 rounded-md text-sm font-medium z-10">
                   עבור עריכת תדמית מקצועית
@@ -129,7 +153,7 @@ const Gallery = () => {
               </div>
             </div>
             
-            <div className="p-6 text-center">
+            <div className="p-5 md:p-6 text-center">
               <h3 className="text-xl font-bold text-primary mb-2">
                 {images[activeIndex].description}
               </h3>
@@ -161,11 +185,14 @@ const Gallery = () => {
           </div>
           
           {/* Dots navigation */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div className="flex justify-center mt-5 md:mt-6 space-x-2">
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setShowAfter(null); // Reset after state
+                }}
                 className={`w-3 h-3 rounded-full transition-all ${
                   activeIndex === index ? 'bg-primary scale-125' : 'bg-gray-300'
                 }`}
@@ -176,7 +203,7 @@ const Gallery = () => {
         </div>
 
         {/* Add standardized CTA */}
-        <div className="text-center mt-16 px-4 md:px-0">
+        <div className="text-center mt-12 md:mt-16 px-4 md:px-0">
           <a 
             href="#צור-קשר" 
             className="bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-bold py-4 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 inline-block hover:scale-105 w-full md:w-auto min-h-[48px]"

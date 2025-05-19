@@ -6,13 +6,14 @@ import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
 import PainSection from '@/components/PainSection';
 import AboutMeSection from '@/components/AboutMeSection';
-import BeforeAfterResults from '@/components/BeforeAfterResults';
+import Gallery from '@/components/Gallery'; // Changed from BeforeAfterResults
 import OfferSection from '@/components/OfferSection';
 import UrgencySection from '@/components/UrgencySection';
 import CTASection from '@/components/CTASection';
 import ClientTestimonials from '@/components/ClientTestimonials';
 import FAQ from '@/components/FAQ';
 import { Toaster } from '@/components/ui/toaster';
+import BeforeAfterSection from '@/components/BeforeAfterSection';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,11 +42,12 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#05152a] text-white" dir="rtl">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-16 md:pt-0">
         <Hero />
         <PainSection />
         <AboutMeSection />
-        <BeforeAfterResults />
+        <Gallery /> {/* Using the new Gallery component instead of BeforeAfterResults */}
+        <BeforeAfterSection />
         <ClientTestimonials />
         <OfferSection />
         <UrgencySection />
